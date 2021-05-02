@@ -43,7 +43,7 @@
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/kathy-23/LandingPage_01/issues">Request Feature</a>
   </p>
 </p>
 
