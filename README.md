@@ -27,8 +27,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/kathy-23/LandingPage_01">
+    <img src="images/IMG1.png" alt="IMG1" width="1125" height="662">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
