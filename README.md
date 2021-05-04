@@ -158,13 +158,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-Katherin medina - Katherinstyle@gmail.com
-Maussi Fritz - m.fritz.audiovisual@gmail.com
-Katherine Labarca - k.labarcasoto@uandresbello.edu
-Thomas Gutierrez - t.gutirrezrodrguez@uandresbello.edu
-Javier Toro - j.torojaramillo@uandresbello.edu
-Benjamin Lopez - b.lpezsandoval@uandresbello.edu
-Andres Aravena - andres.fal@hotmail.es
+*Katherin medina - Katherinstyle@gmail.com
+*Maussi Fritz - m.fritz.audiovisual@gmail.com
+*Katherine Labarca - k.labarcasoto@uandresbello.edu
+*Thomas Gutierrez - t.gutirrezrodrguez@uandresbello.edu
+*Javier Toro - j.torojaramillo@uandresbello.edu
+*Benjamin Lopez - b.lpezsandoval@uandresbello.edu
+*Andres Aravena - andres.fal@hotmail.es
 
 Link al proyecto: [https://github.com/kathy-23/LandingPage_01](https://github.com/kathy-23/LandingPage_01)
 
