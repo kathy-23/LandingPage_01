@@ -158,7 +158,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-*Katherin medina - Katherinstyle@gmail.com
+*Katherin medina - (Katherinstyle@gmail.com)
 *Maussi Fritz - m.fritz.audiovisual@gmail.com
 *Katherine Labarca - k.labarcasoto@uandresbello.edu
 *Thomas Gutierrez - t.gutirrezrodrguez@uandresbello.edu
