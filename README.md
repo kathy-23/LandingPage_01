@@ -158,10 +158,15 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
+Katherin medina - Katherinstyle@gmail.com
+Maussi Fritz - m.fritz.audiovisual@gmail.com
+Katherine Labarca - k.labarcasoto@uandresbello.edu
+Thomas Gutierrez - t.gutirrezrodrguez@uandresbello.edu
+Javier Toro - j.torojaramillo@uandresbello.edu
+Benjamin Lopez - b.lpezsandoval@uandresbello.edu
+Andres Aravena - andres.fal@hotmail.es
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Link al proyecto: [https://github.com/kathy-23/LandingPage_01](https://github.com/kathy-23/LandingPage_01)
 
 
 
