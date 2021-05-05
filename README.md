@@ -212,4 +212,4 @@ Link al proyecto: [https://github.com/kathy-23/LandingPage_01](https://github.co
 [license-url]: https://github.com/kathy-23/LandingPage_01/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/IMG1.png
+[product-screenshot]: images/menu_principal.png
