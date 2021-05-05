@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/kathy-23/LandingPage_01">
-    <img src="images/logoColunga.png" alt="Logo" width="100" height="100" >
+    <img src="images/IMG1.png" alt="Logo" width="80" height="80" >
   </a>
 
   <h3 align="center">Best-README-Template</h3>
@@ -159,7 +159,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-*Katherin medina - (Katherinstyle@gmail.com)
+*Katherin medina - (Katherinsnmmelo@gmail.com)
 
 *Maussi Fritz - (m.fritz.audiovisual@gmail.com)
 
