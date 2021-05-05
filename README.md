@@ -162,7 +162,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-* [Katherin Medina] (k.medinamelo@uandresbello.edu)
+* Katherin Medina (k.medinamelo@uandresbello.edu)
 
 *Maussi Fritz - (m.fritz.audiovisual@gmail.com)
 
