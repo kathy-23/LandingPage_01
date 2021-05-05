@@ -127,11 +127,10 @@ ya tienes todo lo necesario para abrir el proyecto.
 En este repositorio podremos ver un software hecho por programadores junior. Acá visualizaremos como los desarrolladores fueron creando un sitio web esclusivo para una funcacion dominada "Colunga" con  django y httml, como herramientas de programacion.Cabe señalar que en la parte de la creacion de un boceto aquellos utilizaron figma.
 
 
-```
+<!--
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-```
+>--
+_For more examples, please refer to the [Documentation](https://example.com)
 
 
 <!-- ROADMAP -->
