@@ -80,7 +80,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+![COLUNGA](https://user-images.githubusercontent.com/37519496/117086652-2ddb4880-ad1b-11eb-98fb-5eb8fd8cea3c.png)
+* [Link prototipo Colunga](https://www.figma.com/proto/snlyhIpR4WT3TiP9R64UmW/Untitled?node-id=1%3A3&scaling=min-zoom&page-id=0%3A1)
 
 El proyecto nació por la solicitud de la fundación Colunga, que, producto de los efectos de la pandemia, apareció la necesidad de tener una plataforma que pueda reemplazar en parte la comunicación directa entre los usuarios con membresía y centralizar la información relevante para ellos.
 Nuestro objetivo es realizar una página web simple, con la finalidad de ayudar a los usuarios tener mayor privacidad en el contenido de sus temas, también fomentar la interacción social cercana entre ellos a través de foros y anuncios recientes, en donde todos sus participantes pueden publicar, y por último que se conozcan entre ellos mediante la difusión de los datos públicos de cada fundación. 
