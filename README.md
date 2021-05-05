@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/kathy-23/LandingPage_01">
-    <img src="images/menu_principal.png" alt="IMG1" >
+    <img src="images/IMG1.png" alt="Logo" width="80" height="80" >
   </a>
 
   <h3 align="center">Best-README-Template</h3>
