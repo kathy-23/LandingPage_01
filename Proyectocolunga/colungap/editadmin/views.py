@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
+from django.contrib.auth import logout
 from django.shortcuts import redirect, render, HttpResponse
 from .forms import AddUserForm, RemoveUserForm, EditUserForm
 
@@ -24,7 +24,9 @@ def addUser(request,redir=''):
         return redirect('inicio')
     elif redir=='ingreso.html':
         return redirect('ingreso')
-
+    elif redir=='logout':
+        logout(request)
+        return redirect('main')
 
     return render(request,'addUser.html',{
         'addUserform':adduserform,
@@ -50,7 +52,7 @@ def removeUser(request,redir=''):
             #return HttpResponse('<h1>'+str(remov)+'</h1>')
             return redirect('removeUser')#redirecciona a la misma pagina
         else:
-            return HttpResponse('<h1>usuario no encontrado</h1>')
+            pass
     
     
     elif redir=='main.html':
@@ -65,6 +67,9 @@ def removeUser(request,redir=''):
         return redirect('inicio')
     elif redir=='ingreso.html':
         return redirect('ingreso')
+    elif redir=='logout':
+        logout(request)
+        return redirect('main')
     else: pass
 
     return render(request,'removeUser.html',{
@@ -75,18 +80,56 @@ def removeUser(request,redir=''):
 
 
 def editUser(request,redir=''):
-    '''
+
     usuarios=User.objects.all()
     cant_user="size="+str(len(usuarios))
     if request.method == 'POST':
         save=str(request.POST.get('save'))
         showform=str(request.POST.get('showform'))
         email=str(request.POST.get('email'))
-        return HttpResponse('<h1>'+email+showform+save+'</h1>')
+        
         if(showform=='True'):
+            usuario=User.objects.get(email=email)
+            editUserform=EditUserForm(initial={
+                'first_name':usuario.first_name,
+                'last_name':usuario.last_name,
+                'email':usuario.email,
+            })
+            #return HttpResponse('<h1>'+usuario.first_name+usuario.last_name+usuario.email+'</h1>')
+            return render(request,'editUser.html',{
+                'editUserform':editUserform,
+                'showform':'True',
+                'user_list': usuarios,
+                'cant_user': cant_user,
+            })
+        elif(showform=='False' and save=='True'):
+            usuario=User.objects.get(email=email)            
+            password=str(request.POST.get('password'))
+            usuario.first_name=request.POST.get('first_name')
+            usuario.last_name=request.POST.get('last_name')
+            usuario.email=request.POST.get('email')
+            #return HttpResponse('<h1>'+str(usuario.first_name)+usuario.last_name+usuario.email+'</h1>')
+            if password=='':
+                usuario.save()
+                usuarios=User.objects.all()
+                return render(request,'editUser.html',{
+                    'showform':'False',
+                    'save':'False',
+                    'user_list': usuarios,
+                    'cant_user': cant_user,
+                })
+            else:
+                usuario.set_password(request.POST.get('password'))
+                usuario.save()
+                usuarios=User.objects.all()
+                return render(request,'editUser.html',{
+                    'showform':'False',
+                    'save':'False',
+                    'user_list': usuarios,
+                    'cant_user': cant_user,
+                })
 
-'''
-    if redir=='main.html':
+    elif redir=='main.html':
         return redirect('main')
     elif redir=='addUser.html':
         return redirect('addUser')
@@ -98,6 +141,9 @@ def editUser(request,redir=''):
         return redirect('inicio')
     elif redir=='ingreso.html':
         return redirect('ingreso')
+    elif redir=='logout':
+        logout(request)
+        return redirect('main')
 
     return render(request,'editUser.html',{
         'showform':'False',
@@ -105,5 +151,4 @@ def editUser(request,redir=''):
         'user_list': usuarios,
         'cant_user': cant_user,
     })
-
 # Create your views here.

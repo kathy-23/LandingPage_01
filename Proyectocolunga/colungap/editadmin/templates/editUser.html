@@ -13,5 +13,17 @@
     <button name="btn_get_email" type="submit" >Selecicionar usuario</button>
 </form>
 <div class="clearfix"></div>
-{% endblock form %}
 <!--form que mostrara el formulario con un if showform==True-->
+{%if showform == 'True' %}
+    <form method='post' action=''>
+    {% csrf_token %}
+        {%for field in editUserform %}
+            {{field.label}}
+            {{field}}
+        {%endfor%}
+        <input type="hidden" name='showform' value="False">
+        <input type="hidden" name='save' value="True">
+        <button name="btn_editUser" type="submit" >Guardar cambios</button>
+    </form>
+    {%endif%}
+{% endblock form %}

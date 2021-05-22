@@ -8,42 +8,38 @@
     </head>
 
     <body>
-        <div id="container">
-            <header>
-             <!--logo-->
-            <img id="logo" src="{% static 'img/logo.png' %}" alt="logo">
-            <label name="txt_user"></label>
-            <!--<a href="{logouthref}"><img src="logout.jpg" alt="Lgooutimg" /></a> imagen de logo con link
-                                                                                    tiene que abrir ventana emergente-->
-            <nav>
-                <ul>
-                    <li>
-                        <a href="addUser.html">Agregar Usuario</a>
-                    </li>
-                    <li>
-                        <a href="editUser.html">Editar Usuario</a>
-                    </li>
-                    <li>
-                        <a href="removeUser.html">Eliminar Usuario</a>
-                    </li>
-                </ul>
-            </nav>
-            </header>
-            
-            <div class="clearfix"></div>
-            <section id="content">
-                {% block form %}
-                {% endblock form %}
-            </section>
-            
-        </div>
+        <header>
+        <button name="btn_logout" onclick="location.href='logout'">Salir</button> 
+        <!--logo-->
+        <img id="logo" src="{% static 'img/logo.png' %}" alt="logo">
+        <label name="txt_user"></label>
+        <!--<a href="{logouthref}"><img src="logout.jpg" alt="Lgooutimg" /></a> imagen de logo con link
+                                                                                tiene que abrir ventana emergente-->
+        <nav>
+            <ul>
+                <li>
+                    <a href="addUser.html">Agregar Usuario</a>
+                </li>
+                <li>
+                    <a href="editUser.html">Editar Usuario</a>
+                </li>
+                <li>
+                    <a href="removeUser.html">Eliminar Usuario</a>
+                </li>
+            </ul>
+        </nav>
+        </header>
+        <div class="clearfix"></div>
+        <section id="content">
+            {% block form %}
+            {% endblock form %}
+        </section>
         <footer>
             <div id="pagnav">
                 <a href="main.html"> go to main</a>
                 <a href="ingreso.html"> go to login</a>
                 <a href="inicio.html"> go to Inicio</a>
-                <a href="addUser.html"> go to EditAdmin</a>
-                
+                <a href="addUser.html"> go to EditAdmin</a>    
             </id>
         </footer>
     </body>

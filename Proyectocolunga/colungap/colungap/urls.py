@@ -38,4 +38,8 @@ urlpatterns = [
 
     path('inicio/',inicio.inicio,name='inicio'),
     path('inicio/<str:redir>',inicio.inicio,name='inicio'),
+
+
+
+     path('logout/',editadmin.logout,name='logout'),
 ]
