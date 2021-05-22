@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href="{% static 'css-main/main.css' %}">
+        <title>COLUNGA</title>
+    </head>
+
+    <body background="{% static 'img/backmain.png' %}">
+        <!--logo-->
+        <a href="main.html"><img id="logo" src="{% static 'img/logo.png' %}" alt="logo"></a>
+        <!--texto de la pagina-->
+        <div id="texto">
+            <p>Junt@s para transformar</p>
+        </div>
+
+        <!--boton de login-->
+        
+        <!--boton a la pagina de colunga-->
+        <div id="Posicionbotoncolunga">
+            <!-- CREACION DE BOTONES EN EL CSS-->
+            <button class=BotonColunga name="btn_visitarpweb" onclick="location.href='https://www.fundacioncolunga.org'" >VISITAR PAGINA WEB ></button> 
+        </div>
+
+        <div id="PosicionUsuario">
+            <!-- CREACION DE BOTONES EN EL CSS BOTON DE USURIO-->
+            <button class=BotonUsuario name="btn_login" onclick="location.href='ingreso.html'" >Ingresar</button>
+        </div>
+
+
+
+        <!--pie de pagina-->
+        <footer>
+            <div id="pagnav">
+                <a href="main.html"> go to main</a>
+                <a href="ingreso.html"> go to login</a>
+                <a href="inicio.html"> go to Inicio</a>
+                <a href="addUser.html"> go to EditAdmin</a>
+            </id>
+        </footer>
+    </body>
+</html>

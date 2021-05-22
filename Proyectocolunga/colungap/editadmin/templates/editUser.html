@@ -1,0 +1,17 @@
+{% extends 'editadminlayout.html' %}
+{% block form %}
+<form method='post' action=''>
+    {% csrf_token %}
+    <select name='email' {{cant_user}}>
+        {%for user in user_list %}
+        <option value="{{user.email}}">{{user.first_name}} {{user.last_name}}</option>
+        {%endfor%}
+    </select>
+    
+    <input type="hidden" name='showform' value="True">
+    <input type="hidden" name='save' value="False">
+    <button name="btn_get_email" type="submit" >Selecicionar usuario</button>
+</form>
+<div class="clearfix"></div>
+{% endblock form %}
+<!--form que mostrara el formulario con un if showform==True-->

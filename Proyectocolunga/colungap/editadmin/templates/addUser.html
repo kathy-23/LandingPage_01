@@ -1,0 +1,13 @@
+{% extends 'editadminlayout.html' %}
+{% block form %}
+<form method='post'action=''>
+    {% csrf_token %}
+    {%for field in addUserform%}
+        <div id="blockform">
+            {{field.label}}
+            {{field}}
+        </div>
+    {% endfor %}
+    <button name="btn_addUser" type="submit" >Agregar Usuario</button>
+</form>
+{% endblock form %}

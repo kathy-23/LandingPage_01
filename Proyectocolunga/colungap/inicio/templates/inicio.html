@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href="{% static 'css-inicio/estilos-inicio.css' %}">
+        <meta charset='utf-8'/>
+        <title>{% block title %}{% endblock title %} | COLUNGA</title>
+    </head>
+    <body>
+        <header>
+            <!--logo-->
+            <img id="logo" src="{% static 'img/logo.png' %}" alt="logo">
+            
+            <label name="txt_user"></label>
+            <!--<a href="{logouthref}"><img src="logout.jpg" alt="Lgooutimg" /></a> imagen de logo con link
+                                                                                    tiene que abrir ventana emergente-->
+            <!--barra navegacion-->
+            <nav>
+                <lu>
+                    <li>
+                        <a href="/incio.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="/foro.html">Foro</a>
+                    </li>
+                    <li>
+                        <a href="/anuncios.html">Anuncios</a>
+                    </li>
+                </lu>
+            </nav> 
+        </header>
+        <!--Boton zoom-->
+        <a name="btn_zoom" href="{zoomhref}"><img src="zoom.jpg" alt="zoomimg" /></a>
+        <!--Boton ColungaHub-->
+        <a name="btn_hub" href="{hubhref}"><img src="hub.jpg" alt="hubimg" /></a>
+        <!--caja de anuncios-->
+
+        <div id=box0>
+            <input name="btn_addanuncio" type='button' onclick="" value="+">
+            <div id=content>
+                {% for anuncio in anuncios %}
+                    <div id="block_anuncio">
+                    <!--ventana emergente que habra el contenido del anuncio?-->
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!--pie de pagina-->
+        <footer>
+            <div id="pagnav">
+                <a href="main.html"> go to main</a>
+                <a href="ingreso.html"> go to login</a>
+                <a href="inicio.html"> go to Inicio</a>
+                <a href="addUser.html"> go to EditAdmin</a>
+            </id>
+        </footer>
+
+    </body>
+</html>
