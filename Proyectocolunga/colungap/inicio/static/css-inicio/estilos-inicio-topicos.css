@@ -1,0 +1,13 @@
+content{
+    position: absolute;
+    background-color: red;
+    height: 200px;
+    width: 100%;
+    
+}
+#mis_foros{
+    position: absolute;
+    height: 100px;
+    background-color: blue;
+    width: 100%;
+}

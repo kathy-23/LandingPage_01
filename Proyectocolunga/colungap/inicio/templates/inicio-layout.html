@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        {%block css%}
+        {%endblock css%}
+        <link rel='stylesheet' type='text/css' href="{% static 'css-inicio/estilos-inicio-layout.css' %}">
+        <meta charset='utf-8'/>
+        <title>{% block title %}{% endblock title %} | COLUNGA</title>
+    </head>
+    <body>
+        <header>
+            <!--logo-->
+            <img id="logo" src="{% static 'img/logo.png' %}" alt="logo">
+            <button name="btn_logout" onclick="location.href='logout'">Salir</button> 
+            <label name="txt_user"></label>
+            <!--<a href="{logouthref}"><img src="logout.jpg" alt="Lgooutimg" /></a> imagen de logo con link
+                                                                                    tiene que abrir ventana emergente-->
+            <!--barra navegacion-->
+            <nav>
+                <lu>
+                    <li>
+                        <a href="inicio.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="inicio-topicos.html">Foro</a>
+                    </li>
+                    <li>
+                        <a href="inicio-anuncios.html">Anuncios</a>
+                    </li>
+                </lu>
+            </nav> 
+        </header>
+        {%block content %}
+
+        {%endblock content%}
+        <!--pie de pagina-->
+        <footer>
+            <div id="pagnav">
+                <a href="main.html"> go to main</a>
+                <a href="ingreso.html"> go to login</a>
+                <a href="inicio.html"> go to Inicio</a>
+                <a href="addUser.html"> go to EditAdmin</a>
+            </id>
+        </footer>
+
+    </body>
+</html>

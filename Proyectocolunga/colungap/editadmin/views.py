@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.shortcuts import redirect, render, HttpResponse
-from .forms import AddUserForm, RemoveUserForm, EditUserForm
+from .forms import AddUserForm, EditUserForm
 '''
 la forma de agregar y usuarios cambio ya que si se remueve a un usuario de la bdd y luego se vuelve agregar, su id cambiaria
 y si anteriormente ese usuario eliminado hizo alguna publicacion en el foro iban a existir conflictos por id
@@ -18,8 +18,13 @@ def addUser(request,redir=''):
     if request.method == 'POST':
         #almaceno el email del formulario
         email=request.POST.get('email')
+        
         #creo un objeto usuario con el email que recibi del formulario
-        usuario=User.objects.get(email=email)
+        try:
+            usuario=User.objects.get(email=email) 
+        except:
+            usuario=None
+        #return HttpResponse('<h1>'+usuario+'</h1>')
         #pregunto si el objeto creado contiene datos
         if usuario is not None:
             #pregunto si el llenaod de formulario es valido (todos los campos llenados y password con mayusculas y minusculas y minimo 8 caracteres)
@@ -37,7 +42,14 @@ def addUser(request,redir=''):
             #valido el formulario
             if adduserform.is_valid():
                 #guardo los datos del formulario
-                adduserform.save()
+                usuario=User.objects.create(
+                    username='',
+                    email=request.POST.get('email'),
+                    first_name=request.POST.get('first_name'),
+                    last_name=request.POST.get('last_name'),
+                    password=hash(request.POST.get('password')),
+                )
+                usuario.save()
                 return redirect('addUser')
             else:
                 return HttpResponse('<h1>no se pudo agregar el usuario</h1>')

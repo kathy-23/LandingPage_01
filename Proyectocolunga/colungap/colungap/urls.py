@@ -19,27 +19,36 @@ from main import views as main
 from login import views as login
 from inicio import views as inicio
 from editadmin import views as editadmin
+from forums import views as forum
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+                        
     path('main/',main.main,name='main'),
     path('main/<str:redir>',main.main,name='main'),
-
+                                
     path('ingreso/',login.ingreso,name='ingreso'),
     path('ingreso/<str:redir>',login.ingreso,name='ingreso'),
-
+                              
     path('addUser/',editadmin.addUser,name='addUser'),
     path('addUser/<str:redir>',editadmin.addUser,name='addUser'),
     path('removeUser/',editadmin.removeUser,name='removeUser'),
     path('removeUser/<str:redir>',editadmin.removeUser,name='removeUser'),
     path('editUser/',editadmin.editUser,name='editUser'),
     path('editUser/<str:redir>',editadmin.editUser,name='editUser'),
+                                            
+    path('inicio/',inicio.inicio,name='inicio'),     
+    path('inicio/<str:redir>',inicio.inicio,name='inicio'),  
+    path('inicioAnuncios/',inicio.inicio_anuncios,name='inicio_anuncios'),     
+    path('inicioAnuncios/<str:redir>',inicio.inicio_anuncios,name='inicio_anuncios'),    
+    path('inicioTopicos/',inicio.inicio_topicos,name='inicio_topicos'),     
+    path('inicioTopicos/<str:redir>',inicio.inicio_topicos,name='inicio_topicos'),         
+                                          
+    path('comentforo',forum.comentforo,name='comentforo'),
+    path('comentforo/<str:redir>',forum.comentforo,name='comentforo'),
+    path('listforo',forum.listforo,name='listforo'),
+    path('listforo/<str:redir>',forum.listforo,name='listforo'),
 
-    path('inicio/',inicio.inicio,name='inicio'),
-    path('inicio/<str:redir>',inicio.inicio,name='inicio'),
 
-
-
-     path('logout/',editadmin.logout,name='logout'),
+    path('logout/',editadmin.logout,name='logout'), 
 ]

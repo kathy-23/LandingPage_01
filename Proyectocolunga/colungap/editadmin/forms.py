@@ -1,14 +1,12 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.forms.models import BaseModelForm
 class AddUserForm(UserCreationForm):
+    username= None
+    email = forms.EmailField()
     class Meta:
         model = User
         fields = ['email','first_name','last_name','password1','password2']
-
-class RemoveUserForm(forms.Form):
-    email = forms.EmailField(max_length=60)
 
 
 class EditUserForm(forms.Form):
