@@ -41,13 +41,11 @@ urlpatterns = [
     path('inicio/<str:redir>',inicio.inicio,name='inicio'),  
     path('inicioAnuncios/',inicio.inicio_anuncios,name='inicio_anuncios'),     
     path('inicioAnuncios/<str:redir>',inicio.inicio_anuncios,name='inicio_anuncios'),    
-    path('inicioTopicos/',inicio.inicio_topicos,name='inicio_topicos'),     
-    path('inicioTopicos/<str:redir>',inicio.inicio_topicos,name='inicio_topicos'),         
+    path('inicioTopicos/',forum.inicio_topicos,name='inicio_topicos'),     
+    path('inicioTopicos/<str:redir>',forum.inicio_topicos,name='inicio_topicos'),         
                                           
     path('comentforo',forum.comentforo,name='comentforo'),
     path('comentforo/<str:redir>',forum.comentforo,name='comentforo'),
-    path('listforo',forum.listforo,name='listforo'),
-    path('listforo/<str:redir>',forum.listforo,name='listforo'),
 
 
     path('logout/',editadmin.logout,name='logout'), 

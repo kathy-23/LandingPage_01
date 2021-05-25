@@ -1,1 +1,20 @@
-{% extends 'editadminlayout.html '%}
+{% extends 'layout-foro.html '%}
+{% block content %}
+    <content>
+        {% for coment in comments %}
+        <div name="comentario">
+            <label name="nombreusuario_coment"></label>
+            <label name="created_at">{{coment.created_at}}</label>
+            <label name="content_comment">{{coment.content}}</label>
+            {% if userid == coment.id_user_id %}
+                <form action="" method="post">
+                    <input type="hidden" name="foro_seleccionado" value={{foro.id}}/> <!--no cambiar nombre a este boton-->
+                    <button name="deletecoment" value={{coment.id}}>imagen de borrar</button>
+                </form>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p name="empty_msg">SIN COMENTARIOS AUN</p> 
+        {% endfor %}
+    </content>
+{% endblock content %}

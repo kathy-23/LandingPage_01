@@ -6,12 +6,13 @@
     </head>
     <body>
         <header>
+            <button onclick="location.href='comentforo.html'">volver a topicos</button>
+            <h1 name="titulo_foro">{{foro.title}}</h1><!--estas estiquetas pueden ser cambiadas por cualquier otra que solo muestre texto: p, h1, h2 etc etc-->
+            <label name="descripcion del foro">{{foro.descripcion}}</label>
         </header>
-        <footer>
-            <div id="pagnav">
-                <a href="comentforo.html"> go to comentforo</a>
-                <a href="listforo.html"> go to listforo</a>
-            </id>
-        </footer>
+        <div class="clearfix"></div>
+        {%block content %}
+
+        {%endblock%}
     </body>
 </html>

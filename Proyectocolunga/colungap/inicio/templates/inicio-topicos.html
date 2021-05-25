@@ -1,16 +1,79 @@
 {% extends 'inicio-layout.html' %}
 {% load static %}
-
-{%block css%}<link rel='stylesheet' type='text/css' href="{% static 'css-inicio/estilos-inicio-topicos.css' %}">{%endblock css%}
 {%block content %}
     <content>
         <nav>
-
+            <ul>
+                {% for topico in navtopicos %}
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <li>
+                            <button type="submit" name="nav_topico" value="{{topico.title}}">{{topico.title}}</button>
+                        </li>
+                    </form>
+                {% endfor %}
+            </ul>
         </nav>
-        <div id=mis_foros>
-
-        </div>
+        <form method="post" action="">
+            {% csrf_token %}
+            <button type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
+        </form>
+        <div class="clearfix"></div>
+        {%if showaddforum == 'True'%}
+            <div id="showaddforum">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <select name='topico_seleccionado' {{cant_topicos}}> <!--no cambiar nombre a este boton-->
+                        {%for topico in navtopicos%}
+                            <option value="{{topico.title}}">{{topico.title}}</option>
+                        {%endfor%}
+                    </select>
+                    <div class="clearfix"></div>
+                    {%for field in formaddForum%}
+                        {{field.label}}
+                        {{field}}
+                    {%endfor%}
+                    <button type="submit" name="addforum" value="True">Crear Foro</button>
+                    
+                </form>
+                <input type="button" onclick="location.href='inicio-topicos.html'" value="Atras"/>
+            </div>
+        {% endif %}
+        <div class="clearfix"></div>
+        {% if foros == 'True' %}
+            <div id="titulo">
+                <h1>{{topico_seleccionado.title}}</h1>
+                <label>{{topico_seleccionado.updated_at}}</label>
+            </div>
+            <div id='foros'>
+                <label>Mis Foros</label>
+                {%for foro in misforos%}
+                    <div name='foro'>
+                        <label>{{foro.title}}</label>
+                        <label>{{foro.cant_coment}}</label>
+                        <!--replies totales-->
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <button type="submit" method="post" name="foro_seleccionado"  value="{{foro.id}}">ir</button>
+                        </form>
+                    </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+                <label>Foros</label>
+                {%for foro in otrosforos %}
+                    <div name='foro'>
+                        <label>{{foro.title}}</label>
+                        <label>{{foro.cant_coment}}</label>
+                        <!--replies totales-->
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <button type="submit" method="post" name="foro_seleccionado"  value="{{foro.id}}">ir</button>
+                        </form>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        {% endif %}
     </content>
 {%endblock content %}
-<!--aca es donde se mostraran los topicos de los foros-->
 </html>
