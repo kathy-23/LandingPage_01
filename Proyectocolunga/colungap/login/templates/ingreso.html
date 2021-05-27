@@ -39,6 +39,14 @@
                         <div class="form-group" id="contrasena-group">
                             <input class='form-control' name='txt_password' type='password'  placeholder='Ingresa tu contraseña'>
                         </div>
+                        <!-- condicional y for para mostrar mensaje de alerta por credenciales erroneas-->
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                         <button class="btn btn-primary" name="btn_submit" type='submit' value='Ingresar'><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
                     </form>
                     <!--
