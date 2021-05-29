@@ -45,7 +45,7 @@ urlpatterns = [
     path('inicioTopicos/<str:redir>',forum.inicio_topicos,name='inicio_topicos'),         
                                           
     path('comentforo',forum.comentforo,name='comentforo'),
-    path('comentforo/<str:redir>',forum.comentforo,name='comentforo'),
+    path('comentforo/<str:idforo>',forum.comentforo,name='comentforo'),
 
 
     path('logout/',editadmin.logout,name='logout'), 
