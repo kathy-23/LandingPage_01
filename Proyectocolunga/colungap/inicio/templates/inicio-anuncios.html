@@ -1,1 +1,34 @@
 {% extends 'inicio-layout.html' %}
+{% load static %}
+{%block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="showAgregar" value="True">agregar anuncio</button>
+    </form>
+    {% if showAgregar == 'True'%}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div id="showAgregar">
+                <label id="titulo_agregar">Titulo</label>
+                {{formulario.titulo}}
+                <label id="contenido_agregar">Descripción</label>
+                {{formulario.comentario}}
+                <input type="hidden" name="showAgregar" value="False">
+                <input type="hidden" name="showAnuncio" value="True">
+                <button name="boton_agregar" type="submit" value="True">Agregar</button>
+            </div>
+        </form>
+    {% endif %}
+    {% if showAnuncio == 'True'%}
+    <div id="box_anuncios">
+        <h1>Anuncios de Colunga.</h1>
+        {% for anuncio in Anuncios%}
+            <div id="anuncio">
+                <h2 name="titulo_anuncio">{{anuncio.titulo}} </h2>
+                <label name="fecha_anuncio">{{anuncio.fecha}}</label>
+                <label name="comentario del anuncio">{{anuncio.comentario}}</label>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{%endblock content%}

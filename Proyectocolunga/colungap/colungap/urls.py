@@ -20,6 +20,7 @@ from login import views as login
 from inicio import views as inicio
 from editadmin import views as editadmin
 from forums import views as forum
+from anuncios import views as anuncio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,8 +40,10 @@ urlpatterns = [
                                             
     path('inicio/',inicio.inicio,name='inicio'),     
     path('inicio/<str:redir>',inicio.inicio,name='inicio'),  
-    path('inicioAnuncios/',inicio.inicio_anuncios,name='inicio_anuncios'),     
-    path('inicioAnuncios/<str:redir>',inicio.inicio_anuncios,name='inicio_anuncios'),    
+
+    path('inicioAnuncios/',anuncio.addAnuncio,name='inicio_anuncios'),     
+    path('inicioAnuncios/<str:redir>',anuncio.addAnuncio,name='inicio_anuncios'),    
+    
     path('inicioTopicos/',forum.inicio_topicos,name='inicio_topicos'),     
     path('inicioTopicos/<str:redir>',forum.inicio_topicos,name='inicio_topicos'),         
                                           

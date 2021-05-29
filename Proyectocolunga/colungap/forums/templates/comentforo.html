@@ -10,11 +10,13 @@
                 <label id="created_at">{{coment.created_at}}</label>
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="text" name="comentario"/>
                     <input type="hidden" name="padre_id" value="{{coment.id}}"/>
                     <input type="hidden" name="forum_id" value="{{foro.id}}"/>
-                    <button type="submit" name="reply" value="True" >Responder</button>
-                </form>
+                    {%if coment.padre_id == 'None' %}
+                        <input type="text" name="comentario"/>
+                        <button type="submit" name="reply" value="True" >Responder</button>
+                    {%endif%}
+                    </form>
                 {% if userid == coment.id_user_id %}
                     <form action="" method="post">
                         {% csrf_token %}

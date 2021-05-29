@@ -3,6 +3,7 @@ from django.contrib.auth import logout
 from .models import Coment, Forums, Topics
 from .forms import addForum
 from django.contrib.auth.models import User
+import time
 
 
 def inicio_topicos(request,redir=""):
@@ -115,6 +116,7 @@ def comentforo(request,idforo):
     #codigo para ordenar comentarios poniendo las respuestas debajo del comentario
     for comentario in comentarios:
         if comentario.padre_id==None:
+            comentario.padre_id='None'
             listacomentarios.append(comentario)
             for coment in comentarios:
                 if coment.padre_id==comentario.id:
@@ -129,20 +131,10 @@ def comentforo(request,idforo):
     username=user_name.first_name+" "+user_name.last_name
     #return HttpResponse('<h1>'+str(foro.title)+'</h1>')
     if request.method == 'POST':
-        #primer comentario
+        time.sleep(1)
+        #respuesta
         if request.POST.get('reply')=="True":
-            Coment.objects.create(
-                content=request.POST.get("comentario"),
-                id_user_id=request.user.id,
-                id_forum_id=idforo,
-            )
-            return render(request,'comentforo.html',{
-                'foro':foro,
-                'comments':listacomentarios,
-                'userid':userid,
-                "username":username
-            })
-        if request.POST.get("comentar")=='True':
+
             Coment.objects.create(
                 content=request.POST.get("comentario"),
                 id_user_id=request.user.id,
@@ -155,10 +147,25 @@ def comentforo(request,idforo):
                 'userid':userid,
                 "username":username
             })
-        #eliminar comentario        
+            #comentario
+        if request.POST.get("comentar")=='True':
+
+            Coment.objects.create(
+                content=request.POST.get("comentario"),
+                id_user_id=request.user.id,
+                id_forum_id=idforo,
+            )
+            return render(request,'comentforo.html',{
+                'foro':foro,
+                'comments':listacomentarios,
+                'userid':userid,
+                "username":username
+            })
+        #eliminar comentario/respuesta        
         if request.POST.get("deletecoment"):
             comentario=Coment.objects.get(id=request.POST.get("deletecoment"))
             comentario.delete()
+            time.sleep(1)
             return render(request,'comentforo.html',{
                 'foro':foro,
                 'comments':listacomentarios,

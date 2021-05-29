@@ -2,10 +2,11 @@
 {% load static %}
 <html>
     <head>
-        {%block css%}
-        {%endblock css%}
-        <link rel='stylesheet' type='text/css' href="{% static 'css-inicio/estilos-inicio-layout.css' %}">
+        <link rel='stylesheet' type='text/css' href="{% static 'css-inicio/inicio-layout.css' %}">
         <meta charset='utf-8'/>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{% endblock title %} | COLUNGA</title>
     </head>
     <body>
@@ -17,21 +18,14 @@
             <!--<a href="{logouthref}"><img src="logout.jpg" alt="Lgooutimg" /></a> imagen de logo con link
                                                                                     tiene que abrir ventana emergente-->
             <!--barra navegacion-->
-            <nav>
-                <lu>
-                    <li>
-                        <a href="inicio.html">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="inicio-topicos.html">Foro</a>
-                    </li>
-                    <li>
-                        <a href="inicio-anuncios.html">Anuncios</a>
-                    </li>
-                </lu>
+            <nav id=navheader>
+                <a class="navop" href="inicio.html">Inicio</a>
+                <a class="navop" href="inicio-topicos.html">Foro</a>
+                <a class="navop" href="inicio-anuncios.html">Anuncios</a>
             </nav> 
         </header>
         {%block content %}
+
 
         {%endblock content%}
         <!--pie de pagina-->
