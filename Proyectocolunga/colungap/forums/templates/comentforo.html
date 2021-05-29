@@ -19,6 +19,8 @@
                     <form action="" method="post">
                         {% csrf_token %}
                         <!--no cambiar nombre a este boton-->
+                        <input type="hidden" name="reply" value="False"/>
+                        <input type="hidden" name="comentar" value="False"/>
                         <button id="del_btn"name="deletecoment" value={{coment.id}}><img id="del-icono" src="{%static 'img-forums/del-icono.png' %} " alt='del-icono'></button>
                     </form>
                 {% endif %}
