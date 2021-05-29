@@ -42,14 +42,17 @@ def addUser(request,redir=''):
             #valido el formulario
             if adduserform.is_valid():
                 #guardo los datos del formulario
+                adduserform.save()
+                """
                 usuario=User.objects.create(
-                    username='',
+                    username=request.POST.get('email'),
                     email=request.POST.get('email'),
                     first_name=request.POST.get('first_name'),
                     last_name=request.POST.get('last_name'),
-                    password=hash(request.POST.get('password')),
+                    password=adduserform.cleaned_data['password1']
                 )
                 usuario.save()
+                """
                 return redirect('addUser')
             else:
                 return HttpResponse('<h1>no se pudo agregar el usuario</h1>')
@@ -137,6 +140,7 @@ def editUser(request,redir=''):
                 'first_name':usuario.first_name,
                 'last_name':usuario.last_name,
                 'email':usuario.email,
+                'password':""
             })
             #return HttpResponse('<h1>'+usuario.first_name+usuario.last_name+usuario.email+'</h1>')
             return render(request,'editUser.html',{
@@ -162,7 +166,7 @@ def editUser(request,redir=''):
                     'cant_user': cant_user,
                 })
             else:
-                usuario.set_password(request.POST.get('password'))
+                usuario.set_password(password)
                 usuario.save()
                 usuarios=User.objects.exclude(is_active=False).all()
                 return render(request,'editUser.html',{

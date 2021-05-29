@@ -1,6 +1,6 @@
 {% extends 'editadminlayout.html' %}
 {% block form %}
-<form method='post'action=''>
+<form id="adduserform" method='post'action=''>
     {% csrf_token %}
     {%for field in addUserform%}
         <div id="blockform">

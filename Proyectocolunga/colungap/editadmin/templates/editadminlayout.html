@@ -8,11 +8,29 @@
     </head>
 
     <body>
-        <header>
-        <button name="btn_logout" onclick="location.href='logout'">Salir</button> 
+<!-- ---------------------------------- HEADER --------------------------------------------- -->
+        <header class="header">
+            <div class="wrapper">
+                <div class="roww1">
+                    <button name="btn_logout" onclick="location.href='logout'">Salir</button> 
+                </div>   
+                
+                <div class="columna02">
+                    <div class="roww2">
+                        <label name="txt_user"></label>
+
+                    </div>
+                </div>
+
+
+            </div>
+        
+        
+        
+        
         <!--logo-->
         <img id="logo" src="{% static 'img/logo.png' %}" alt="logo">
-        <label name="txt_user"></label>
+        
         <!--<a href="{logouthref}"><img src="logout.jpg" alt="Lgooutimg" /></a> imagen de logo con link
                                                                                 tiene que abrir ventana emergente-->
         <nav>
