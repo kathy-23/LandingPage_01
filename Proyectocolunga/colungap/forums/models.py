@@ -1,11 +1,5 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
-from django.db.models.signals import pre_save, post_save
-#pre_save justo antes de ser enviado
-#post_save luego de ser enviado
-from django.utils.text import slugify
-
 
 
 class Topics(models.Model):

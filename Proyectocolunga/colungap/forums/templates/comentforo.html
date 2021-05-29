@@ -1,20 +1,38 @@
 {% extends 'layout-foro.html '%}
+{% load static %}
+
 {% block content %}
     <content>
         {% for coment in comments %}
-        <div name="comentario">
-            <label name="nombreusuario_coment"></label>
-            <label name="created_at">{{coment.created_at}}</label>
-            <label name="content_comment">{{coment.content}}</label>
-            {% if userid == coment.id_user_id %}
+            <div id="comentario">
+                <label id="nombreusuario_coment">{{username}}</label>
+                <label id="content_comment">{{coment.content}}</label>
+                <label id="created_at">{{coment.created_at}}</label>
                 <form action="" method="post">
-                    <input type="hidden" name="foro_seleccionado" value={{foro.id}}/> <!--no cambiar nombre a este boton-->
-                    <button name="deletecoment" value={{coment.id}}>imagen de borrar</button>
+                    {% csrf_token %}
+                    <input type="text" name="comentario"/>
+                    <input type="hidden" name="padre_id" value="{{coment.id}}"/>
+                    <input type="hidden" name="forum_id" value="{{foro.id}}"/>
+                    <button type="submit" name="reply" value="True" >Responder</button>
                 </form>
-            {% endif %}
-        </div>
-        {% empty %}
-        <p name="empty_msg">SIN COMENTARIOS AUN</p> 
+                {% if userid == coment.id_user_id %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <!--no cambiar nombre a este boton-->
+                        <button id="del_btn"name="deletecoment" value={{coment.id}}><img id="del-icono" src="{%static 'img-forums/del-icono.png' %} " alt='del-icono'></button>
+                    </form>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p name="empty_msg">SIN COMENTARIOS AUN</p>
         {% endfor %}
+        <div id="comentario">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name="comentario"/>
+                <input type="hidden" name="forum_id" value="{{foro.id}}"/>
+                <button type="submit" name="comentar" value="True" >Comentar</button>
+            </form>
+        </div>
     </content>
 {% endblock content %}

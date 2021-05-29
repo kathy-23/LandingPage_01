@@ -1,14 +1,16 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset='utf-8'/>
         <title> | COLUNGA</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css-forums/comentforo.css' %}">
     </head>
     <body>
         <header>
-            <button onclick="location.href='comentforo.html'">volver a topicos</button>
-            <h1 name="titulo_foro">{{foro.title}}</h1><!--estas estiquetas pueden ser cambiadas por cualquier otra que solo muestre texto: p, h1, h2 etc etc-->
-            <label name="descripcion del foro">{{foro.descripcion}}</label>
+            <button id="volverinicio"onclick="location.href='inicio-topicos.html'">volver a topicos</button>
+            <h1 id="titulo_foro">{{foro.title}}</h1><!--estas estiquetas pueden ser cambiadas por cualquier otra que solo muestre texto: p, h1, h2 etc etc-->
+            <label id="descripcion_foro">{{foro.descripcion}}</label>
         </header>
         <div class="clearfix"></div>
         {%block content %}

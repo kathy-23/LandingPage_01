@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect,HttpResponse
-from django.contrib.auth import authenticate, login ,logout 
+from django.contrib.auth import logout 
 from .models import Coment, Forums, Topics
 from .forms import addForum
+from django.contrib.auth.models import User
+
 
 def inicio_topicos(request,redir=""):
     '''acciones al cargar la pagina'''
@@ -10,7 +12,7 @@ def inicio_topicos(request,redir=""):
     formaddForum=addForum(request.POST)
     #condiciones para un post
     if request.method == 'POST':
-    #accion si se apreta crear nuevo foro
+        #accion si se apreta crear nuevo foro
         if request.POST.get('showaddforum')=='True':
             #tamaño de la lista de topicos
             cant_topicos="size="+str(len(Topics.objects.all()))
@@ -22,7 +24,7 @@ def inicio_topicos(request,redir=""):
                 'formaddForum':formaddForum
             })
         
-        #accion si se apreta el agregar foro
+        #accion si se apreta el acrear foro
         if request.POST.get('addforum')=='True':
             #obtengo el topico seleccionado
             topico=Topics.objects.get(title=request.POST.get('topico_seleccionado'))
@@ -79,7 +81,10 @@ def inicio_topicos(request,redir=""):
                 'otrosforos':otrosforos,
             })
         if request.POST.get("foro_seleccionado"):
-            return comentforo(request)
+            idforo = request.POST.get("foro_seleccionado")
+            return redirect('comentforo',idforo)
+
+
     if redir=='main.html':
         return redirect('main')
     elif redir=='addUser.html':
@@ -100,24 +105,72 @@ def inicio_topicos(request,redir=""):
     })
 
 
-def comentforo(request):
-    idforo = request.POST.get("foro_seleccionado")
+def comentforo(request,idforo):
+    listacomentarios=list()
+    if idforo=='inicio-topicos.html':
+        return redirect('inicio_topicos')
     foro=Forums.objects.get(id=idforo)
     comentarios=Coment.objects.filter(id_forum_id=foro.id)
+
+    #codigo para ordenar comentarios poniendo las respuestas debajo del comentario
+    for comentario in comentarios:
+        if comentario.padre_id==None:
+            listacomentarios.append(comentario)
+            for coment in comentarios:
+                if coment.padre_id==comentario.id:
+                    listacomentarios.append(coment)
+                else:
+                    pass
+        else:
+            pass
+    #return HttpResponse('<h1>'+str(len(comentarios[0].padre_id))+"  "+str(len(listacomentarios))+'</h1>')
     userid = request.user.id
+    user_name=User.objects.get(id=userid)
+    username=user_name.first_name+" "+user_name.last_name
     #return HttpResponse('<h1>'+str(foro.title)+'</h1>')
     if request.method == 'POST':
+        #primer comentario
+        if request.POST.get('reply')=="True":
+            Coment.objects.create(
+                content=request.POST.get("comentario"),
+                id_user_id=request.user.id,
+                id_forum_id=idforo,
+            )
+            return render(request,'comentforo.html',{
+                'foro':foro,
+                'comments':listacomentarios,
+                'userid':userid,
+                "username":username
+            })
+        if request.POST.get("comentar")=='True':
+            Coment.objects.create(
+                content=request.POST.get("comentario"),
+                id_user_id=request.user.id,
+                id_forum_id=idforo,
+                padre_id=request.POST.get("padre_id"),
+            )
+            return render(request,'comentforo.html',{
+                'foro':foro,
+                'comments':listacomentarios,
+                'userid':userid,
+                "username":username
+            })
+        #eliminar comentario        
         if request.POST.get("deletecoment"):
             comentario=Coment.objects.get(id=request.POST.get("deletecoment"))
             comentario.delete()
             return render(request,'comentforo.html',{
                 'foro':foro,
-                'comentarios':comentarios,
+                'comments':listacomentarios,
                 'userid':userid,
+                "username":username
     })
             #obtengo todos los comentarios de este foro
+    #for comentario in comentarios:
+    #    if comentario.id_padre
     return render(request,'comentforo.html',{
         'foro':foro,
-        'comentarios':comentarios,
+        'comments':listacomentarios,
         'userid':userid,
+        "username":username
     })
