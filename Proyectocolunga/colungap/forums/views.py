@@ -90,6 +90,37 @@ def inicio_topicos(request,redir=""):
                 'userid': request.user.id,
                 'username':username,
             })
+        if request.POST.get("del_foro")=="True":
+            forod=Forums.objects.get(id=int(request.POST.get("id_foro")))
+            forod.delete()
+            topico_seleccionado=Topics.objects.get(id=int(request.POST.get('topico_seleccionado')))
+            #mis foros en ese topico
+            misforos=Forums.objects.filter(id_user_id=request.user.id)
+            #todos los foros del topico seleccionado
+            otrosforos=Forums.objects.filter(id_topic_id=topico_seleccionado.id).exclude(id_user_id=request.user.id)
+            #allforos=Forums.objects.all()
+            #return HttpResponse('<h1>'+str(len(allforos))+'</h1>')
+            for foro in misforos:
+                #cantidad de comentarios de mis foros
+                foro.cant_coment=len(Coment.objects.filter(id_forum_id=foro.id))
+                #guardo el foro
+                foro.save()
+            for foro in otrosforos:
+                #cantidad de comentarios de los otros foros
+                foro.cant_coment=len(Coment.objects.exclude(id_forum_id=foro.id))
+                #guardo el foro
+                foro.save()
+            return render(request,'inicio-topicos.html',{
+                'navtopicos':navtopicos,
+                'foros':'True',
+                'showaddforum':"False",
+                'addUser':'False',
+                'topico_seleccionado':topico_seleccionado,
+                'misforos':misforos,
+                'otrosforos':otrosforos,
+                'userid': request.user.id,
+                'username':username,
+            })
         if request.POST.get("foro_seleccionado"):
             idforo = request.POST.get("foro_seleccionado")
             return redirect('comentforo',idforo)

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;  
-    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
@@ -130,14 +130,14 @@ body{
                 top: 0px;  */
                 transform: translate(20%, 3%);
                 border-radius: 5px;
-                background-image: url(../img/candado1.png);
+                background-image: url(../img/cerrarsesion.png);
 
             }
             .botoncs[type="submit"]:hover{
                 cursor:pointer;
                 background-color: rgb(3, 53, 3);
                 transition: .2s;
-                background-image: url(../img/candado.png);
+                background-image: url(../img/cerrarsesion.png);
                 text-align: center;
             }
 
@@ -501,12 +501,12 @@ body{
                     padding-left: 108px;
                 }
 
-                /*css anuncios*/
+/*css anuncios-------------------------------------------------------------------------------------------------------------------*/
                 #btn_ShowAgregar{
-                    position: absolute;
-                    right: 30px;
-                    top: 150px;
-                    width: 15%;
+                    position: relative;
+                    right: -318px;
+                    top: 65px;
+                    width: 130px;
                     padding: 8px 8px;
                     border: none;
                     border-radius: 5px;
@@ -559,6 +559,11 @@ body{
                     left:20px;
                     position:relative;
                 }
+                #titulo_anuncio{
+                    position: relative;
+                    left: 50px;
+                    top: 3px;
+                }
                 #id_comentario{
                     position:relative;
                     top:15px;
@@ -572,18 +577,19 @@ body{
                     left:20px;
                 }
                 #titulo_box{
-                    color: rgba(0, 0, 0, 0.719);
+                    color: white;
                     background-color: rgb(0, 94, 0);
                     position: relative;
                     top: 130px;
                     width: 698px;
-                    height: 40px;
-                    padding-top: 7px;
+                    height: 50px;
+                    padding-top: 10px;
                     margin-left: 40px;
                     text-align-last: center;
                     border-radius: 10px 10px 0px 0px;
                 }
                 .box_anuncios{
+                    color: rgba(41, 49, 51);
                     position: relative;
                     top: 75px;
                     width: 765px;
@@ -596,12 +602,12 @@ body{
                     overflow-y: scroll;
                 }
                 #tit_boxan{
-                    color: rgba(0, 0, 0, 0.719);
                     background-color: rgb(0, 94, 0);
                     position: relative;
                     top: 75px;
                     width: 764px;
-                    height: 40px;
+                    color: white;
+                    height: 50px;
                     padding-top: 7px;
                     text-align-last: center;
                     border-radius: 10px 10px 0px 0px;
@@ -618,16 +624,241 @@ body{
                     right: -400px;
                 }
                 #del_btn{
+                    background-color: rgba(1, 134, 1, 0.1);
+                    border: 0px;
                     position: relative;
-                    right: -710px;
+                    right: -715px;
                     top: -40px;
                 }
                 .comentario_anuncio{
                     position: relative;
-                    top: 2px;
-                    left: 2px;
+                    top: 10px;
+                    left: 20px;
                 }
-               /*fin css anuncios*/
+                #btn_back_anuncios{
+                    position: relative;
+                    width: 140px;
+                    padding: 8px 8px;
+                    top: 29px;
+                    left: 16px;
+                    border: none;
+                    border-radius: 5px;
+                    display: block;
+                    color: #fff;
+                    background-color: rgb(0,0,0, 0.5);
+                    cursor: pointer;
+                    border-radius: 4px;
+                    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+                    box-shadow: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+                    background-image: linear-gradient(rgba(25, 196, 20, 0.733) 10%,#0a720a 100%);
+                    text-shadow: 0 -1px 0 rgb(0 0 0 / 50%);
+                }
+/*fin css anuncios--------------------------------------------------------------------------------------------------------------*/
+/*css topicos-------------------------------------------------------------------------------------------------------------------*/
+#nav_topicos ul{
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    top: 0px;
+    width: 100%;
+}
+#nav_topicos ul li{
+    float: left;
+}
+#nav_topicos ul li #btn_navtopico{
+    background-color:rgb(0, 94, 0);
+    display: block;
+    color: white;
+    width: 220px;
+    height: 40px;
+    border: 0;
+    border-color: rgba(41, 49, 51);
+    border-left: 1px;
+    border-right: 1px;
+}
+#btn_showaddforum{
+    position: relative;
+    width: 130px;
+    left:475px;
+    top: 2px;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    color: #fff;
+    background-color: rgb(0,0,0, 0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    box-shadow: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-image: linear-gradient(rgba(25, 196, 20, 0.733) 10%,#0a720a 100%);
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 50%);
+}
+#showaddforumtitle{
+    background-color: rgb(0, 94, 0);
+    border-radius: 10px 10px 0px 0px;
+    width: 850px;
+    height: 50px;
+    padding-top: 10px;
+    position: relative;
+    top: 100px;
+    text-align: center;
+    color: white;
+}
 
-                
+#showaddforum{
+    background-color: rgba(1, 134, 1, 0.1);
+    align-items: center;
+    position: relative;
+    top: 100px;
+    width: 850px;
+    height: 350px;
+    box-sizing: content-box;
+    max-height: 550px;
+    border-radius: 0px 0px 10px 10px;
+}
+#showaddforum form select{
+    background-color: rgba(1, 134, 1, 0.1);
+    position: relative;
+    border: 0;
+    height: 350px;
+    text-align: center;
+}
+#showaddforum form select option{
+    border-bottom: 1px;
+    width: 180px;
+    margin-top:10px;
+}
+#tituloform{
+    position: relative;
+    width: 605px;
+    top: -330px;
+    left: 185px;
+}
+#contentform{
+    position: relative;
+    top: -320px;
+    left: 185px;
+}
+#btn_addforum{
+    position: relative;
+    top: -200px;
+    left: 675px;
+    width: 130px;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    color: #fff;
+    background-color: rgb(0,0,0, 0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    box-shadow: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-image: linear-gradient(rgba(25, 196, 20, 0.733) 10%,#0a720a 100%);
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 50%);
+}
+#btn_back{
+    position: relative;
+    top: -233px;
+    width: 130px;
+    left: 220px;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    color: #fff;
+    background-color: rgb(0,0,0, 0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    box-shadow: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-image: linear-gradient(rgba(25, 196, 20, 0.733) 10%,#0a720a 100%);
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 50%);
+}
+#id_descripcion{
+    position: relative;
+    left: 20px;
+    width: 500px;
+}
+#box_contenido{
+    align-items: center;
+    width: 1111px;
+    margin-top: 10px;
+    max-height: 550px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(1, 134, 1, 0.1);
+    overflow-y: scroll;
+}
+#box_titulo{
+    background-color:rgb(0, 94, 0);
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    text-align-last: center;
+}
+#box_titulo h1{
+    padding-top: 18px;
+}
+#fecha_titulo{
+    position: relative;
+    left: 467px;
+}
+.box_foros{
+    text-align: center;
+    width: 50%;
+    float: left;
+    padding-bottom: 2px;
+}
+.btn_f{
+    position:relative;
+    background-color: rgba(1, 134, 1, 0.1);
+    width: 98%;
+    height: 70px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 0px;
+    border: 1px solid #fff;
+}
+.btn_f .titulof{
+    position: relative;
+    font-size: 20px;
+    top: 10px;
+    left: 20px;
+    width: 200px;
+    text-align: left;
+}
+.btn_f .cant_comentf{
+    position: relative;
+    font-size: 12px;
+    top: 10px;
+    left: -10px;
+    text-align: right;
+}
+.titlebox{
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.titlebox label{
+    
+    float: left;
+    width:50%;
+}
+.block_foro{
+    position: inherit;
+    height: 74px
+}
+.del_btn_foro{
+    background-color: rgba(1, 134, 1, 0.1);
+    border: 0px;
+    position: relative;
+    top: -70px;
+    left: 255px;
+    height: 0px;
+}
 
+/*fin css topicos-------------------------------------------------------------------------------------------------------------------*/

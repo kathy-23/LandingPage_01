@@ -22,7 +22,7 @@ def addAnuncio(request, redir=''):
         if request.POST.get("boton_agregar") == "True":
             if formulario.is_valid():
                 Anuncio.objects.create(
-                    id_autor_id= usuarios,
+                    id_autor_id= request.user.id,
                     titulo = request.POST.get("titulo"),
                     comentario = request.POST.get("comentario")
                 )

@@ -1,79 +1,94 @@
 {% extends 'inicio-layout.html' %}
 {% load static %}
 {%block content %}
-    <content>
-        <nav>
-            <ul>
+    <nav id="nav_topicos">
+            <form method="post" action="">
+                {% csrf_token %}
+                <ul>
                 {% for topico in navtopicos %}
-                    <form method="post" action="">
-                        {% csrf_token %}
-                        <li>
-                            <button type="submit" name="nav_topico" value="{{topico.title}}">{{topico.title}}</button>
-                        </li>
-                    </form>
+                    <li><button id="btn_navtopico"type="submit" name="nav_topico" value="{{topico.title}}">{{topico.title}}</button></li>
                 {% endfor %}
-            </ul>
-        </nav>
+                </ul>
+            </form>
+    </nav>
+    <div class="clearfix"></div>
+    {%if showaddforum == 'True'%}
+        <div id="showaddforumtitle">
+            <h2>Crear Foro</h2>
+        </div>
+        <div id="showaddforum">
+            <form method="post" action="">
+                {% csrf_token %}
+                <select name='topico_seleccionado' {{cant_topicos}}> <!--no cambiar nombre a este boton-->
+                    {%for topico in navtopicos%}
+                        <option value="{{topico.title}}">{{topico.title}}</option>
+                    {%endfor%}
+                </select>
+                <div id="tituloform">
+                    <label id="titulo_agregar">Titulo</label>
+                    {{formaddForum.titulo}}
+                </div>
+                <div class="clearfix"></div>
+                <div id="contentform">
+                    <label id="contenido_agregar">Descripción</label>
+                    {{formaddForum.descripcion}}
+                </div>
+                <button id="btn_addforum"type="submit" name="addforum" value="True">Crear Foro</button>
+                
+            </form>
+            <input id="btn_back" type="button" onclick="location.href='inicio-topicos.html'" value="Atras"/>
+        </div>
+    {% endif %}
+    <div class="clearfix"></div>
+    {% if foros == 'True' %}
         <form method="post" action="">
             {% csrf_token %}
-            <button type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
+            <button id="btn_showaddforum"type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
         </form>
-        <div class="clearfix"></div>
-        {%if showaddforum == 'True'%}
-            <div id="showaddforum">
+        <div id="box_contenido">
+            <div id="box_titulo">
+                <h1>{{topico_seleccionado.title}}</h1>
+                <label id="fecha_titulo">{{topico_seleccionado.updated_at}}</label>
+            </div>
+            <div class="titlebox">
+                <label>Mis Foros</label>
+                <label>Foros</label>
+            </div>
+            <div class='box_foros'>
                 <form method="post" action="">
                     {% csrf_token %}
-                    <select name='topico_seleccionado' {{cant_topicos}}> <!--no cambiar nombre a este boton-->
-                        {%for topico in navtopicos%}
-                            <option value="{{topico.title}}">{{topico.title}}</option>
-                        {%endfor%}
-                    </select>
-                    <div class="clearfix"></div>
-                    {%for field in formaddForum%}
-                        {{field.label}}
-                        {{field}}
-                    {%endfor%}
-                    <button type="submit" name="addforum" value="True">Crear Foro</button>
-                    
+                    {%for foro in misforos%}
+                        <div class="block_foro">
+                            <!--replies totales-->
+                            <button class="btn_f" type="submit" name="foro_seleccionado"  value="{{foro.id}}">
+                                <p class="titulof">{{foro.title}}</p>
+                                <p class="cant_comentf">comentarios: {{foro.cant_coment}}</p>
+                                <button type="submit" class="del_btn_foro" value="True" name="del_foro">
+                                    <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
+                                    <input type="hidden" name="id_foro" value="{{foro.id}}"/>
+                                    <input type="hidden" name="topico_seleccionado" value="{{foro.id_topic_id}}"/>
+                                </button>
+                                
+                            </button>
+                        </div>
+                    {% endfor %}
                 </form>
-                <input type="button" onclick="location.href='inicio-topicos.html'" value="Atras"/>
             </div>
-        {% endif %}
-        <div class="clearfix"></div>
-        {% if foros == 'True' %}
-            <div id="titulo">
-                <h1>{{topico_seleccionado.title}}</h1>
-                <label>{{topico_seleccionado.updated_at}}</label>
-            </div>
-            <div id='foros'>
-                <label>Mis Foros</label>
-                {%for foro in misforos%}
-                    <div name='foro'>
-                        <label>{{foro.title}}</label>
-                        <label>{{foro.cant_coment}}</label>
-                        <!--replies totales-->
-                        <form method="post" action="">
-                            {% csrf_token %}
-                            <button type="submit" method="post" name="foro_seleccionado"  value="{{foro.id}}">ir</button>
-                        </form>
-                    </div>
-                {% endfor %}
-                <div class="clearfix"></div>
-                <label>Foros</label>
-                {%for foro in otrosforos %}
-                    <div name='foro'>
-                        <label>{{foro.title}}</label>
-                        <label>{{foro.cant_coment}}</label>
-                        <!--replies totales-->
-                        <form method="post" action="">
-                            {% csrf_token %}
-                            <button type="submit" method="post" name="foro_seleccionado"  value="{{foro.id}}">ir</button>
-                        </form>
-                    </div>
-                {% endfor %}
+            <div class='box_foros'>
                 
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {%for foro in otrosforos %}
+                        <!--replies totales-->
+                        <button class="btn_f" type="submit" name="foro_seleccionado"  value="{{foro.id}}">
+                            <p class="titulof">{{foro.title}}</p>
+                            <p class="cant_comentf">comentarios: {{foro.cant_coment}}</p>
+                        </button>
+                    {% endfor %}
+                </form>
             </div>
-        {% endif %}
-    </content>
+            
+        </div>
+    {% endif %}
 {%endblock content %}
 </html>

@@ -2,10 +2,7 @@
 {% load static %}
 <link rel='stylesheet' type='text/css' href="{% static 'css-inicio/estilos-anuncios.css' %}">
 {%block content %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        <button id="btn_ShowAgregar" type="submit" name="showAgregar" value="True">agregar anuncio</button>
-    </form>
+    
     {% if showAgregar == 'True'%}
         <div id="titulo_box">
             <h1>Crear anuncio</h1>
@@ -21,10 +18,16 @@
                 <input type="hidden" name="showAgregar" value="False">
                 <input type="hidden" name="showAnuncio" value="True">
                 <button id="btn_Agregar" class="Agregar" name="boton_agregar" type="submit" value="True">Agregar</button>
+                <input id="btn_back_anuncios" type="button" onclick="location.href='inicio-anuncios.html'" value="Atras"/>
             </div>
         </form>
+        
     {% endif %}
     {% if showAnuncio == 'True'%}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button id="btn_ShowAgregar" type="submit" name="showAgregar" value="True">agregar anuncio</button>
+    </form>
     <div id=tit_boxan>
         <h1>Anuncios de Colunga</h1>
     </div>
