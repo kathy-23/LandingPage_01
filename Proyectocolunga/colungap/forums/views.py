@@ -106,9 +106,10 @@ def inicio_topicos(request,redir=""):
     })
 
 
-def comentforo(request,idforo):
+def comentforo(request,**kwargs):
     listacomentarios=list()
-    if idforo=='inicio-topicos.html':
+    idforo=kwargs.get('idforo')
+    if kwargs.get('idforo')=='inicio-topicos.html':
         return redirect('inicio_topicos')
     foro=Forums.objects.get(id=idforo)
     comentarios=Coment.objects.filter(id_forum_id=foro.id)
@@ -141,7 +142,9 @@ def comentforo(request,idforo):
                 id_forum_id=idforo,
                 padre_id=request.POST.get("padre_id"),
             )
+            #return redirect(request,idforo=idforo,foro=foro,comments=listacomentarios,userid=userid,username=username)
             return render(request,'comentforo.html',{
+                'reply':'False',
                 'foro':foro,
                 'comments':listacomentarios,
                 'userid':userid,
@@ -156,6 +159,7 @@ def comentforo(request,idforo):
                 id_forum_id=idforo,
             )
             return render(request,'comentforo.html',{
+                'comentar':'False',
                 'foro':foro,
                 'comments':listacomentarios,
                 'userid':userid,

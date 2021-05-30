@@ -1,13 +1,35 @@
 {% extends 'editadminlayout.html' %}
 {% block form %}
-<form id="adduserform" method='post'action=''>
-    {% csrf_token %}
-    {%for field in addUserform%}
-        <div id="blockform">
-            {{field.label}}
-            {{field}}
-        </div>
-    {% endfor %}
-    <button name="btn_addUser" type="submit" >Agregar Usuario</button><!--no cambiar nombre a este boton-->
-</form>
+<div class="content">
+    <div class="wrapper2">
+        <form class="addUserform" action="/my-handling-form-page" method="post"> 
+            <div class="forma1">
+                    <p>
+                        <label>Nombre</label>
+                        {{addUserform.first_name}}
+                    </p>
+                    <p>
+                        <label>Apellido</label>
+                        {{addUserform.last_name}}
+                    </p>
+                    <p>
+                        <label>Correo</label>
+                        {{addUserform.email}}
+                    </p>
+                    <p>
+                        <label>Contraseña</label>
+                        {{addUserform.password1}}
+                    </p>
+                    <p>
+                        <label>Confirmacion de contraseña</label>
+                        {{addUserform.password2}}
+                    </p>
+                    <p class="btn_Agregar">                
+                        <button class="Agregar" name="btn_addUser" type="submit" >Agregar Usuario</button>
+                    </p>
+            </div>
+        </form>  
+    </div>
+</div>
 {% endblock form %}
+

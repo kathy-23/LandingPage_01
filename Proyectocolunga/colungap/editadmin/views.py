@@ -12,6 +12,8 @@ en la linea 115 y 69 se puede ver esto ya que los datos que obtengo para mostrar
 
 
 def addUser(request,redir=''):
+    usuario=User.objects.get(id=request.user.id)
+    username=usuario.first_name+" "+usuario.last_name
     #obtiene por POST la informacion del formulario
     adduserform = AddUserForm(request.POST)
     #consulto si el metodo es POST 
@@ -36,7 +38,10 @@ def addUser(request,redir=''):
             #usar existente
             usuario.is_active=True
             usuario.save()
-            return redirect('addUser')
+            return render(request,'addUser.html',{
+                'addUserform':adduserform,
+                'username':username
+            })
         #si el usuario no existe
         else:
             #valido el formulario
@@ -53,7 +58,10 @@ def addUser(request,redir=''):
                 )
                 usuario.save()
                 """
-                return redirect('addUser')
+                return render(request,'addUser.html',{
+                    'addUserform':adduserform,
+                    'username':username
+                })
             else:
                 return HttpResponse('<h1>no se pudo agregar el usuario</h1>')
         
@@ -75,11 +83,14 @@ def addUser(request,redir=''):
 
     return render(request,'addUser.html',{
         'addUserform':adduserform,
+        'username':username
     })
 
 
 
 def removeUser(request,redir=''):
+    usuario=User.objects.get(id=request.user.id)
+    username=usuario.first_name+" "+usuario.last_name
     #multiples obejetos con la inf de los usuarios
     usuarios=User.objects.exclude(is_active=False).all()
     #return HttpResponse('<h1>'+str(usuarios)+'</h1>')
@@ -96,7 +107,11 @@ def removeUser(request,redir=''):
             remov.is_active=False #borrar en la tabla a lo que corresponde el objeto
             remov.save()
             #return HttpResponse('<h1>'+str(remov)+'</h1>')
-            return redirect('removeUser')#redirecciona a la misma pagina
+            return render(request,'removeUser.html',{
+                'username':username,
+                'list_user':usuarios,
+                'cant_user':cant_user,
+            })#redirecciona a la misma pagina
         else:
             pass
     
@@ -119,6 +134,7 @@ def removeUser(request,redir=''):
     else: pass
 
     return render(request,'removeUser.html',{
+        'username':username,
         'list_user':usuarios,
         'cant_user':cant_user,
     })
@@ -126,7 +142,8 @@ def removeUser(request,redir=''):
 
 
 def editUser(request,redir=''):
-
+    usuario=User.objects.get(id=request.user.id)
+    username=usuario.first_name+" "+usuario.last_name
     usuarios=User.objects.exclude(is_active=False).all()
     cant_user="size="+str(len(usuarios))
     if request.method == 'POST':
@@ -144,6 +161,7 @@ def editUser(request,redir=''):
             })
             #return HttpResponse('<h1>'+usuario.first_name+usuario.last_name+usuario.email+'</h1>')
             return render(request,'editUser.html',{
+                'username':username,
                 'editUserform':editUserform,
                 'showform':'True',
                 'user_list': usuarios,
@@ -160,6 +178,7 @@ def editUser(request,redir=''):
                 usuario.save()
                 usuarios=User.objects.exclude(is_active=False).all()
                 return render(request,'editUser.html',{
+                    'username':username,
                     'showform':'False',
                     'save':'False',
                     'user_list': usuarios,
@@ -170,6 +189,7 @@ def editUser(request,redir=''):
                 usuario.save()
                 usuarios=User.objects.exclude(is_active=False).all()
                 return render(request,'editUser.html',{
+                    'username':username,
                     'showform':'False',
                     'save':'False',
                     'user_list': usuarios,
@@ -193,6 +213,7 @@ def editUser(request,redir=''):
         return redirect('main')
 
     return render(request,'editUser.html',{
+        'username':username,
         'showform':'False',
         'save' : 'False',
         'user_list': usuarios,

@@ -5,6 +5,11 @@ class AddUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['email','first_name','last_name','password1','password2']
+        labels = {
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email':'Correo',
+        }
 
 class EditUserForm(forms.Form):
     first_name = forms.CharField(max_length=60)

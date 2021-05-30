@@ -1,32 +1,42 @@
 {% extends 'inicio-layout.html' %}
 {% load static %}
+<link rel='stylesheet' type='text/css' href="{% static 'css-inicio/estilos-anuncios.css' %}">
 {%block content %}
     <form action="" method="POST">
         {% csrf_token %}
-        <button type="submit" name="showAgregar" value="True">agregar anuncio</button>
+        <button id="btn_ShowAgregar" type="submit" name="showAgregar" value="True">agregar anuncio</button>
     </form>
     {% if showAgregar == 'True'%}
+        <div id="titulo_box">
+            <h1>Crear anuncio</h1>
+        </div>
         <form action="" method="POST">
             {% csrf_token %}
             <div id="showAgregar">
                 <label id="titulo_agregar">Titulo</label>
                 {{formulario.titulo}}
+                <div class="clearfix"></div>
                 <label id="contenido_agregar">Descripción</label>
                 {{formulario.comentario}}
                 <input type="hidden" name="showAgregar" value="False">
                 <input type="hidden" name="showAnuncio" value="True">
-                <button name="boton_agregar" type="submit" value="True">Agregar</button>
+                <button id="btn_Agregar" class="Agregar" name="boton_agregar" type="submit" value="True">Agregar</button>
             </div>
         </form>
     {% endif %}
     {% if showAnuncio == 'True'%}
+    <div id=tit_boxan>
+        <h1>Anuncios de Colunga</h1>
+    </div>
     <div id="box_anuncios">
-        <h1>Anuncios de Colunga.</h1>
+        
         {% for anuncio in Anuncios%}
             <div id="anuncio">
-                <h2 name="titulo_anuncio">{{anuncio.titulo}} </h2>
-                <label name="fecha_anuncio">{{anuncio.fecha}}</label>
-                <label name="comentario del anuncio">{{anuncio.comentario}}</label>
+                <h2 id="titulo_anuncio" name="titulo_anuncio">{{anuncio.titulo}} </h2>
+                <label id="comentario del anuncio" name="comentario del anuncio">{{anuncio.comentario}}</label>
+                <label id="fecha_anuncio" name="fecha_anuncio">{{anuncio.fecha}}</label>
+                {%if anuncio.id_user_id %}
+                {%endif%}
             </div>
         {% endfor %}
     </div>

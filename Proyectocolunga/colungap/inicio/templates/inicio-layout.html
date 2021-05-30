@@ -10,32 +10,90 @@
         <title>{% block title %}{% endblock title %} | COLUNGA</title>
     </head>
     <body>
-        <header>
-            <!--logo-->
-            <img id="logo" src="{% static 'img/logo.png' %}" alt="logo">
-            <button name="btn_logout" onclick="location.href='logout'">Salir</button> 
-            <label name="txt_user"></label>
-            <!--<a href="{logouthref}"><img src="logout.jpg" alt="Lgooutimg" /></a> imagen de logo con link
-                                                                                    tiene que abrir ventana emergente-->
+        <header class="header">
+            <div class="wrapper">
+                <div class="columna01">
+                    <div class="roww1">
+                        <img class="logos" src="{% static 'img/logo.png' %}"> </a>
+                    </div>   
+                </div>
+
+                <div class="columna02">
+                    <div class="roww2">
+                        <label class="etiqueta" name="txt_nomuser">{{username}}</label>
+                        <button type="submit" onclick="location.href='logout'" class="botoncs" name="btn_logout" id="btn_logout">
+                            <img src="{% static 'img/cerrarsesion.png'%}" alt="logoutimg">
+                        </button>
+                    </div>
+                </div>
+            </div>                                            
             <!--barra navegacion-->
-            <nav id=navheader>
-                <a class="navop" href="inicio.html">Inicio</a>
-                <a class="navop" href="inicio-topicos.html">Foro</a>
-                <a class="navop" href="inicio-anuncios.html">Anuncios</a>
-            </nav> 
+            <div class="enlaces">
+                <nav class="enlace1">   
+                    <a class="anclaHeader" href="inicio.html">Inicio</a>
+                </nav> 
+                <nav class="enlace2">   
+                    <a class="anclaHeader" href="inicio-topicos.html">Foro</a>
+                </nav> 
+                <nav class="enlace3">
+                    <a class="anclaHeader" href="inicio-anuncios.html">Anuncios</a>
+                </nav> 
+            </div>
         </header>
-        {%block content %}
-
-
-        {%endblock content%}
-        <!--pie de pagina-->
+        <section class="section">
+            {% block content %}
+            {% endblock content %}
+        </section>
         <footer>
-            <div id="pagnav">
-                <a href="main.html"> go to main</a>
-                <a href="ingreso.html"> go to login</a>
-                <a href="inicio.html"> go to Inicio</a>
-                <a href="addUser.html"> go to EditAdmin</a>
-            </id>
+            <div class="container-body">
+                <div class="columna1">
+                    <div class="row">
+                        <img src="{% static 'img/envelope.svg'%}">
+                        <label>Dirección: Av. Bustamante 26
+                            Providencia, Santiago
+                        </label>
+                    </div>   
+                </div>
+
+                <div class="columna2">
+                    <div class="row2">
+                        <img src="{% static 'img/envelope.svg'%}">
+                        <label>
+                        Teléfono: +56 222043350/ +56 222748547
+                        Contacto: contacto@fundacioncolunga.org
+                        </label>
+                    </div>               
+                </div>
+
+                <div class="columna3">
+                    <nav class="pagnav">
+                        <div>
+                            <img src="{%static 'img/link.png'%}">
+                            <a class="anclafooter1" href="main.html">Main</a>
+                        </div>
+        
+                        <div>
+                            <img src="{% static 'img/link1.png'%}">
+                            <a class="anclafooter1" href="inicio.html">Login</a>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="columna4"> 
+                    <nav class="pagnav2">
+                        <div>
+                            <img src="{%static 'img/link2.png'%}">
+                            <a class="anclafooter2" href="ingreso.html">Inicio</a>
+                        </div>
+
+                        <div>
+                            <img src="{%static 'img/link3.png'%}">
+                            <a class="anclafooter2" href="addUser.html">EditAdmin</a>
+                        </div>
+                    </nav>
+                </div>         
+            </div>
+            <!-- END -->
         </footer>
 
     </body>
