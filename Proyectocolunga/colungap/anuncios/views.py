@@ -6,15 +6,18 @@ from .forms import addanuncio
 # Create your views here.
 
 def addAnuncio(request, redir=''):
-    usuarios = request.user.id
-    anuncios = Anuncio.objects.all()
+    usuario =User.objects.get(id=request.user.id)
+    username=usuario.first_name+" "+usuario.last_name
+    anuncios = Anuncio.objects.all().order_by('-fecha')
     formulario=addanuncio(request.POST)
     if request.method == 'POST':
         if request.POST.get("showAgregar") == "True":
             return render(request, 'inicio-anuncios.html', {
                 'formulario': formulario,
                 'showAgregar': 'True',
-                'showAnuncio': 'False'
+                'showAnuncio': 'False',
+                'userid' : request.user.id,
+                'username':username,
             })
         if request.POST.get("boton_agregar") == "True":
             if formulario.is_valid():
@@ -26,8 +29,21 @@ def addAnuncio(request, redir=''):
                 return render(request, 'inicio-anuncios.html', {
                 'Anuncios':anuncios,
                 'showAgregar': 'False',
-                'showAnuncio': 'True'
-                })
+                'showAnuncio': 'True',
+                'userid' : request.user.id,
+                'username':username,
+            })
+        if request.POST.get("del_anuncio")=='True':
+            anuncio = Anuncio.objects.get(id_anuncio=request.POST.get("id_anuncio"))
+            anuncio.delete()
+            return render(request, 'inicio-anuncios.html', {
+                'Anuncios':anuncios,
+                'showAgregar': 'False',
+                'showAnuncio': 'True',
+                'del_anuncio': 'False',
+                'userid' : request.user.id,
+                'username':username,
+            })
     if redir=='main.html':
         return redirect('main')
     elif redir=='addUser.html':
@@ -42,5 +58,7 @@ def addAnuncio(request, redir=''):
         return redirect('inicio_topicos')
     return render(request, 'inicio-anuncios.html',{
         'Anuncios': anuncios,
-        'showAnuncio':"True"
+        'showAnuncio':"True",
+        'userid' : request.user.id,
+        'username':username,
     })

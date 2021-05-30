@@ -28,14 +28,21 @@
     <div id=tit_boxan>
         <h1>Anuncios de Colunga</h1>
     </div>
-    <div id="box_anuncios">
+    <div class="box_anuncios">
         
         {% for anuncio in Anuncios%}
-            <div id="anuncio">
+            <div class="anuncio">
                 <h2 id="titulo_anuncio" name="titulo_anuncio">{{anuncio.titulo}} </h2>
-                <label id="comentario del anuncio" name="comentario del anuncio">{{anuncio.comentario}}</label>
-                <label id="fecha_anuncio" name="fecha_anuncio">{{anuncio.fecha}}</label>
-                {%if anuncio.id_user_id %}
+                <label class="comentario_anuncio" name="comentario del anuncio">{{anuncio.comentario}}</label>
+                <label class="fecha_anuncio" name="fecha_anuncio">{{anuncio.fecha}}</label>
+                {%if anuncio.id_autor_id == userid%}
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_anuncio" value="{{anuncio.id_anuncio}}"/>
+                        <button type="submit" id="del_btn" value="True" name="del_anuncio">
+                            <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
+                        </button>
+                    </form>
                 {%endif%}
             </div>
         {% endfor %}

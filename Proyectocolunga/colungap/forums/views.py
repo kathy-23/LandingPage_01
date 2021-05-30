@@ -7,6 +7,8 @@ import time
 
 
 def inicio_topicos(request,redir=""):
+    usuario =User.objects.get(id=request.user.id)
+    username=usuario.first_name+" "+usuario.last_name
     '''acciones al cargar la pagina'''
     navtopicos=Topics.objects.all()
     #formulario de añadir foro
@@ -22,7 +24,10 @@ def inicio_topicos(request,redir=""):
                 'foros':"False",
                 'showaddforum':"True",
                 'cant_topicos':cant_topicos,
-                'formaddForum':formaddForum
+                'formaddForum':formaddForum,
+                'userid': request.user.id,
+                'username':username,
+                
             })
         
         #accion si se apreta el acrear foro
@@ -48,7 +53,9 @@ def inicio_topicos(request,redir=""):
                     'foros':'False',
                     'showaddforum':"False",
                     'addUser':'False',
-                    'formaddForum':formaddForum
+                    'formaddForum':formaddForum,
+                    'userid': request.user.id,
+                    'username':username,
                 })
             else:
                 HttpResponse('<h1>no se pudo agregar</h1>')
@@ -80,6 +87,8 @@ def inicio_topicos(request,redir=""):
                 'topico_seleccionado':topico_seleccionado,
                 'misforos':misforos,
                 'otrosforos':otrosforos,
+                'userid': request.user.id,
+                'username':username,
             })
         if request.POST.get("foro_seleccionado"):
             idforo = request.POST.get("foro_seleccionado")
@@ -103,10 +112,15 @@ def inicio_topicos(request,redir=""):
         'foros':'False',
         'showaddforum':"False",
         'addUser':'False',
+        'userid': request.user.id,
+        'username':username,
     })
 
 
 def comentforo(request,**kwargs):
+    userid = request.user.id
+    user_name=User.objects.get(id=userid)
+    username=user_name.first_name+" "+user_name.last_name
     listacomentarios=list()
     idforo=kwargs.get('idforo')
     if kwargs.get('idforo')=='inicio-topicos.html':
@@ -127,9 +141,6 @@ def comentforo(request,**kwargs):
         else:
             pass
     #return HttpResponse('<h1>'+str(len(comentarios[0].padre_id))+"  "+str(len(listacomentarios))+'</h1>')
-    userid = request.user.id
-    user_name=User.objects.get(id=userid)
-    username=user_name.first_name+" "+user_name.last_name
     #return HttpResponse('<h1>'+str(foro.title)+'</h1>')
     if request.method == 'POST':
         time.sleep(1)
@@ -148,7 +159,7 @@ def comentforo(request,**kwargs):
                 'foro':foro,
                 'comments':listacomentarios,
                 'userid':userid,
-                "username":username
+                "username":username,
             })
             #comentario
         if request.POST.get("comentar")=='True':
@@ -163,7 +174,7 @@ def comentforo(request,**kwargs):
                 'foro':foro,
                 'comments':listacomentarios,
                 'userid':userid,
-                "username":username
+                "username":username,
             })
         #eliminar comentario/respuesta        
         if request.POST.get("deletecoment"):
@@ -174,7 +185,7 @@ def comentforo(request,**kwargs):
                 'foro':foro,
                 'comments':listacomentarios,
                 'userid':userid,
-                "username":username
+                "username":username,
     })
             #obtengo todos los comentarios de este foro
     #for comentario in comentarios:
@@ -183,5 +194,5 @@ def comentforo(request,**kwargs):
         'foro':foro,
         'comments':listacomentarios,
         'userid':userid,
-        "username":username
+        "username":username,
     })

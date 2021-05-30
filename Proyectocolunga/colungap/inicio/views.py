@@ -21,6 +21,7 @@ def inicio(request,redir=""):
     elif redir=='inicio-topicos.html':
         return redirect('inicio_topicos')
     return render(request, 'inicio.html',{
-        'usernmae':username
+        'username':username,
+        'userid': request.user.id,
     })
      
