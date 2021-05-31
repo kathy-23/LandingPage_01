@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Csseditadmin/EditAdminlayout.css">
+    <title>AddUser</title>
+</head>
+
+
+<body>
+
+    <div class="padre">
+                <!-- ---------------------------------- HEADER --------------------------------------------- -->
+        <header class="header">
+
+
+            <div class="wrapper">
+
+                <!-- ---------------- LOGO ---------------- -->
+                <div class="columna01">
+
+                    <div class="roww1">
+                        <a href="https://www.fundacioncolunga.org/"> <img class="logos" src="img/logo1.png"> </a>
+                    </div>
+    
+
+                </div>
+            <!-- END -->
+
+
+                    <!-- ----------------NOMBRE Y BOTÓN---------------- -->
+                <div class="columna02">
+    
+                    <div class="roww2">
+
+                        <label class="etiqueta" for="txt_nomuser">Nombre Apellidos</label>
+
+                            <!-- para vincularlo -->
+                            <!-- <input type="text" name="txt_nomuser"> -->
+                        <button type="submit" class="botoncs" id="btn_logout">
+                            <!-- <img src="img/cerrarsesion.png" alt=""> -->
+                        </button>
+
+                    </div>
+
+                </div>
+
+                    <!-- END -->
+
+            </div>
+
+
+                    <!--  --------------------------ENLACES---------------------- -->
+            <div class="enlaces">
+
+                    <nav class="enlace1">   
+
+                        <a class="anclaHeader" href="addUser.html">Agregar Usuario</a>
+                    </nav> 
+
+                    <nav class="enlace2">   
+
+                        <a class="anclaHeader" href="editUser.html">Editar Usuario </a>
+                    </nav> 
+
+                    <nav class="enlace3">
+
+                        <a class="anclaHeader" href="removeUser.html">Eliminar Usuario </a>
+                    </nav> 
+                    
+                  
+
+    
+            </div>
+
+
+          
+                       <!-- END -->
+
+
+
+        </header>
+
+
+
+
+         <!-- ----------------------------------SECTION-------------------------------------------- -->
+
+
+        <section class="section">
+            
+
+
+
+
+            <div class="content">
+
+
+                <div class="wrapper2">
+                    
+
+
+                    <form action="/my-handling-form-page" method="post"> 
+                    <form action="#" target="" method="get" name="formDatosPersonales">
+
+
+
+                        <div class="forma1">
+
+                            
+                                <p>
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" id="nombre" placeholder="Nombre"/>
+                                </p>
+                           
+
+                                <p>
+                                    <label for="apellidos">Apellidos</label>
+                                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos"/>
+                                </p>
+
+                            
+                                <p>
+                                    <label for="rut" >Rut</label>
+                                    <input type="text" name="rut" id="rut" placeholder="12345678-9" required />
+                                </p>
+                                
+                                <p>
+                                    <label for="email" >E-mail</label>
+                                    <input type="email" name="email" id="email" placeholder="email@email.com" required />
+                                </p>
+                                
+                
+
+
+
+                        
+
+                                <p>
+                                    <label for="organizacion">Organización</label>
+                                    <input type ="name" name="organizacion" id="organizacion" placeholder="Nombre de la Organización"/>
+                                </p>
+                            
+                                <p>
+                                    <label for="teléfono">Teléfono</label>
+                                    <input type ="tel" name="telefono" id="telefono" placeholder="Número"/>
+                                </p>
+
+                                <p>
+                                    <label for="cargo">Cargo</label>
+                                    <input type ="name" name="cargo" id="cargo" placeholder=""/>
+                                </p>
+                            
+                        
+                            
+                                <p class="btn_Agregar">                
+                                    <button class="Agregar" name="btn_addUser" type="submit" >Agregar Usuario</button>
+                                </p>
+                            
+                        </div>
+                    </form>  
+                </div>
+
+            </div>
+
+                    
+            
+                   
+
+
+
+
+           
+
+                  
+                
+        
+            <!-- -------------------------------------------------- -->
+                        
+                    <!-- ------------------------------------------------ -->
+        </section>
+
+
+
+
+
+            <!-- ----------------------------------FOOTER--------------------------------------------- -->
+
+
+        <footer>
+
+            <div class="container-body">
+
+                <div class="columna1">
+                    <div class="row">
+                        <img src="img/envelope.svg">
+                        <label>Dirección: Av. Bustamante 26
+                            Providencia, Santiago
+                        </label>
+                    </div>   
+                </div>
+
+                <div class="columna2">
+                    <div class="row2">
+                        <img src="img/envelope.svg">
+                        <label>
+                        Teléfono: +56 222043350/ +56 222748547
+                        Contacto: contacto@fundacioncolunga.org
+                        </label>
+                    </div>               
+                </div>
+
+
+                <div class="columna3">
+                    <nav class="pagnav">
+
+                        <div>
+        
+                            <img src="img/link.png">
+                            <a class="anclafooter1" href="main.html">Main</a>
+
+            
+                        </div>
+        
+                        <div>
+
+                            <img src="img/link.png">
+                            <a class="anclafooter1" href="inicio.html">Login</a>
+        
+                        </div>
+            
+        
+                    </nav>
+                </div>
+
+
+                <div class="columna4"> 
+    
+    
+                    <nav class="pagnav2">
+                        <div>
+
+                            <img src="img/link.png">
+                            <a class="anclafooter2" href="ingreso.html">Inicio</a>
+                        </div>
+
+                        <div>
+                            <img src="img/link.png">
+                            <a class="anclafooter2" href="addUser.html">EditAdmin</a>
+                        </div>
+                    </nav>
+
+                </div>         
+
+    
+            </div>
+
+
+            <!-- END -->
+
+        </footer>
+
+    </div>
+
+    
+</body>
+</html>
