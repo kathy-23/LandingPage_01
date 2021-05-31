@@ -45,11 +45,11 @@
             {% csrf_token %}
             <button id="btn_showaddforum"type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
         </form>
+        <div id="box_titulo">
+            <h1>{{topico_seleccionado.title}}</h1>
+            <label id="fecha_titulo">{{topico_seleccionado.updated_at}}</label>
+        </div>
         <div id="box_contenido">
-            <div id="box_titulo">
-                <h1>{{topico_seleccionado.title}}</h1>
-                <label id="fecha_titulo">{{topico_seleccionado.updated_at}}</label>
-            </div>
             <div class="titlebox">
                 <label>Mis Foros</label>
                 <label>Foros</label>

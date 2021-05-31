@@ -1,17 +1,30 @@
 {% extends 'inicio-layout.html' %}
+{% load static %}
 {%block content %}
-            <a name="btn_zoom" href="{zoomhref}"><img src="zoom.jpg" alt="zoomimg" /></a>
+        <div id="div_left">
+            <a id="zoomimg" name="btn_zoom" href="{zoomhref}"><img src="{%static 'img/zoom.png' %}" alt="zoomimg" /></a>
+            <div class="clearfix"></div>
             <!--Boton ColungaHub-->
-            <a name="btn_hub" href="{hubhref}"><img src="hub.jpg" alt="hubimg" /></a>
+            <a id="hubimg" name="btn_hub" href="{hubhref}"><img src="hub.jpg" alt="hubimg" /></a>
             <!--caja de anuncios-->
+        </div>
+        <div id="div_right">
+                <div id="tit_boxanini">
+                    <h1>Anuncios de Colunga</h1>
+                  <!--  <form action="" method="POST">-->
+                        {% csrf_token %}
+                        <button id="btn_ShowAgregarini" onclick="location.href='inicio-anuncios.html'" ><h6>+</h6></button>
+                    <!--</form>-->
+                </div>
+                <div class="box_anuncios_inicio">
+                    {% for anuncio in Anuncios%}
+                        <div class="anuncioini">
+                            <h2 class="titulo_anuncioini" name="titulo_anuncioini">{{anuncio.titulo}} </h2>
+                            <label class="comentario_anuncioini" name="comentario_anuncioini">{{anuncio.comentario}}</label>
+                            <label class="fecha_anuncioini" name="fecha_anuncioini">{{anuncio.fecha}}</label>
 
-        <div id=box0>
-            <div id=content>
-                {% for anuncio in anuncios %}
-                    <div id="block_anuncio">
-                    <!--ventana emergente que habra el contenido del anuncio?-->
-                    </div>
-                {% endfor %}
-            </div>
+                        </div>
+                    {% endfor %}
+                </div>
         </div>
 {%endblock content%}
