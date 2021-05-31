@@ -806,7 +806,7 @@ body{
 }
 
 #box_titulo h1{
-    padding-top: 18px;
+    padding-top: 0px;
 }
 #fecha_titulo{
     position: relative;

@@ -1,42 +1,86 @@
-{% extends 'layout-foro.html '%}
-{% load static %}
-
-{% block content %}
-    <content>
-        {% for coment in comments %}
-            <div id="comentario">
-                <label id="nombreusuario_coment">{{username}}</label>
-                <label id="content_comment">{{coment.content}}</label>
-                <label id="created_at">{{coment.created_at}}</label>
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title> | COLUNGA</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css-forums/comentforo.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1 id="titulo_foro">{{foro.title}}</h1><!--estas estiquetas pueden ser cambiadas por cualquier otra que solo muestre texto: p, h1, h2 etc etc-->
+            <label id="descripcion_foro">{{foro.descripcion}}</label>
+            <button id="btn_volverinicio"onclick="location.href='inicio-topicos.html'">volver a topicos</button>
+        </header>
+        <div id="cajacomentarios">
+            <div class="formcomentar">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="padre_id" value="{{coment.id}}"/>
-                    <input type="hidden" name="forum_id" value="{{foro.id}}"/>
-                    {%if coment.padre_id == 'None' %}
-                        <input type="text" name="comentario"/>
-                        <button type="submit" name="reply" value="True" >Responder</button>
-                    {%endif%}
-                    </form>
-                {% if userid == coment.id_user_id %}
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <!--no cambiar nombre a este boton-->
-                        <input type="hidden" name="reply" value="False"/>
-                        <input type="hidden" name="comentar" value="False"/>
-                        <button id="del_btn"name="deletecoment" value={{coment.id}}><img id="del-icono" src="{%static 'img-forums/del-icono.png' %} " alt='del-icono'></button>
-                    </form>
-                {% endif %}
+                    <input class="input_form" type="text" name="comentario"/>
+                    <button class="btn_comentar"type="submit" name="reply" value="True" >Comentar
+                        <input type="hidden" name="padre_id" value="{{coment.id}}"/>
+                        <input type="hidden" name="forum_id" value="{{foro.id}}"/>
+                        
+                    </button>
+                </form>
             </div>
-            {% empty %}
-            <p name="empty_msg">SIN COMENTARIOS AUN</p>
-        {% endfor %}
-        <div id="comentario">
-            <form action="" method="post">
-                {% csrf_token %}
-                <input type="text" name="comentario"/>
-                <input type="hidden" name="forum_id" value="{{foro.id}}"/>
-                <button type="submit" name="comentar" value="True" >Comentar</button>
-            </form>
+            <div class="clearfix"></div>
+
+            {% for coment in comments %}
+                {%if coment.padre_id == 'None'%}
+                    <div class="comentario">
+                        <div class="header_comentario">
+                            <label class="nombreusuario_coment">{{username}}</label>
+                            <label class="created_at">{{coment.created_at}}</label>
+                            {%if coment.id_user_id == userid %}
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="id_comentario" value="{{coment.id}}"/>
+                                    <button type="submit" class="del_btn_com" value="True" name="del_comentario">
+                                        <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
+                                    </button>
+                                </form>
+                            {%endif%}
+                        </div>
+                        <label class="contt_comment">{{coment.content}}</label>
+                        
+                        <div class="formcomentar">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <input class="input_form" type="text" name="comentario"/>
+                                <button class="btn_comentar"type="submit" name="reply" value="True" >Responder
+                                    <input type="hidden" name="padre_id" value="{{coment.id}}"/>
+                                    <input type="hidden" name="forum_id" value="{{foro.id}}"/>
+                                    
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {%else%}
+                    <div class="respuesta">
+                        <div class="header_respuesta">
+                            <label class="nombreusuario_coment">{{username}}</label>
+                            <label class="created_at">{{coment.created_at}}</label>
+                            
+                            {%if coment.id_user_id == userid%}
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="id_comentario" value="{{coment.id}}"/>
+                                    <button type="submit" class="del_btn_resp" value="True" name="del_comentario">
+                                        <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
+                                    </button>
+                                </form>
+                            {%endif%}
+                        </div>
+                        <label class="contt_comment">{{coment.content}}</label>
+                    </div>
+                {%endif%}
+
+                {% empty %}
+
+                <h2 id="emptymsg">Sin comentarios aun</h2>
+
+            {%endfor%}
         </div>
-    </content>
-{% endblock content %}
+    </body>
+</html>

@@ -174,8 +174,8 @@ def comentforo(request,**kwargs):
     #return HttpResponse('<h1>'+str(len(comentarios[0].padre_id))+"  "+str(len(listacomentarios))+'</h1>')
     #return HttpResponse('<h1>'+str(foro.title)+'</h1>')
     if request.method == 'POST':
-        time.sleep(1)
         #respuesta
+        listacomentarios=list()
         if request.POST.get('reply')=="True":
 
             Coment.objects.create(
@@ -184,8 +184,25 @@ def comentforo(request,**kwargs):
                 id_forum_id=idforo,
                 padre_id=request.POST.get("padre_id"),
             )
+            foro=Forums.objects.get(id=idforo)
+            comentarios=Coment.objects.filter(id_forum_id=foro.id)
+            #codigo para ordenar comentarios poniendo las respuestas debajo del comentario
+            for comentario in comentarios:
+                if comentario.padre_id==None:
+                    comentario.padre_id='None'
+                    listacomentarios.append(comentario)
+                    for coment in comentarios:
+                        if coment.padre_id==comentario.id:
+                            listacomentarios.append(coment)
+                        else:
+                            pass
+                else:
+                    pass
+            time.sleep(1)
             #return redirect(request,idforo=idforo,foro=foro,comments=listacomentarios,userid=userid,username=username)
             return render(request,'comentforo.html',{
+                'del_comentario':'False',
+                'comentar':'False',
                 'reply':'False',
                 'foro':foro,
                 'comments':listacomentarios,
@@ -200,19 +217,52 @@ def comentforo(request,**kwargs):
                 id_user_id=request.user.id,
                 id_forum_id=idforo,
             )
+            foro=Forums.objects.get(id=idforo)
+            comentarios=Coment.objects.filter(id_forum_id=foro.id)
+            #codigo para ordenar comentarios poniendo las respuestas debajo del comentario
+            for comentario in comentarios:
+                if comentario.padre_id==None:
+                    comentario.padre_id='None'
+                    listacomentarios.append(comentario)
+                    for coment in comentarios:
+                        if coment.padre_id==comentario.id:
+                            listacomentarios.append(coment)
+                        else:
+                            pass
+                else:
+                    pass
+            time.sleep(1)
             return render(request,'comentforo.html',{
                 'comentar':'False',
+                'reply':'False',
                 'foro':foro,
                 'comments':listacomentarios,
                 'userid':userid,
                 "username":username,
             })
         #eliminar comentario/respuesta        
-        if request.POST.get("deletecoment"):
-            comentario=Coment.objects.get(id=request.POST.get("deletecoment"))
+        if request.POST.get("del_comentario")=='True':
+            comentario=Coment.objects.get(id=int(request.POST.get("id_comentario")))
             comentario.delete()
+            foro=Forums.objects.get(id=idforo)
+            comentarios=Coment.objects.filter(id_forum_id=foro.id)
+            #codigo para ordenar comentarios poniendo las respuestas debajo del comentario
+            for comentario in comentarios:
+                if comentario.padre_id==None:
+                    comentario.padre_id='None'
+                    listacomentarios.append(comentario)
+                    for coment in comentarios:
+                        if coment.padre_id==comentario.id:
+                            listacomentarios.append(coment)
+                        else:
+                            pass
+                else:
+                    pass
             time.sleep(1)
             return render(request,'comentforo.html',{
+                'comentar':'False',
+                'reply':'False',
+                'del_comentario':'False',
                 'foro':foro,
                 'comments':listacomentarios,
                 'userid':userid,
@@ -221,7 +271,11 @@ def comentforo(request,**kwargs):
             #obtengo todos los comentarios de este foro
     #for comentario in comentarios:
     #    if comentario.id_padre
+    time.sleep(1)
     return render(request,'comentforo.html',{
+        'comentar':'False',
+        'reply':'False',
+        'del_comentario':'False',
         'foro':foro,
         'comments':listacomentarios,
         'userid':userid,
