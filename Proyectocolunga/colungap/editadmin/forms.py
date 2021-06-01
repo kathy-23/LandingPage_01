@@ -9,10 +9,22 @@ class AddUserForm(UserCreationForm):
             'first_name': 'Nombre',
             'last_name': 'Apellido',
             'email':'Correo',
+            'password':'Contraseña'
         }
 
 class EditUserForm(forms.Form):
-    first_name = forms.CharField(max_length=60)
-    last_name = forms.CharField(max_length=60)
-    email = forms.EmailField(max_length=80)
-    password = forms.CharField(max_length=60,required=False)
+    Nombre = forms.CharField(max_length=60)
+    Apellido = forms.CharField(max_length=60)
+    Correo = forms.EmailField(max_length=80)
+    password1 = forms.CharField(
+        label="Contraseña",
+        strip=False,
+        widget=forms.PasswordInput,
+)
+    class Meta:
+        labels={
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email':'Correo',
+            'password':'Contraseña'
+        }

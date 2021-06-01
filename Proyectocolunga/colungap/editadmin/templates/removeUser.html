@@ -1,13 +1,27 @@
 {% extends 'editadminlayout.html' %}
+{%load static%}
+{%block css%}
+    <link rel='stylesheet' type='text/css' href="{% static 'css-editadmin/removeuser.css' %}">
+{%endblock%}
 {% block form %}
-<label id=list_user_label>Usuarios:</label>
-<form method='post' action=''>
-    {% csrf_token %}
-    <select name='user_list' {{cant_user}}> <!--no cambiar nombre a este boton-->
-        {%for user in list_user%}
-        <option value="{{user.email}}">{{user.first_name}} {{user.last_name}}</option>
-        {%endfor%}
-    </select>
-    <button name="btn_removeUser" type="submit" >Eliminar usuario</button> <!--no cambiar nombre a este boton-->
-</form>
+<div class="content">
+    <div class="wrapper5">
+        <div class="formaRemove">
+            <h1 id=list_user_label>Seleccione usuario a eliminar</h1>
+            <br>
+            <br>
+            <form method='post' action='' class="formEditUser">
+                {% csrf_token %}
+                <select name='user_list' class="selectRemove" size="7" > <!--no cambiar nombre a este boton-->
+                    {%for user in list_user%}
+                    <option value="{{user.email}}">{{user.first_name}} {{user.last_name}}</option>
+                    {%endfor%}
+                </select>
+                <div class="botonremover">
+                    <button name="btn_removeUser" type="submit" class="btn_Ruser" >Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock form %}
