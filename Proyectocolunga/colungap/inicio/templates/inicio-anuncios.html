@@ -1,54 +1,60 @@
 {% extends 'inicio-layout.html' %}
 {% load static %}
-<link rel='stylesheet' type='text/css' href="{% static 'css-inicio/estilos-anuncios.css' %}">
+{%block css-link%}
+<link rel='stylesheet' type='text/css' href="{% static 'css-inicio/inicio-anuncios.css' %}">
+{%endblock%}
 {%block content %}
     
     {% if showAgregar == 'True'%}
-        <div id="titulo_box">
-            <h1>Crear anuncio</h1>
-        </div>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <div id="showAgregar">
-                <label id="titulo_agregar">Titulo</label>
-                {{formulario.titulo}}
-                <div class="clearfix"></div>
-                <label id="contenido_agregar">Descripción</label>
-                {{formulario.comentario}}
-                <input type="hidden" name="showAgregar" value="False">
-                <input type="hidden" name="showAnuncio" value="True">
-                <button id="btn_Agregar" class="Agregar" name="boton_agregar" type="submit" value="True">Agregar</button>
-                <input id="btn_back_anuncios" type="button" onclick="location.href='inicio-anuncios.html'" value="Atras"/>
+        <div id="box_agregar">
+            <div id="titulo_box">
+                <h1>Crear anuncio</h1>
             </div>
-        </form>
-        
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div id="contentAgregar">
+                    <label id="titulo_agregar">Titulo</label>
+                    {{formulario.titulo}}
+                    <label id="contenido_agregar">Descripción</label>
+                    {{formulario.comentario}}
+                    <input type="hidden" name="showAgregar" value="False">
+                    <input type="hidden" name="showAnuncio" value="True">
+                    <input id="btn_back_anuncios" type="button" onclick="location.href='inicio-anuncios.html'" value="Atras"/>
+                    <button id="btn_Agregar" class="Agregar" name="boton_agregar" type="submit" value="True">Agregar</button>
+                </div>
+            </form>
+        </div>
     {% endif %}
     {% if showAnuncio == 'True'%}
-    <form action="" method="POST">
+    <form id="formbtn_agregar"action="" method="POST">
         {% csrf_token %}
         <button id="btn_ShowAgregar" type="submit" name="showAgregar" value="True">agregar anuncio</button>
     </form>
-    <div id=tit_boxan>
-        <h1>Anuncios de Colunga</h1>
-    </div>
+    
     <div class="box_anuncios">
-        
-        {% for anuncio in Anuncios%}
-            <div class="anuncio">
-                <h2 id="titulo_anuncio" name="titulo_anuncio">{{anuncio.titulo}} </h2>
-                <label class="comentario_anuncio" name="comentario del anuncio">{{anuncio.comentario}}</label>
-                <label class="fecha_anuncio" name="fecha_anuncio">{{anuncio.fecha}}</label>
-                {%if anuncio.id_autor_id == userid%}
-                    <form method="post" action="">
-                        {% csrf_token %}
-                        <input type="hidden" name="id_anuncio" value="{{anuncio.id_anuncio}}"/>
-                        <button type="submit" id="del_btn" value="True" name="del_anuncio">
-                            <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
-                        </button>
-                    </form>
-                {%endif%}
-            </div>
-        {% endfor %}
+        <div id=tit_boxan>
+            <h1>Anuncios de Colunga</h1>
+        </div>
+        <div id="content_anuncio">
+            {% for anuncio in Anuncios%}
+                <div class="anuncio">
+                    <h2 id="titulo_anuncio" name="titulo_anuncio">{{anuncio.titulo}} </h2>
+                    <label class="fecha_anuncio" name="fecha_anuncio">{{anuncio.fecha}}</label>
+                    {%if anuncio.id_autor_id == userid%}
+                        <form id="btn_borrar"method="post" action="">
+                            {% csrf_token %}
+                            <input type="hidden" name="id_anuncio" value="{{anuncio.id_anuncio}}"/>
+                            <button type="submit" id="del_btn" value="True" name="del_anuncio">
+                                <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
+                            </button>
+                        </form>
+                    {%endif%}
+                    <label class="comentario_anuncio" name="comentario del anuncio">{{anuncio.comentario}}</label>
+                    
+                    
+                </div>
+            {% endfor %}
+        </div>
     </div>
     {% endif %}
 {%endblock content%}

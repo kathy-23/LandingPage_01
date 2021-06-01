@@ -1,20 +1,21 @@
 {% extends 'inicio-layout.html' %}
 {% load static %}
+{%block css-link%}
+<link rel='stylesheet' type='text/css' href="{% static 'css-inicio/inicio-inicio.css' %}">
+{%endblock%}
 {%block content %}
-        <div id="div_left">
-            <a id="zoomimg" name="btn_zoom" href="{zoomhref}"><img src="{%static 'img/zoom.png' %}" alt="zoomimg" /></a>
-            <div class="clearfix"></div>
-            <!--Boton ColungaHub-->
-            <a id="hubimg" name="btn_hub" href="{hubhref}"><img src="hub.jpg" alt="hubimg" /></a>
-            <!--caja de anuncios-->
+        <div class="box1">
+            <div id="linkimg">
+                <a id="zoomimg" name="btn_zoom" href="{zoomhref}"><img src="{%static 'img/zoom.png' %}" alt="zoomimg" /></a>
+
+                <!--Boton ColungaHub-->
+                <a id="hubimg" name="btn_hub" href="{hubhref}"><img src="{%static 'img/hub.png' %}" alt="hubimg" /></a>
+                <!--caja de anuncios-->
+            </div>
         </div>
-        <div id="div_right">
+        <div class="box1">
                 <div id="tit_boxanini">
                     <h1>Anuncios de Colunga</h1>
-                  <!--  <form action="" method="POST">-->
-                        {% csrf_token %}
-                        <button id="btn_ShowAgregarini" onclick="location.href='inicio-anuncios.html'" ><h6>+</h6></button>
-                    <!--</form>-->
                 </div>
                 <div class="box_anuncios_inicio">
                     {% for anuncio in Anuncios%}

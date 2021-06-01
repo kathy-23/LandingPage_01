@@ -1,5 +1,8 @@
 {% extends 'inicio-layout.html' %}
 {% load static %}
+{%block css-link%}
+<link rel='stylesheet' type='text/css' href="{% static 'css-inicio/inicio-topicos.css' %}">
+{%endblock%}
 {%block content %}
     <nav id="nav_topicos">
             <form method="post" action="">
@@ -11,7 +14,6 @@
                 </ul>
             </form>
     </nav>
-    <div class="clearfix"></div>
     {%if showaddforum == 'True'%}
         <div id="showaddforumtitle">
             <h2>Crear Foro</h2>
@@ -24,37 +26,27 @@
                         <option value="{{topico.title}}">{{topico.title}}</option>
                     {%endfor%}
                 </select>
-                <div id="tituloform">
-                    <label id="titulo_agregar">Titulo</label>
-                    {{formaddForum.titulo}}
-                </div>
-                <div class="clearfix"></div>
-                <div id="contentform">
-                    <label id="contenido_agregar">Descripción</label>
-                    {{formaddForum.descripcion}}
-                </div>
+                <label id="titulo_agregar">Titulo</label>
+                {{formaddForum.titulo}}
+                <label id="contenido_agregar">Descripción</label>
+                {{formaddForum.descripcion}}
+                <button id="btn_back" onclick="location.href='inicio-topicos.html'">Atras</button>
                 <button id="btn_addforum"type="submit" name="addforum" value="True">Crear Foro</button>
-                
             </form>
-            <input id="btn_back" type="button" onclick="location.href='inicio-topicos.html'" value="Atras"/>
         </div>
     {% endif %}
-    <div class="clearfix"></div>
     {% if foros == 'True' %}
-        <form method="post" action="">
-            {% csrf_token %}
-            <button id="btn_showaddforum"type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
-        </form>
-        <div id="box_titulo">
-            <h1>{{topico_seleccionado.title}}</h1>
-            <label id="fecha_titulo">{{topico_seleccionado.updated_at}}</label>
-        </div>
-        <div id="box_contenido">
-            <div class="titlebox">
-                <label>Mis Foros</label>
-                <label>Foros</label>
+        <div id="box_foros">
+            <div id="box_titulo">
+                <h1>{{topico_seleccionado.title}}</h1>
+                <form id="btnform_addforum"method="post" action="">
+                    {% csrf_token %}
+                    <button id="btn_showaddforum"type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
+                </form>
+                <label id="fecha_titulo">{{topico_seleccionado.updated_at}}</label>
             </div>
             <div class='box_foros'>
+                <label>Mis Foros</label>
                 <form method="post" action="">
                     {% csrf_token %}
                     {%for foro in misforos%}
@@ -74,20 +66,21 @@
                     {% endfor %}
                 </form>
             </div>
-            <div class='box_foros'>
-                
-                <form method="post" action="">
-                    {% csrf_token %}
-                    {%for foro in otrosforos %}
-                        <!--replies totales-->
-                        <button class="btn_f" type="submit" name="foro_seleccionado"  value="{{foro.id}}">
-                            <p class="titulof">{{foro.title}}</p>
-                            <p class="cant_comentf">comentarios: {{foro.cant_coment}}</p>
-                        </button>
-                    {% endfor %}
-                </form>
+            <div class="box_foros">
+                    <label>Foros</label>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {%for foro in otrosforos %}
+                        <div class="block_foro">
+                            <!--replies totales-->
+                            <button class="btn_f" type="submit" name="foro_seleccionado"  value="{{foro.id}}">
+                                <p class="titulof">{{foro.title}}</p>
+                                <p class="cant_comentf">comentarios: {{foro.cant_coment}}</p>
+                            </button>
+                        </div>
+                        {% endfor %}
+                    </form>
             </div>
-            
         </div>
     {% endif %}
 {%endblock content %}

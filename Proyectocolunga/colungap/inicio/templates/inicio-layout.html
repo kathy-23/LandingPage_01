@@ -3,6 +3,8 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href="{% static 'css-inicio/inicio-layout.css' %}">
+        {%block css-link%}
+        {%endblock%}
         <meta charset='utf-8'/>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,61 +41,61 @@
                 </nav> 
             </div>
         </header>
+        <div class="clearfix"></div>
         <section class="section">
             {% block content %}
             {% endblock content %}
+            <footer>
+                <div class="container-body">
+                    <div class="columna1">
+                        <div class="row">
+                            <img src="{% static 'img/envelope.svg'%}">
+                            <label>Dirección: Av. Bustamante 26
+                                Providencia, Santiago
+                            </label>
+                        </div>   
+                    </div>
+    
+                    <div class="columna2">
+                        <div class="row2">
+                            <img src="{% static 'img/envelope.svg'%}">
+                            <label>
+                            Teléfono: +56 222043350/ +56 222748547
+                            Contacto: contacto@fundacioncolunga.org
+                            </label>
+                        </div>               
+                    </div>
+    
+                    <div class="columna3">
+                        <nav class="pagnav">
+                            <div>
+                                <img src="{%static 'img/link.png'%}">
+                                <a class="anclafooter1" href="main.html">Main</a>
+                            </div>
+            
+                            <div>
+                                <img src="{% static 'img/link1.png'%}">
+                                <a class="anclafooter1" href="inicio.html">Login</a>
+                            </div>
+                        </nav>
+                    </div>
+    
+                    <div class="columna4"> 
+                        <nav class="pagnav2">
+                            <div>
+                                <img src="{%static 'img/link2.png'%}">
+                                <a class="anclafooter2" href="ingreso.html">Inicio</a>
+                            </div>
+    
+                            <div>
+                                <img src="{%static 'img/link3.png'%}">
+                                <a class="anclafooter2" href="addUser.html">EditAdmin</a>
+                            </div>
+                        </nav>
+                    </div>         
+                </div>
+                <!-- END -->
+            </footer>
         </section>
-        <footer>
-            <div class="container-body">
-                <div class="columna1">
-                    <div class="row">
-                        <img src="{% static 'img/envelope.svg'%}">
-                        <label>Dirección: Av. Bustamante 26
-                            Providencia, Santiago
-                        </label>
-                    </div>   
-                </div>
-
-                <div class="columna2">
-                    <div class="row2">
-                        <img src="{% static 'img/envelope.svg'%}">
-                        <label>
-                        Teléfono: +56 222043350/ +56 222748547
-                        Contacto: contacto@fundacioncolunga.org
-                        </label>
-                    </div>               
-                </div>
-
-                <div class="columna3">
-                    <nav class="pagnav">
-                        <div>
-                            <img src="{%static 'img/link.png'%}">
-                            <a class="anclafooter1" href="main.html">Main</a>
-                        </div>
-        
-                        <div>
-                            <img src="{% static 'img/link1.png'%}">
-                            <a class="anclafooter1" href="inicio.html">Login</a>
-                        </div>
-                    </nav>
-                </div>
-
-                <div class="columna4"> 
-                    <nav class="pagnav2">
-                        <div>
-                            <img src="{%static 'img/link2.png'%}">
-                            <a class="anclafooter2" href="ingreso.html">Inicio</a>
-                        </div>
-
-                        <div>
-                            <img src="{%static 'img/link3.png'%}">
-                            <a class="anclafooter2" href="addUser.html">EditAdmin</a>
-                        </div>
-                    </nav>
-                </div>         
-            </div>
-            <!-- END -->
-        </footer>
-
     </body>
 </html>

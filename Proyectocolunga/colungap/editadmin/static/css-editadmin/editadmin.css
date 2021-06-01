@@ -204,19 +204,11 @@ body{
 
 
     .section{
-        background-image: url(../img/Fondo.jpg); 
-        /* para flexbpx display flex */
-        display: flex;
-        /* background-position: center top; */
-        flex-flow: column nowrap;
-        overflow: hidden; 
-        background-size: cover; 
-        background-repeat: no-repeat;
-        background-position: absolute;
+        
         /* background-attachment: fixed; */
         /* max-width: 1366px ;
         height: 500px; */
-        height: 67.2vh;
+        height: 100%;
         width: 100%; 
         
     }
