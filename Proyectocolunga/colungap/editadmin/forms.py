@@ -13,9 +13,9 @@ class AddUserForm(UserCreationForm):
         }
 
 class EditUserForm(forms.Form):
-    Nombre = forms.CharField(max_length=60)
-    Apellido = forms.CharField(max_length=60)
-    Correo = forms.EmailField(max_length=80)
+    first_name = forms.CharField(max_length=60)
+    last_name = forms.CharField(max_length=60)
+    email = forms.EmailField(max_length=80)
     password1 = forms.CharField(
         label="Contraseña",
         strip=False,
