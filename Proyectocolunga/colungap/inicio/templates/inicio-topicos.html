@@ -12,6 +12,14 @@
                     <li><button id="btn_navtopico"type="submit" name="nav_topico" value="{{topico.title}}">{{topico.title}}</button></li>
                 {% endfor %}
                 </ul>
+                <!-- condicional y for para mostrar mensaje de alerta por credenciales erroneas-->
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
             </form>
     </nav>
     {%if showaddforum == 'True'%}
