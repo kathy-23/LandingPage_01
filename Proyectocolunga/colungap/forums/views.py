@@ -4,7 +4,7 @@ from .models import Coment, Forums, Topics
 from .forms import addForum
 from django.contrib.auth.models import User
 import time
-
+from django.contrib import messages
 
 def inicio_topicos(request,redir=""):
     usuario =User.objects.get(id=request.user.id)
@@ -35,33 +35,36 @@ def inicio_topicos(request,redir=""):
         
         #accion si se apreta el acrear foro
         if request.POST.get('addforum')=='True':
-            #obtengo el topico seleccionado
-            topico=Topics.objects.get(title=request.POST.get('topico_seleccionado'))
-            #verifico si el llenado de formulario es valido
-            if formaddForum.is_valid():
-                #return HttpResponse('<h1>'+str(topico.id)+'</h1>')
-                #creo y agrego a la bdd usando el modelo de Forums
-                Forums.objects.create(
-                    title=request.POST.get('titulo'),
-                    descripcion=request.POST.get('descripcion'),
-                    #los identificadores de las claves foraneas se ponen como estan en la bdd
-                    id_user_id=request.user.id,
-                    #los identificadores de las claves foraneas se ponen como estan en la bdd
-                    id_topic_id=topico.id,
-                    cant_coment=0
-                )
-                #return HttpResponse('<h1>'+str(obj.id_topic_id)+'</h1>')
-                return render(request,'inicio-topicos.html',{
-                    'navtopicos':navtopicos,
-                    'foros':'False',
-                    'showaddforum':"False",
-                    'addUser':'False',
-                    'formaddForum':formaddForum,
-                    'userid': request.user.id,
-                    'username':username,
-                })
-            else:
-                HttpResponse('<h1>no se pudo agregar</h1>')
+            try:
+                #obtengo el topico seleccionado
+                topico=Topics.objects.get(title=request.POST.get('topico_seleccionado'))
+                #verifico si el llenado de formulario es valido
+                if formaddForum.is_valid():
+                    #return HttpResponse('<h1>'+str(topico.id)+'</h1>')
+                    #creo y agrego a la bdd usando el modelo de Forums
+                    Forums.objects.create(
+                        title=request.POST.get('titulo'),
+                        descripcion=request.POST.get('descripcion'),
+                        #los identificadores de las claves foraneas se ponen como estan en la bdd
+                        id_user_id=request.user.id,
+                        #los identificadores de las claves foraneas se ponen como estan en la bdd
+                        id_topic_id=topico.id,
+                        cant_coment=0
+                    )
+                    #return HttpResponse('<h1>'+str(obj.id_topic_id)+'</h1>')
+                    return render(request,'inicio-topicos.html',{
+                        'navtopicos':navtopicos,
+                        'foros':'False',
+                        'showaddforum':"False",
+                        'addUser':'False',
+                        'formaddForum':formaddForum,
+                        'userid': request.user.id,
+                        'username':username,
+                    })
+                else:
+                    messages.info(request,'Error al guardar el foro.')
+            except:
+                messages.info(request,'Error al guardar el foro.')
         #accion si se selecciona un topico
         if request.POST.get('nav_topico'):
             title=request.POST.get('nav_topico')
