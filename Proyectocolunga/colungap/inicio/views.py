@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect,HttpResponse
-
+from django.contrib.auth import logout
 from django.contrib.auth.models import User, AbstractUser 
 from anuncios.models import Anuncio
 
 
 def inicio(request,redir=""):
+    if request.method == 'POST':
+        if request.POST.get("btn_logout")=="logout":
+            logout(request)
+            return redirect('main')
     usuario =User.objects.get(id=request.user.id)
     username=usuario.first_name+" "+usuario.last_name
     anuncios = Anuncio.objects.all().order_by('-fecha')

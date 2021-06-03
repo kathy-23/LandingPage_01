@@ -15,6 +15,9 @@ def inicio_topicos(request,redir=""):
     formaddForum=addForum(request.POST)
     #condiciones para un post
     if request.method == 'POST':
+        if request.POST.get("btn_logout")=="logout":
+            logout(request)
+            return redirect('main')
         #accion si se apreta crear nuevo foro
         if request.POST.get('showaddforum')=='True':
             #tamaño de la lista de topicos

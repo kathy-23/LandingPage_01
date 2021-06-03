@@ -18,6 +18,9 @@ def addUser(request,redir=''):
     adduserform = AddUserForm(request.POST)
     #consulto si el metodo es POST 
     if request.method == 'POST':
+        if request.POST.get("btn_logout")=="logout":
+            logout(request)
+            return redirect('main')
         #almaceno el email del formulario
         email=request.POST.get('email')
         
@@ -100,6 +103,9 @@ def removeUser(request,redir=''):
     
     #accion de eliminar un usuario
     if request.method =='POST':
+        if request.POST.get("btn_logout")=="logout":
+            logout(request)
+            return redirect('main')
         #obtiene lo enviado por la pagina
         email=request.POST.get('user_list')
         #crea el objeto de la tabla que contiene ese email
@@ -149,6 +155,9 @@ def editUser(request,redir=''):
     usuarios=User.objects.exclude(is_active=False).all()
     cant_user="size="+str(len(usuarios))
     if request.method == 'POST':
+        if request.POST.get("btn_logout")=="logout":
+            logout(request)
+            return redirect('main')
         save=str(request.POST.get('save'))
         showform=str(request.POST.get('showform'))
         if(showform=='True'):

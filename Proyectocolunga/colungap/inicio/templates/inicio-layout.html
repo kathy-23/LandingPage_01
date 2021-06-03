@@ -23,8 +23,12 @@
                 <div class="columna02">
                     <div class="roww2">
                         <label class="etiqueta" name="txt_nomuser">{{username}}</label>
-                        <button type="submit" onclick="location.href='logout'" class="botoncs" name="btn_logout" id="btn_logout">
-                        </button>
+                        <form action=""method="POST">
+                            {% csrf_token %}
+                            <button type="submit" onclick="location.href='logout'" class="botoncs" name="btn_logout" value="logout" id="btn_logout">
+                                <img src="{% static 'imgeditadmin/cerrarsesion.png'%}" alt="logoutimg">
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>                                            

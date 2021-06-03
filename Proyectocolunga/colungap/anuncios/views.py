@@ -11,6 +11,9 @@ def addAnuncio(request, redir=''):
     anuncios = Anuncio.objects.all().order_by('-fecha')
     formulario=addanuncio(request.POST)
     if request.method == 'POST':
+        if request.POST.get("btn_logout")=="logout":
+            logout(request)
+            return redirect('main')
         if request.POST.get("showAgregar") == "True":
             return render(request, 'inicio-anuncios.html', {
                 'formulario': formulario,

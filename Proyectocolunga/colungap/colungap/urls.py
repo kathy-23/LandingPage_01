@@ -49,7 +49,4 @@ urlpatterns = [
                                           
     path('comentforo',forum.comentforo,name='comentforo'),
     path('comentforo/<str:idforo>',forum.comentforo,name='comentforo'),
-
-
-    path('logout/',editadmin.logout,name='logout'), 
 ]

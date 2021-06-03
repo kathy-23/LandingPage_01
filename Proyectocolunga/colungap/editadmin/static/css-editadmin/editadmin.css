@@ -245,7 +245,7 @@ body{
 
     /* ---------------------------------------FOOTER------------------------------------- */
 
-    footer{
+    .footer{
         /* background: rgb(0, 94, 0);
         display: flex;
         flex-flow: column nowrap; 
