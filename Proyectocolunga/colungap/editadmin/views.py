@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.shortcuts import redirect, render, HttpResponse
 from .forms import AddUserForm, EditUserForm
+from django.contrib import messages
 '''
 la forma de agregar y usuarios cambio ya que si se remueve a un usuario de la bdd y luego se vuelve agregar, su id cambiaria
 y si anteriormente ese usuario eliminado hizo alguna publicacion en el foro iban a existir conflictos por id
@@ -41,6 +42,7 @@ def addUser(request,redir=''):
             #usar existente
             usuario.is_active=True
             usuario.save()
+            messages.info(request,'Usuario agregado con exito.')
             return render(request,'addUser.html',{
                 'addUserform':adduserform,
                 'username':username
@@ -66,8 +68,8 @@ def addUser(request,redir=''):
                     'username':username
                 })
             else:
-                print(adduserform)
-                return HttpResponse('<h1>no se pudo agregar el usuario</h1>')
+                
+                messages.info(request,'Correo y/o contraseña invalida.')
         
     if redir=='main.html':
         return redirect('main')
@@ -109,20 +111,22 @@ def removeUser(request,redir=''):
         #obtiene lo enviado por la pagina
         email=request.POST.get('user_list')
         #crea el objeto de la tabla que contiene ese email
-        remov = User.objects.get(email=email)
-        if remov is not None:#si encontro al usuario 'not none'
-            remov.is_active=False #borrar en la tabla a lo que corresponde el objeto
-            remov.save()
-            usuarios=User.objects.exclude(is_active=False).all()
-            #return HttpResponse('<h1>'+str(remov)+'</h1>')
-            return render(request,'removeUser.html',{
-                'username':username,
-                'list_user':usuarios,
-                'cant_user':cant_user,
-            })#redirecciona a la misma pagina
-        else:
-            pass
-    
+        try:
+            remov = User.objects.get(email=email)
+            if remov is not None:#si encontro al usuario 'not none'
+                remov.is_active=False #borrar en la tabla a lo que corresponde el objeto
+                remov.save()
+                usuarios=User.objects.exclude(is_active=False).all()
+                #return HttpResponse('<h1>'+str(remov)+'</h1>')
+                return render(request,'removeUser.html',{
+                    'username':username,
+                    'list_user':usuarios,
+                    'cant_user':cant_user,
+                })#redirecciona a la misma pagina
+            else:
+                pass
+        except:
+            messages.info(request,'Seleccione un usuario a eliminar.')
     
     elif redir=='main.html':
         return redirect('main')
@@ -161,24 +165,26 @@ def editUser(request,redir=''):
         save=str(request.POST.get('save'))
         showform=str(request.POST.get('showform'))
         if(showform=='True'):
-            email=str(request.POST.get('email'))
-            usuario=User.objects.get(email=email)
-            editUserform=EditUserForm(initial={
-                'first_name':usuario.first_name,
-                'last_name':usuario.last_name,
-                'email':usuario.email,
-                'password':""
-            })
-            #return HttpResponse('<h1>'+usuario.first_name+usuario.last_name+usuario.email+'</h1>')
-            return render(request,'editUser.html',{
-                'username':username,
-                'editUserform':editUserform,
-                'showform':'True',
-                'user_list': usuarios,
-                'cant_user': cant_user,
-                'selectedemail':email,
-            })
-
+            try:
+                email=str(request.POST.get('email'))
+                usuario=User.objects.get(email=email)
+                editUserform=EditUserForm(initial={
+                    'first_name':usuario.first_name,
+                    'last_name':usuario.last_name,
+                    'email':usuario.email,
+                    'password':""
+                })
+                #return HttpResponse('<h1>'+usuario.first_name+usuario.last_name+usuario.email+'</h1>')
+                return render(request,'editUser.html',{
+                    'username':username,
+                    'editUserform':editUserform,
+                    'showform':'True',
+                    'user_list': usuarios,
+                    'cant_user': cant_user,
+                    'selectedemail':email,
+                })
+            except:
+                messages.info(request,'Seleccione un usuario a editar.')
         elif(showform=='False' and save=='True'):
             selectedemail=request.POST.get('selectedemail')
             formuser=EditUserForm(request.POST)
