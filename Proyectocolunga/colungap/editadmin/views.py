@@ -63,6 +63,7 @@ def addUser(request,redir=''):
                 )
                 usuario.save()
                 """
+                messages.info(request,'Usuario agregado con exito.')
                 return render(request,'addUser.html',{
                     'addUserform':adduserform,
                     'username':username
