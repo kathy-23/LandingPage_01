@@ -19,6 +19,14 @@
                     <div class="BotonSelect">
                         <input type="hidden" name='showform' value="True">
                         <input type="hidden" name='save' value="False">
+                        <!-- condicional y for para mostrar mensaje de alerta por credenciales erroneas -->
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                         <button name="btn_get_email" type="submit" class="btn_get_email" >Selecicionar usuario</button>
                     </div>
                    <!--no cambiar nombre a este boton-->
