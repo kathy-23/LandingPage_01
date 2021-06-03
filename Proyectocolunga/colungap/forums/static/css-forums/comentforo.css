@@ -103,6 +103,7 @@ header label{
     margin: 1%;
     padding: 1%;
 }
+
 .comentario .nombreusuario_coment{
     font-size: 20px;
     color: white;
@@ -117,13 +118,16 @@ header label{
     margin-left: 2%;
     text-align: justify;
 }
+
 .comentario .created_at{
     font-size: 12px;
     background: rgb(0, 94, 0);
     color: white;
     width: 25%;
     height: 30px;
+    text-align: end;
 }
+
 .del_btn_com{
     background: rgb(0, 94, 0);
     border: 0;

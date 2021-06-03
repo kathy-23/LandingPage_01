@@ -213,9 +213,10 @@ body{
       
         flex-flow: column nowrap;
         overflow: hidden; 
-        background-size: cover; 
+        background-position: center center;
         background-repeat: no-repeat;
-        background-position: absolute;
+        background-attachment: fixed;
+        background-size: cover;
       
         height: 67.2vh;
         width: 100%; 

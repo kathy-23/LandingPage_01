@@ -8,10 +8,10 @@
         <div class="wrapper3">
             <div class="forma1">
                 <h1>Seleccione usuario a editar</h1>
-                <br>
+                </br>
                 <form method='post' action='' class="formEditUser">
                     {% csrf_token %}
-                    <select name='email' class="selectEdit" {{cant_user}}><!--no cambiar nombre a este boton-->
+                    <select name='email' class="selectEdit" size="7"><!--no cambiar nombre a este boton-->
                         {%for user in user_list %}
                             <option value="{{user.email}}">{{user.first_name}} {{user.last_name}}</option>
                         {%endfor%}
@@ -42,6 +42,7 @@
                         <div class="btn_Edit">
                             <input type="hidden" name='showform' value="False">
                             <input type="hidden" name='save' value="True">
+                            <input type="hidden" name='selectedemail' value="{{selectedemail}}">
                             <button class="btn_EditUser" name="btn_editUser" type="submit" >Guardar cambios</button><!--no cambiar nombre a este boton-->
                         </div>
                     </div>

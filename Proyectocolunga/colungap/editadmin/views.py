@@ -63,6 +63,7 @@ def addUser(request,redir=''):
                     'username':username
                 })
             else:
+                print(adduserform)
                 return HttpResponse('<h1>no se pudo agregar el usuario</h1>')
         
     if redir=='main.html':
@@ -106,6 +107,7 @@ def removeUser(request,redir=''):
         if remov is not None:#si encontro al usuario 'not none'
             remov.is_active=False #borrar en la tabla a lo que corresponde el objeto
             remov.save()
+            usuarios=User.objects.exclude(is_active=False).all()
             #return HttpResponse('<h1>'+str(remov)+'</h1>')
             return render(request,'removeUser.html',{
                 'username':username,
@@ -149,9 +151,8 @@ def editUser(request,redir=''):
     if request.method == 'POST':
         save=str(request.POST.get('save'))
         showform=str(request.POST.get('showform'))
-        email=str(request.POST.get('email'))
-        
         if(showform=='True'):
+            email=str(request.POST.get('email'))
             usuario=User.objects.get(email=email)
             editUserform=EditUserForm(initial={
                 'first_name':usuario.first_name,
@@ -166,11 +167,13 @@ def editUser(request,redir=''):
                 'showform':'True',
                 'user_list': usuarios,
                 'cant_user': cant_user,
+                'selectedemail':email,
             })
 
         elif(showform=='False' and save=='True'):
+            selectedemail=request.POST.get('selectedemail')
             formuser=EditUserForm(request.POST)
-            usuario=User.objects.get(email=email)
+            usuario=User.objects.get(email=selectedemail)
             password=request.POST.get('password1')
             #return HttpResponse('<h1>'+str(usuario.first_name)+usuario.last_name+usuario.email+'</h1>')
             if request.POST.get('password1')!='':
