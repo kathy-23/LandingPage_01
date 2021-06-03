@@ -6,9 +6,10 @@
         {%block css-link%}
         {%endblock%}
         <meta charset='utf-8'/>
-        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='http://code.jquery.com/jquery-latest.js'></script>
+        <script src="{% static 'header.js' %}"></script>
         <title>{% block title %}{% endblock title %} | COLUNGA</title>
     </head>
     <body>
@@ -17,7 +18,7 @@
                 <div class="columna01">
                     <div class="roww1">
                         <img class="logos" src="{% static 'img/logo.png' %}"> </a>
-                    </div>   
+                    </div> 
                 </div>
 
                 <div class="columna02">
@@ -31,75 +32,41 @@
                         </form>
                     </div>
                 </div>
-            </div>                                            
-            <!--barra navegacion-->
-            <div class="enlaces">
-                <nav class="enlace1">   
-                    <a class="anclaHeader" href="inicio.html">Inicio</a>
-                </nav> 
-                <nav class="enlace2">   
-                    <a class="anclaHeader" href="inicio-topicos.html">Foro</a>
-                </nav> 
-                <nav class="enlace3">
-                    <a class="anclaHeader" href="inicio-anuncios.html">Anuncios</a>
-                </nav> 
             </div>
+        
+        
+            <nav class="enlaces">
+                    <a class="anclaHeader desaparece" href="inicio.html">Inicio</a>
+                    <a class="anclaHeader desaparece" href="inicio-topicos.html">Foros</a>
+                    <a class="anclaHeader desaparece" href="inicio-anuncios.html">Anuncios</a>
+                    <a class="anclaHeader desaparece" href="addUser.html">Panel Admin</a>
+            </nav>
         </header>
         <div class="clearfix"></div>
         <section class="section">
             {% block content %}
             {% endblock content %}
         </section>
-        <footer>
+        <div class="footer">
             <div class="container-body">
                 <div class="columna1">
                     <div class="row">
-                        <img src="{% static 'img/envelope.svg'%}">
+                        <img src="{% static 'imgeditadmin/envelope.svg'%}">
                         <label>Dirección: Av. Bustamante 26
                             Providencia, Santiago
                         </label>
-                    </div>   
+                    </div>
                 </div>
-
                 <div class="columna2">
                     <div class="row2">
-                        <img src="{% static 'img/envelope.svg'%}">
+                        <img src="{% static 'imgeditadmin/envelope.svg'%}">
                         <label>
                         Teléfono: +56 222043350/ +56 222748547
                         Contacto: contacto@fundacioncolunga.org
                         </label>
-                    </div>               
+                    </div>       
                 </div>
-
-                <div class="columna3">
-                    <nav class="pagnav">
-                        <div>
-                            <img src="{%static 'img/link.png'%}">
-                            <a class="anclafooter1" href="main.html">Main</a>
-                        </div>
-        
-                        <div>
-                            <img src="{% static 'img/link1.png'%}">
-                            <a class="anclafooter1" href="inicio.html">Login</a>
-                        </div>
-                    </nav>
-                </div>
-
-                <div class="columna4"> 
-                    <nav class="pagnav2">
-                        <div>
-                            <img src="{%static 'img/link2.png'%}">
-                            <a class="anclafooter2" href="ingreso.html">Inicio</a>
-                        </div>
-
-                        <div>
-                            <img src="{%static 'img/link3.png'%}">
-                            <a class="anclafooter2" href="addUser.html">EditAdmin</a>
-                        </div>
-                    </nav>
-                </div>         
-            </div>
-            <!-- END -->
-        </footer>
+            </div>      
+        </div>
     </body>
 </html>

@@ -2,12 +2,14 @@
 {% load static %}
 <html>
     <head>
-        <link rel='stylesheet' type='text/css' href="{% static 'css-editadmin/editadmin.css' %}">
-        {%block css%}
-        {%endblock%}
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css-editadmin/EditAdminlayout.css'%}">
+        <script src="{%static 'http://code.jquery.com/jquery-latest.js' %}"></script>
+        <script src="{% static 'header.js' %}"></script>
+        {%block css%}
+        {%endblock%}
         <title>Panel de administracion | COLUNGA</title>
     </head>
 
@@ -36,24 +38,19 @@
                 </div>
             
             
-            <div class="enlaces">
-                <nav class="enlace1">   
-                    <a class="anclaHeader" href="addUser.html">Agregar Usuario</a>
-                </nav> 
-                <nav class="enlace2">   
-                    <a class="anclaHeader" href="editUser.html">Editar Usuario </a>
-                </nav> 
-                <nav class="enlace3">
-                    <a class="anclaHeader" href="removeUser.html">Eliminar Usuario </a>
-                </nav> 
-            </div>
+                <nav class="enlaces">
+                        <a class="anclaHeader desaparece" href="addUser.html">Agregar Usuario</a>
+                        <a class="anclaHeader desaparece" href="editUser.html">Editar Usuario </a>
+                        <a class="anclaHeader desaparece" href="removeUser.html">Eliminar Usuario </a>
+                        <a class="anclaHeader desaparece" href="inicio.html">Inicio</a>
+                </nav>
             </header>
-            <div class="clearfix"></div>
             <section class="section">
-                {% block form %}
-                {% endblock form %}
+               
+                    {% block form %}
+                    {% endblock form %}
+        
             </section>
-            <div class="clearfix"></div>
             <div class="footer">
                 <div class="container-body">
                     <div class="columna1">
@@ -62,9 +59,8 @@
                             <label>Dirección: Av. Bustamante 26
                                 Providencia, Santiago
                             </label>
-                        </div>   
+                        </div>
                     </div>
-
                     <div class="columna2">
                         <div class="row2">
                             <img src="{% static 'imgeditadmin/envelope.svg'%}">
@@ -72,40 +68,10 @@
                             Teléfono: +56 222043350/ +56 222748547
                             Contacto: contacto@fundacioncolunga.org
                             </label>
-                        </div>               
+                        </div>       
                     </div>
-
-                    <div class="columna3">
-                        <nav class="pagnav">
-                            <div>
-                                <img src="{%static 'imgeditadmin/link.png'%}">
-                                <a class="anclafooter1" href="main.html">Main</a>
-                            </div>
-            
-                            <div>
-                                <img src="{% static 'imgeditadmin/link1.png'%}">
-                                <a class="anclafooter1" href="ingreso.html">Login</a>
-                            </div>
-                        </nav>
-                    </div>
-
-                    <div class="columna4"> 
-                        <nav class="pagnav2">
-                            <div>
-                                <img src="{%static 'imgeditadmin/link2.png'%}">
-                                <a class="anclafooter2" href="inicio.html">Inicio</a>
-                            </div>
-
-                            <div>
-                                <img src="{%static 'imgeditadmin/link3.png'%}">
-                                <a class="anclafooter2" href="addUser.html">EditAdmin</a>
-                            </div>
-                        </nav>
-                    </div>         
-                </div>
-                <!-- END -->
+                </div>      
             </div>
-            <div class="clearfix"></div>
         </div>
     </body>
 </html>

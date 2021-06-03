@@ -49,4 +49,6 @@ urlpatterns = [
                                           
     path('comentforo',forum.comentforo,name='comentforo'),
     path('comentforo/<str:idforo>',forum.comentforo,name='comentforo'),
+    path('colungahub/',inicio.hub,name='hub'),
+    path('colungahub/<str:redir>',inicio.hub,name='hub'),
 ]

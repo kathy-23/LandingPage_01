@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.shortcuts import redirect, render, HttpResponse
-from .forms import AddUserForm, EditUserForm
+from .forms import AddUserForm,EditUserForm
+from .models import Miembro
 '''
 la forma de agregar y usuarios cambio ya que si se remueve a un usuario de la bdd y luego se vuelve agregar, su id cambiaria
 y si anteriormente ese usuario eliminado hizo alguna publicacion en el foro iban a existir conflictos por id
@@ -48,6 +49,7 @@ def addUser(request,redir=''):
         #si el usuario no existe
         else:
             #valido el formulario
+            
             if adduserform.is_valid():
                 #guardo los datos del formulario
                 adduserform.save()
@@ -66,8 +68,8 @@ def addUser(request,redir=''):
                     'username':username
                 })
             else:
-                print(adduserform)
-                return HttpResponse('<h1>no se pudo agregar el usuario</h1>')
+                print(adduserform.is_valid())
+                return HttpResponse('<h1>no se pudo agregar el usuario'+str(adduserform)+'</h1>')
         
     if redir=='main.html':
         return redirect('main')
@@ -162,11 +164,16 @@ def editUser(request,redir=''):
         showform=str(request.POST.get('showform'))
         if(showform=='True'):
             email=str(request.POST.get('email'))
+            
             usuario=User.objects.get(email=email)
+            miembro=Miembro.objects.get(user_id=usuario.id)
             editUserform=EditUserForm(initial={
                 'first_name':usuario.first_name,
                 'last_name':usuario.last_name,
                 'email':usuario.email,
+                'telefono':miembro.telefono,
+                'cargo':miembro.cargo,
+                'organizacion':miembro.organizacion,
                 'password':""
             })
             #return HttpResponse('<h1>'+usuario.first_name+usuario.last_name+usuario.email+'</h1>')
@@ -183,6 +190,7 @@ def editUser(request,redir=''):
             selectedemail=request.POST.get('selectedemail')
             formuser=EditUserForm(request.POST)
             usuario=User.objects.get(email=selectedemail)
+            miembro=Miembro.objects.get(user_id=usuario.id)
             password=request.POST.get('password1')
             #return HttpResponse('<h1>'+str(usuario.first_name)+usuario.last_name+usuario.email+'</h1>')
             if request.POST.get('password1')!='':
@@ -190,7 +198,12 @@ def editUser(request,redir=''):
                 usuario.last_name=formuser.data.get('last_name')
                 usuario.email=formuser.data.get('email')
                 usuario.set_password(password)
+                miembro.id_user=usuario.id
+                miembro.telefono=formuser.data.get('telefono')
+                miembro.organizacion=formuser.data.get('organizacion')
+                miembro.cargo=formuser.data.get('cargo')
                 usuario.save()
+                miembro.save()
                 print("aqui1")
                 usuarios=User.objects.exclude(is_active=False).all()
                 return render(request,'editUser.html',{

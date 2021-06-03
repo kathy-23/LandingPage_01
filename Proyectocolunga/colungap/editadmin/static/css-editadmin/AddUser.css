@@ -10,7 +10,7 @@ body{
 
     display: flex;
     flex-flow: column nowrap;
-    /* background-image: url(../img/Fondo.jpg); */
+ 
     height: 100%;
     width: 100%;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -18,10 +18,17 @@ body{
     
 }
 
+.padre{
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    
+
+}   
     /* --------------------------------------HEADER---------------------------------------- */
 
     .header{
-        /* width: 100%; */
+       
         overflow:hidden; 
         background: rgb(0, 94, 0); 
         margin-bottom: 0px;
@@ -35,32 +42,23 @@ body{
     }
 
     .wrapper{
-        /*-------- modificacion de width que estaba al 90% y max.width --------------*/
+      
 
         display: flex;
         justify-content: space-between;
         flex-flow: row nowrap;
         height: 90px;
-        /* align-items:initial;
-        max-height: initial; */
-        /* max-width: 98%; */
-        /* align-items: center; */
-        
-        
-        
+            
     }
 
     .header .columna01{ 
         max-width: 600px;
-        
-        
+  
 
     }
         .header .roww1{
             margin-top: 5px;
             padding: 10px 20px;
-            
-            
 
         }
             .roww1 .logos{
@@ -70,10 +68,6 @@ body{
                 padding: 0px;
 
             }
-
-
-
-
 
     .header .columna02{
         max-width: 600px;
@@ -92,9 +86,6 @@ body{
 
                 line-height: 20px; 
                 text-align: right;               
-                /* position: fixed;
-                left: 1050px;
-                top: 0px; */
                 width: 200px;
                 font-weight:bold;
                 display:flex;  
@@ -108,75 +99,63 @@ body{
                 box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
                 0 2px 2px 0 rgba(0, 0, 0, 0.14),
                 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-                box-shadow:280ms cubic-bezier(0.4, 0, 0.2, 1);
-                /* background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#f90),to(#e76a00)); */
+                box-shadow:280ms cubic-bezier(0.4, 0, 0.2, 1);      
                 background-image: linear-gradient(rgba(248, 248, 248, 0.493) 10%,#eff1ef59 100%);
                 background-image: linear-gradient(rgb(240, 237, 232) 10%,#aaaaaa 100%); 
                 text-shadow: 0 -1px 0 rgba(158, 158, 158, 0.979); 
                 color: rgba(0, 0, 0, 0.719);
-                
-                
+              
                 }
                              
             
             .botoncs{
-
                 width: 30px;
                 height: 30px;
                 background: silver;
                 cursor: pointer;
-                /* position: fixed;
-                left: 1265px;
-                top: 0px;  */
                 transform: translate(20%, 3%);
                 border-radius: 5px;
-               
+                background-image: url(../img/candado1.png);
 
             }
             .botoncs[type="submit"]:hover{
                 cursor:pointer;
                 background-color: rgb(3, 53, 3);
                 transition: .2s;
-
+                background-image: url(../img/candado.png);
                 text-align: center;
             }
 
 
     .enlaces{
-        /* display: flex;
-        flex-flow: column wrap;
+     
+        background: rgb(0, 94, 0) ;     
+        flex-flow: column wrap; 
         justify-content: flex-end;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 9px; 
-        align-items: flex-end; */
-        background: rgb(0, 94, 0) ;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: flex-end;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 9px; 
+        flex-direction: row; 
+        flex-wrap: wrap;  
+        padding: 6px; 
         align-items: flex-end;
+        display: flex;
         
     }
  
         .enlace1{
 
-            margin: 0px 10px;
+            margin: 0px 5px;
             padding: 0px;  
             
             
         }
         .enlace2{
 
-            margin: 0px 10px;
+            margin: 0px 5px;
             padding: 0px;
         }
             
         .enlace3{
 
-            margin: 0px 10px;
+            margin: 0px 5px;
             padding: 0px;
         }
         
@@ -197,27 +176,22 @@ body{
                 border-color: white;
                 color:black;
                 font-weight: bold;
+                /* display: inline-block; */
             }
-
+         
 
     /* ------------------------------------- SECTION--------------------------------------- */
 
-.especial{
-    margin-top: 10%;
-}
+
     .section{
-        
         background-image: url(../img/Fondo.jpg); 
-       
         display: flex;
-      
         flex-flow: column nowrap;
         overflow: hidden; 
-        background-position: center center;
+        background-size: cover; 
         background-repeat: no-repeat;
+        background-position: center center;
         background-attachment: fixed;
-        background-size: cover;
-      
         height: 67.2vh;
         width: 100%; 
         
@@ -235,46 +209,44 @@ body{
             /* PARA ADD USER */
             justify-content: center;
             align-items: center;
-            
+           
+
         }
-        .addUserform{
-            width:700px;
-        }
+        
+    
     
 
 
     /* ---------------------------------------FOOTER------------------------------------- */
 
     .footer{
-        /* background: rgb(0, 94, 0);
-        display: flex;
-        flex-flow: column nowrap; 
        
-        bottom: 0;  
-        width: 100%;        */
-        /* max-height: 100px; */
-        /* margin-bottom: 0px; */
-        position: absolute;
-        z-index: 2;
+        /* position: relative;
+        z-index: 2; */
         background-color: rgb(0, 94, 0);
         padding-top: 10px;
-        padding-bottom: 10px;
-        display: inline-block;
+        padding-bottom: 5px;
+        display: flex;
         width: 100%;
-        bottom:0px;
-        
-        
+        line-height: 1.5;
+        flex-direction: row;
+        flex-wrap:wrap;
+        position: absolute;
+        bottom:0;
+
     }
     
         .container-body{
             display: flex;
-            justify-content: space-around; 
-            max-width: 1400px !important; 
+            justify-content: space-between; 
+            width: 100% !important; 
             color: white;
-            
+
         }
             .columna1{
                 max-width: 350px;
+                display: flex;
+                padding-left: 10px;
                 
 
             }
@@ -297,10 +269,12 @@ body{
             .columna2{
                 max-width: 350px;
                 display: flex;
+                padding-left: 5px;
             }
                 .row2{
                     margin-top: 20px;
                     display: flex;
+                    flex: 1 1 40%;
                     
                 }
                 .row2 img{
@@ -314,102 +288,21 @@ body{
                 }
 
 
-            .columna3{
-                max-width:350px;
-                flex-direction: column;
-                flex-wrap: wrap;
-                align-self:center; 
-                width: 10px 10px;
-                padding: 5px;
-                box-sizing: border-box;
-                
-                                
-            }
-                .pagnav{
-                    margin-top: 2px;
-                    padding: 5px;
-                            
-                }
-
-                .pagnav img{
-                    width: 20px;
-                    height: 20px;
-                
-                    
-                    
-                }
-                .pagnav .anclafooter1{
-                    margin-left: 5px;
-                    max-width: 5px;
-                    margin-top: 0px;
-                    text-decoration: none;
-                    color: white;                    
-                }
-
-    /* -------------------------------columna 4------------------- */
-
-            .columna4{
-                max-width:350px;
-                flex-direction: column;          
-                flex-wrap: wrap;
-                align-self:center;
-                width: 10px 10px;
-                padding: 5px; 
-                box-sizing: border-box;
-                
-                    
-            }
-
-                .pagnav2{
-                    margin-top: 2px;
-                    padding: 5px;
-                                
-                }
-
-                .pagnav2 img{
-                    width: 20px;
-                    height: 20px; 
-                
-                    
-                    
-                        
-                }
-                .pagnav2 .anclafooter2{
-                    margin-left: 5px;
-                    max-width: 5px;
-                    margin-top: 0px;
-                    text-decoration: none;
-                    color: white; 
-                }
-
                 /* -----------------------------ADD USER------------------------ */
-                /* form{
-                    width:700px;
-                    padding:16px;
-                    border-radius:10px;
-                    margin:auto;
-                    background-color:rgba(1, 134, 1, 0.3);
-                    display: flex; 
-                    flex-wrap: wrap;
-                    
-                }
-                 */
+            
                  form label{
                     width:100px;
                     font-weight:bold;
-                    /* display:inline-block; */
                     display: inline-flex; 
-                    padding: 0px;
-                    /* margin: 2px; */
+                    padding: 0px;    
                     color: rgba(0, 0, 0, 0.719);
 
                 }
                 
                 form input[type="text"],
-                form input[type="password"],
                 form input[type="email"],
                 form input[type="name"],
-                form input[type="tel"]{
+                form input[type="password"]{
                     width:180px;
                     padding:5px 5px;
                     border:1px solid #f6f6f6; 
@@ -421,9 +314,9 @@ body{
                 }
                 
                 .Agregar[type="submit"]{
-                    width:70%;
+                    width:120px;
                     padding:8px 8px;
-                    margin-top:32px;
+                    margin-top:10px;
                     border:none;
                     border-radius:5px;
                     display:block; 
@@ -435,16 +328,9 @@ body{
                     0 2px 2px 0 rgba(0, 0, 0, 0.14),
                     0 1px 5px 0 rgba(0, 0, 0, 0.12);
                     box-shadow:280ms cubic-bezier(0.4, 0, 0.2, 1);
-                    /* background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#f90),to(#e76a00)); */
                     background-image: linear-gradient(rgba(25, 196, 20, 0.733) 10%,#0a720a 100%);
-                 /* background-image: linear-gradient(#f90 10%,#e76a00 100%); */
                     text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-                    
-                   
-                    
-
-                   
-                    
+               
                 } 
                 
                 .Agregar[type="submit"]:hover{
@@ -485,9 +371,9 @@ body{
                     
                 }
                 .forma1{
-                    margin:0;
+                    margin:0px;
                     padding: 1em;
-                
+                    max-width: 100%;                
                 }
                 .forma1{
                     display: grid;
@@ -502,52 +388,157 @@ body{
                     padding-left: 108px;
                 }
 
-               
-
-                
-
-
-
-                /* -------------------------EDIT USER------------------------------ */
 
 
 
 
-	
 
 
 
-                
-              
-                 
+/* -------------FLEXBOX GENERAL------------------------ */
+
+@media (max-width: 975px){
+    .container-body{
+        flex-direction: column;
+        max-height: 900px;
+        /* display:flex; */
+        
+    
+    }
+    .enlaces{
+        flex-direction: column;
+
+    }
+    
+    
 
 
-            
-     
-                            
-                      
-            
+}
 
-
-                 
-
-
-
-
+      
+@media (max-height: 830px){
   
+    .header .roww1{
+        margin-top: 0px;
+        padding: 5px 5px;}
+   
+
+}
+@media (max-height: 654px){
+  
+  
+  
+
+}
+@media(max-width:600px){
+    .wrapper{ 
+        height: 75px;
             
+            }
+    .header .roww1{
+                margin-top: 0px;
+                padding: 5px 5px;}
+               
+    .content{
+                    justify-content: flex-start;
+                
+                }
+}
 
 
+
+
+
+
+/* -----------------FLEXBOX ADDUSER--------------------- */
+
+
+@media (max-width: 600px){
+
+    .content{
+        align-items: flex-start;
+        padding-bottom: 30px;
+     
+    }
+    .anclaHeader{
+        font-size: 12px;
+    }
+
+
+    .btn_Agregar{
+        justify-content: start;
+        align-items: flex-start;
+        align-content: flex-start;
+
+    }
+   
+    
+    .forma1{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+        margin-left: 0px;
+        row-gap: 0px;
         
 
         
+    }
+   
+    .wrapper2{
+    padding:1em;
+    width: 400px;
+    max-height: 420px;
 
-            
+}
 
+.forma1{
+    margin:5px;
+    padding: 1em;   
+    max-height: auto;            
+}
 
+.forma1{
+    display: grid;
+    grid-template-columns: 1fr ;
+}
 
+.forma1 form  .block{
+    grid-row: 1 / 3;                   
+}  
+.forma1{
+    justify-items: left;
+}
 
+form input[type="text"],
+form input[type="password"],
+form input[type="email"]{
+    width:200px;
+    padding:5px 5px;
+    border:1px solid #f6f6f6; 
+    border-radius:3px;
+    background-color:#f6f6f6;
+    margin:1px 0;
+    font-size: 12px;
 
+        }
+form label{
+    width:100px;
+    font-weight:bold;
+    display: inline-flex; 
+    padding: 0px;  
+    color: rgba(0, 0, 0, 0.719);
+    font-size: 12px;
+        
+        }
+p{
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;}
+.footer{
 
-
+    font-size: 12px;
+}  
+}
 

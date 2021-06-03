@@ -1,4 +1,8 @@
 {% extends 'editadminlayout.html' %}
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'css-editadmin/AddUser.css'%}">
+{%endblock%}
 {% block form %}
 <div class="content">
     <div class="wrapper2">
@@ -16,6 +20,18 @@
                     <p>
                         <label>Correo</label>
                         {{addUserform.email}}
+                    </p>
+                    <p>
+                        <label>Telefono</label>
+                        {{addUserform.telefono}}
+                    </p>
+                    <p>
+                        <label>Cargo</label>
+                        {{addUserform.cargo}}
+                    </p>
+                    <p>
+                        <label>Organizacion</label>
+                        {{addUserform.organizacion}}
                     </p>
                     <p>
                         <label>Contraseña</label>

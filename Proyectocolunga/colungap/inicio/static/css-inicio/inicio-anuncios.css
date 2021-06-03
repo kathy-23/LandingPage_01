@@ -49,6 +49,7 @@
     padding: 1%;
     margin: 2%;
     float:left;
+    border:0;
 }
 #titulo_agregar{
     width: 25%;
