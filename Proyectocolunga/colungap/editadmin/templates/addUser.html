@@ -25,6 +25,14 @@
                         <label>Confirmacion de contraseña</label>
                         {{addUserform.password2}}
                     </p>
+                    <!-- condicional y for para mostrar mensaje de alerta por credenciales erroneas-->
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                     <p class="btn_Agregar">                
                         <button class="Agregar" name="btn_addUser" type="submit" >Agregar Usuario</button>
                     </p>
