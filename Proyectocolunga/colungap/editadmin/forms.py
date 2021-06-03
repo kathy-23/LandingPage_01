@@ -19,6 +19,7 @@ class EditUserForm(forms.Form):
     password1 = forms.CharField(
         label="Contraseña",
         strip=False,
+        required=False,
         widget=forms.PasswordInput,
 )
     class Meta:

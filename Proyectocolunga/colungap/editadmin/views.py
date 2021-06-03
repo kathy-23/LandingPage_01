@@ -167,15 +167,19 @@ def editUser(request,redir=''):
                 'user_list': usuarios,
                 'cant_user': cant_user,
             })
+
         elif(showform=='False' and save=='True'):
-            usuario=User.objects.get(email=email)            
-            password=str(request.POST.get('password'))
-            usuario.first_name=request.POST.get('first_name')
-            usuario.last_name=request.POST.get('last_name')
-            usuario.email=request.POST.get('email')
+            formuser=EditUserForm(request.POST)
+            usuario=User.objects.get(email=email)
+            password=request.POST.get('password1')
             #return HttpResponse('<h1>'+str(usuario.first_name)+usuario.last_name+usuario.email+'</h1>')
-            if password=='':
+            if request.POST.get('password1')!='':
+                usuario.first_name=formuser.data.get('first_name')
+                usuario.last_name=formuser.data.get('last_name')
+                usuario.email=formuser.data.get('email')
+                usuario.set_password(password)
                 usuario.save()
+                print("aqui1")
                 usuarios=User.objects.exclude(is_active=False).all()
                 return render(request,'editUser.html',{
                     'username':username,
@@ -185,8 +189,11 @@ def editUser(request,redir=''):
                     'cant_user': cant_user,
                 })
             else:
-                usuario.set_password(password)
+                usuario.first_name=formuser.data.get('first_name')
+                usuario.last_name=formuser.data.get('last_name')
+                usuario.email=formuser.data.get('email')
                 usuario.save()
+                print("aqui2")
                 usuarios=User.objects.exclude(is_active=False).all()
                 return render(request,'editUser.html',{
                     'username':username,
@@ -195,6 +202,7 @@ def editUser(request,redir=''):
                     'user_list': usuarios,
                     'cant_user': cant_user,
                 })
+                
 
     elif redir=='main.html':
         return redirect('main')
