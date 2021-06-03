@@ -17,6 +17,14 @@
                     <option value="{{user.email}}">{{user.first_name}} {{user.last_name}}</option>
                     {%endfor%}
                 </select>
+                <!-- condicional y for para mostrar mensaje de alerta por credenciales erroneas-->
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
                 <div class="botonremover">
                     <button name="btn_removeUser" type="submit" class="btn_Ruser" >Eliminar</button>
                 </div>
