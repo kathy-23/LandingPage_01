@@ -1,18 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-#pagnav{
-    position:absolute;
-    top: 0px;
-    left: 100px;
-}
-
 body{
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url(../img/login.PNG) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -26,7 +13,7 @@ body{
     background-color: #dbdee2cb;
     width: 450px;
     opacity: .85;
-    padding-top: 15px;
+    padding: 0 20px;
     box-shadow: 0px 0px 3px #e6e6e6;
 }
 .user-img{
@@ -35,7 +22,7 @@ body{
 }
 
 .user-img img{
-    width: 100px;
+    width: 100xp;
     height: 100px;
     box-shadow: 0px 0px 3px #848484;
     border-radius: 50%;
@@ -78,17 +65,83 @@ button{
     color: white;
 }
 .btn {
+        text-decoration: none;
+        padding: 20px;              
+        font-weight: 600;                   /* destancia*/
+        font-size: 15px;                   /*tamaño del boton*/
+        color: #fdfffd;                 /*Color de la letra*/
+        background-color: #25b631;      /* color del recuadro*/
+        border-radius: 17px;              /* contorno*/
+        border: 0px solid #25b631;     /* sombra */
+        width: 150px
+}
+.btn:hover {
+    text-decoration: none;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #000000;
+    background-color: #e3eee4;
+    border-radius: 17px ;
+    border: 5px; 
+    width: 150px
+}
+
+.btnseguir {
     text-decoration: none;
     padding: 20px;              
-    font-weight: 600;                   /* destancia*/
+    font-weight: 600%;                   /* destancia*/
     font-size: 15px;                   /*tamaño del boton*/
     color: #fdfffd;                 /*Color de la letra*/
     background-color: #25b631;      /* color del recuadro*/
     border-radius: 17px;              /* contorno*/
     border: 0px solid #25b631;     /* sombra */
+    width: 150px;
+    margin: 25px 0 25px;
+}
+
+.btnseguir:hover {
+    text-decoration: none;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #000000;
+    background-color: #e3eee4;
+    border-radius: 17px ;
+    border: 5px; 
     width: 150px
 }
-.btn:hover {
+
+.Mensaje {
+   
+    color: #0c0b0b;
+    font-size: xx-large;
+    font-size: 30px;
+
+   
+}
+.cuadro{
+    background-color: #dbdee2cb;
+    width: 450px;
+    opacity: .85;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #e6e6e6;
+}
+
+.btnfinal{
+    text-decoration: none;
+    padding: 20px;              
+    font-weight: 600%;                   /* destancia*/
+    font-size: 15px;                   /*tamaño del boton*/
+    color: #fdfffd;                 /*Color de la letra*/
+    background-color: #25b631;      /* color del recuadro*/
+    border-radius: 17px;              /* contorno*/
+    border: 0px solid #25b631;     /* sombra */
+    width: 150px;
+    margin: 25px 0 25px;
+}
+
+.btnfinal:hover {
     text-decoration: none;
     padding: 20px;
     font-weight: 600;
