@@ -22,6 +22,10 @@ from editadmin import views as editadmin
 from forums import views as forum
 from anuncios import views as anuncio
 
+from django.contrib.auth import views as auth_views
+#from . import views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
                         
@@ -51,4 +55,17 @@ urlpatterns = [
     path('comentforo/<str:idforo>',forum.comentforo,name='comentforo'),
     path('colungahub/',inicio.hub,name='hub'),
     path('colungahub/<str:redir>',inicio.hub,name='hub'),
+
+    #olvide contraseña-------------vistas
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name ="password_reset.html"), name="reset_password"),
+    #path('reset_password/<str:redir>',auth_views.PasswordResetView.as_view(),name='reset_password'),
+    
+    #path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name ="password_reset_sent.html"),name="password_reset_done"),
+    path('reset_password_sent/', 
+        auth_views.PasswordResetDoneView.as_view(template_name="password_reset_sent.html"), 
+        name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name ="password_reset_form.html"), name="password_reset_confirm"),
+
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name ="password_reset_done.html"),name="password_reset_complete"),
+
 ]

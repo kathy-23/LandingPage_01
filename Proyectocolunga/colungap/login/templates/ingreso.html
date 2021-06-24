@@ -38,6 +38,10 @@
                         </div>
                         <div class="form-group" id="contrasena-group">
                             <input class='form-control' name='txt_password' type='password'  placeholder='Ingresa tu contraseña'>
+                        <!-- boton recuperar contraseña-->
+                        <a> Olvido su contraseña?</a>
+                        <a href="http://127.0.0.1:8000/reset_password/"> Restablecer contraseña.</a>
+                        <!-- finboton-->
                         </div>
                         <!-- condicional y for para mostrar mensaje de alerta por credenciales erroneas-->
                         {% if messages %}
