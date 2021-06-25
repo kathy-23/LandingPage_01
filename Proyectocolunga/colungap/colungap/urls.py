@@ -58,14 +58,18 @@ urlpatterns = [
 
     #olvide contraseña-------------vistas
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name ="password_reset.html"), name="reset_password"),
-    #path('reset_password/<str:redir>',auth_views.PasswordResetView.as_view(),name='reset_password'),
     
-    #path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name ="password_reset_sent.html"),name="password_reset_done"),
-    path('reset_password_sent/', 
-        auth_views.PasswordResetDoneView.as_view(template_name="password_reset_sent.html"), 
-        name="password_reset_done"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="password_reset_sent.html"), name="password_reset_done"),
+
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name ="password_reset_form.html"), name="password_reset_confirm"),
 
     path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name ="password_reset_done.html"),name="password_reset_complete"),
+
+
+
+    path('envio/', auth_views.PasswordResetCompleteView.as_view(template_name ="envio.html"),name="password_reset_sent"),
+    path('olvide/', auth_views.PasswordResetCompleteView.as_view(template_name ="olvide.html"),name="reset_password"),
+    path('cambiocont/', auth_views.PasswordResetCompleteView.as_view(template_name ="envio.html"),name="password_reset_confirm"),
+
 
 ]

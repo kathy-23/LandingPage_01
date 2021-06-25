@@ -25,10 +25,10 @@
                 <div class="col-12 user-img">
                     <img src="static/img/user.png" th:src="@{/img/user.png}"/>
                 </div>
-                <form class="col-12" th:action="@{/login}" method="post">
+                <form class="col-12" th:action="@{/login}" method="get">
                     <div class="form-group" id="user-group">
                         <input type="text" class="form-control" placeholder="Ingresar correo" name="username"/>
-                        <a type="button" class="btnseguir" href="http://127.0.0.1:8000/reset_password_sent/"><i class="fas fa-sign-in-alt"></i>  Siguiente </a>
+                        <a type="button" class="btnseguir" href="http://127.0.0.1:5000/envio"><i class="fas fa-sign-in-alt"></i>  Siguiente </a>
             
                     </div>
                 </div>
