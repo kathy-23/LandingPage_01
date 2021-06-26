@@ -39,7 +39,10 @@
                     <a class="anclaHeader desaparece" href="inicio.html">Inicio</a>
                     <a class="anclaHeader desaparece" href="inicio-topicos.html">Foros</a>
                     <a class="anclaHeader desaparece" href="inicio-anuncios.html">Anuncios</a>
-                    <a class="anclaHeader desaparece" href="addUser.html">Panel Admin</a>
+                    {%if is_staff == True %}
+                        <a class="anclaHeader desaparece" href="addUser.html">Panel Admin</a>
+                    {%endif%}
+                    
             </nav>
         </header>
         <div class="clearfix"></div>

@@ -14,6 +14,7 @@ def inicio(request,redir=""):
     username=usuario.first_name+" "+usuario.last_name
     anuncios = Anuncio.objects.all().order_by('-fecha')
     #return HttpResponse('<h1>'+str(request.user.id)+'</h1>')
+    #return HttpResponse('<h1>'+str(usuario.is_staff)+'</h1>')
     if redir=='main.html':
         return redirect('main')
     elif redir=='addUser.html':
@@ -33,6 +34,7 @@ def inicio(request,redir=""):
         'Anuncios':anuncios,
         'username':username,
         'userid': request.user.id,
+        'is_staff':usuario.is_staff
     })
 def hub(request,redir=""):
     '''

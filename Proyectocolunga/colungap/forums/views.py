@@ -30,7 +30,7 @@ def inicio_topicos(request,redir=""):
                 'formaddForum':formaddForum,
                 'userid': request.user.id,
                 'username':username,
-                
+                'is_staff':usuario.is_staff,
             })
         
         #accion si se apreta el acrear foro
@@ -60,6 +60,7 @@ def inicio_topicos(request,redir=""):
                         'formaddForum':formaddForum,
                         'userid': request.user.id,
                         'username':username,
+                        'is_staff':usuario.is_staff,
                     })
                 else:
                     messages.info(request,'Error al guardar el foro.')
@@ -95,6 +96,7 @@ def inicio_topicos(request,redir=""):
                 'otrosforos':otrosforos,
                 'userid': request.user.id,
                 'username':username,
+                'is_staff':usuario.is_staff,
             })
         if request.POST.get("del_foro")=="True":
             forod=Forums.objects.get(id=int(request.POST.get("id_foro")))
@@ -151,6 +153,7 @@ def inicio_topicos(request,redir=""):
         'addUser':'False',
         'userid': request.user.id,
         'username':username,
+        'is_staff':usuario.is_staff,
     })
 
 

@@ -64,4 +64,5 @@ def addAnuncio(request, redir=''):
         'showAnuncio':"True",
         'userid' : request.user.id,
         'username':username,
+        'is_staff':usuario.is_staff
     })
