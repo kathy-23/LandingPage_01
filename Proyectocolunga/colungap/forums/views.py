@@ -128,6 +128,7 @@ def inicio_topicos(request,redir=""):
                 'otrosforos':otrosforos,
                 'userid': request.user.id,
                 'username':username,
+                'is_staff':usuario.is_staff,
             })
         if request.POST.get("foro_seleccionado"):
             idforo = request.POST.get("foro_seleccionado")
@@ -289,4 +290,5 @@ def comentforo(request,**kwargs):
         'comments':listacomentarios,
         'userid':userid,
         "username":username,
+        'is_staff':user_name.is_staff,
     })
