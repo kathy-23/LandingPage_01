@@ -21,6 +21,7 @@ def addAnuncio(request, redir=''):
                 'showAnuncio': 'False',
                 'userid' : request.user.id,
                 'username':username,
+                'is_staff':usuario.is_staff
             })
         if request.POST.get("boton_agregar") == "True":
             if formulario.is_valid():
@@ -35,6 +36,7 @@ def addAnuncio(request, redir=''):
                 'showAnuncio': 'True',
                 'userid' : request.user.id,
                 'username':username,
+                'is_staff':usuario.is_staff
             })
         if request.POST.get("del_anuncio")=='True':
             anuncio = Anuncio.objects.get(id_anuncio=request.POST.get("id_anuncio"))
@@ -46,6 +48,7 @@ def addAnuncio(request, redir=''):
                 'del_anuncio': 'False',
                 'userid' : request.user.id,
                 'username':username,
+                'is_staff':usuario.is_staff
             })
     if redir=='main.html':
         return redirect('main')
@@ -64,4 +67,5 @@ def addAnuncio(request, redir=''):
         'showAnuncio':"True",
         'userid' : request.user.id,
         'username':username,
+        'is_staff':usuario.is_staff
     })

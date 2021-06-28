@@ -1,0 +1,104 @@
+body{
+    background: url(../img/fondo.PNG) no-repeat center center fixed;
+    color: rgb(22, 11, 19);
+    
+}
+
+/* decoracion de pagina principal */
+#texto{
+    font-size: 50px;
+    width: 550px;
+    color:#e3eee4 ;
+    margin: 350px  10px 50px 100px;
+}
+
+#Posicionbotoncolunga{
+
+    width: 400px;
+    margin: 0px  200px 100px 100px;
+
+}
+.BotonColunga{
+        text-decoration: none;
+        padding: 20px;
+        font-weight: 600;
+        font-size: 20px;
+        color: #fdfffd;
+        background-color: #25b631;
+        border-radius: 17px;
+        border: 0px solid #25b631;
+    
+    
+
+}
+.BotonColunga:hover{
+    text-decoration: none;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    background-color: #e3eee4;
+    border-radius: 17px ;
+    border: 5px; 
+      }
+
+
+
+
+#PosicionUsuario{
+    width: 200px;
+    margin:-540px  0px 0px 1300px;
+}
+
+
+
+
+.BotonUsuario{
+        text-decoration: none;
+        padding: 20px;              
+        font-weight: 600;                   /* destancia*/
+        font-size: 20px;                   /*tamaño del boton*/
+        color: #fdfffd;                 /*Color de la letra*/
+        background-color: #25b631;      /* color del recuadro*/
+        border-radius: 17px;              /* contorno*/
+        border: 0px solid #25b631;     /* sombra */
+}
+    
+
+
+
+.BotonUsuario:hover{
+    text-decoration: none;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    background-color: #e3eee4;
+    border-radius: 17px ;
+    border: 5px; 
+}
+
+/*  DECORACION DEL LOGIN  */
+
+
+  #inicio{
+    
+        
+        background-color: #25b631;
+        width: 600px;
+        color: #fdfffd;
+        font-size: 30px;
+        font-weight: 60; /* grosol de la letra*/
+       
+
+        width: 400px;  /*largo*/
+        margin: 200px  100px 500px 500px;  /* posiciones*/
+
+}
+
+
+
+
+    
+    
+  
