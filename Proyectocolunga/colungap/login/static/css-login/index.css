@@ -99,4 +99,10 @@ button{
     border: 5px; 
     width: 150px
 }
-
+#id_email{
+    width:100%;
+}
+.txtpr{
+    padding:15px;
+    padding-top:0px; 
+}

@@ -228,7 +228,7 @@ body{
     width: 100%;
     max-width:auto;
     margin: auto;
-    padding: 20px;/*margen exterior para que los textos no se peguen al borde*/
+    padding: 10px;/*margen exterior para que los textos no se peguen al borde*/
     }
     .container-body{
         display: flex;
@@ -255,13 +255,11 @@ body{
         font-size: 20px;
     }
     .row{
-        margin-top: 20px;
+        margin-top: 10px;
         display: flex;
-        
-    }
-    .row{
         width: 36px;
         height: 36px;
+        
     }
     .row label{
         margin-top: 10px;
@@ -277,7 +275,7 @@ body{
     }
     .row2{
         display: flex;
-        margin-top: 20px;
+        margin-top: 10px;
     
     }
     .row2 img{
@@ -295,12 +293,10 @@ body{
         display: flex;/*se lo quite a container-footer*/
         justify-content: space-between;/*se lo quite a container-footer*/
         /*se lo quite a container-footer*/
-        padding: 10px;
+        padding: 4px;
     }
     .footer{
-        max-width: 1200px;
-        margin: auto;
-        
+        display: flex;
     
     }
     .copyright{
