@@ -44,13 +44,13 @@
         </div>
     {% endif %}
     {% if foros == 'True' %}
-        <div id="box_foros">
+        <form id="btnform_addforum"method="post" action="">
+            {% csrf_token %}
+            <button id="btn_showaddforum"type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
+        </form>
+        <div id="box_foros">    
             <div id="box_titulo">
                 <h1>{{topico_seleccionado.title}}</h1>
-                <form id="btnform_addforum"method="post" action="">
-                    {% csrf_token %}
-                    <button id="btn_showaddforum"type="submit" name="showaddforum" value="True">Crear Nuevo Foro</button>
-                </form>
                 <label id="fecha_titulo">{{topico_seleccionado.updated_at}}</label>
             </div>
             <div class='box_foros'>
@@ -84,6 +84,13 @@
                             <button class="btn_f" type="submit" name="foro_seleccionado"  value="{{foro.id}}">
                                 <p class="titulof">{{foro.title}}</p>
                                 <p class="cant_comentf">comentarios: {{foro.cant_coment}}</p>
+                                {%if user.is_staff == True %}
+                                    <button type="submit" class="del_btn_foro" value="True" name="del_foro">
+                                        <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
+                                        <input type="hidden" name="id_foro" value="{{foro.id}}"/>
+                                        <input type="hidden" name="topico_seleccionado" value="{{foro.id_topic_id}}"/>
+                                    </button>
+                                {%endif%}
                             </button>
                         </div>
                         {% endfor %}

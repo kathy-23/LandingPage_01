@@ -227,98 +227,6 @@ body{
             align-items: center; 
 
         }
-        
-    
-    
-
-
-    /* ---------------------------------------FOOTER------------------------------------- */
-
-    .footer{
-       
-        /* position: relative;
-        z-index: 2; */
-        background-color: rgb(0, 94, 0);
-        padding-top: 10px;
-        padding-bottom: 16px;
-        display: flex;
-        width: 100%;
-        line-height: 1.5;
-        flex-direction: row;
-        flex-wrap:wrap;
-        position: absolute;
-        bottom:0;
-    
-
-    }
-    
-        .container-body{
-            display: flex;
-            justify-content: space-between; 
-            width: 100% !important; 
-            color: white;
-           
-           
-           
-            
-        }
-            .columna1{
-                max-width: 350px;
-                display: flex;
-                padding-left: 10px;
-                
-
-            }
-                .row{
-                    margin-top: 20px;
-                    display: flex;
-                    flex: 1 1 40%;
-                    
-                }
-                .row img{
-                    width: 30px;
-                    height: 30px;
-                    
-
-                }
-                .row label{
-                    margin-left: 20px;
-                    max-width: 200px;
-                    margin-top: 0px;
-                    
-                }
-
-            .columna2{
-                max-width: 350px;
-                display: flex;
-                padding-left: 5px;
-            }
-                .row2{
-                    margin-top: 20px;
-                    display: flex;
-                    flex: 1 1 40%;
-                    
-                }
-                .row2 img{
-                    width: 30px;
-                    height: 30px;
-                   
-                }
-                .row2 label{
-                    margin-left: 20px;
-                    max-width: 300px;
-                    margin-top: 0px;
-                   
-                }
-    
-          
-    
-           
-            
-   
-        
-
-
                 /* -------------------------EDIT USER------------------------------ */
 
                 
@@ -505,36 +413,6 @@ body{
                     0 1px 10px 0 rgba(0, 0, 0, 0.12);    
                     background-image: linear-gradient(rgba(67, 211, 62, 0.753) 10%,#0669069c 100%);              
                 } 
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* -------------FLEXBOX------------------------ */
 @media(max-width:600px){

@@ -26,14 +26,10 @@
     border-right: 1px;
 }
 #btnform_addforum{
-    width: 17%;
-    padding: 1%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-right: 3%;
+    width: 100%;
     padding-top: 15px;
-    padding-bottom: 0;
-    text-align: -webkit-right;
+    display: flex;
+    justify-content: end;
 }
 #btn_showaddforum{
     width: 130px;
@@ -47,17 +43,18 @@
     box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
     background-image: linear-gradient(rgba(25, 196, 20, 0.733) 10%,#0a720a 100%);
     text-shadow: 0 -1px 0 rgb(0 0 0 / 50%);
+    margin-right: 5%;
 }
 #showaddforumtitle{
     background-color: rgb(0, 94, 0);
     border-radius: 10px 10px 0px 0px;
-    width: 100%;
-    margin: 10%;
-    margin-top: 7%;
+    width: 90%;
+    margin: 5%;
     margin-bottom: 0;
-    padding-top: 10px;
+    padding-top: 17px;
     text-align: center;
     color: white;
+    height:60px;
 }
 #showaddforum form{
     width: 100%;
@@ -71,8 +68,8 @@
     flex-wrap: wrap;
     background-color: rgba(1, 134, 1, 0.1);
     align-items: center;
-    width: 100%;
-    margin: 10%;
+    width: 90%;
+    margin: 5%;
     margin-top: 0;
     margin-bottom: 0;
     border-radius: 0px 0px 10px 10px;

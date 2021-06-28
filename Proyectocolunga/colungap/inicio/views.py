@@ -33,6 +33,7 @@ def inicio(request,redir=""):
         'Anuncios':anuncios,
         'username':username,
         'userid': request.user.id,
+        'user':usuario
     })
 def hub(request,redir=""):
     '''

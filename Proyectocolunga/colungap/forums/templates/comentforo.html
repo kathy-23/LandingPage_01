@@ -31,7 +31,7 @@
                         <div class="header_comentario">
                             <label class="nombreusuario_coment">{{username}}</label>
                             <label class="created_at">{{coment.created_at}}</label>
-                            {%if coment.id_user_id == userid %}
+                            {%if coment.id_user_id == userid or user.is_staff == True %}
                                 <form method="post" action="">
                                     {% csrf_token %}
                                     <input type="hidden" name="id_comentario" value="{{coment.id}}"/>
