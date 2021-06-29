@@ -44,7 +44,7 @@
                         <form id="btn_borrar"method="post" action="">
                             {% csrf_token %}
                             <input type="hidden" name="id_anuncio" value="{{anuncio.id_anuncio}}"/>
-                            <button type="submit" id="del_btn" value="True" name="del_anuncio">
+                            <button onclick="return confirm('¿Desea eliminar este anuncio?')" type="submit" id="del_btn" value="True" name="del_anuncio">
                                 <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
                             </button>
                         </form>

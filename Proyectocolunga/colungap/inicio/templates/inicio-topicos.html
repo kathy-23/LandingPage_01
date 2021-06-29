@@ -63,7 +63,7 @@
                             <button class="btn_f" type="submit" name="foro_seleccionado"  value="{{foro.id}}">
                                 <p class="titulof">{{foro.title}}</p>
                                 <p class="cant_comentf">comentarios: {{foro.cant_coment}}</p>
-                                <button type="submit" class="del_btn_foro" value="True" name="del_foro">
+                                <button onclick="return confirm('¿Desea eliminar este foro?')" type="submit" class="del_btn_foro" value="True" name="del_foro">
                                     <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
                                     <input type="hidden" name="id_foro" value="{{foro.id}}"/>
                                     <input type="hidden" name="topico_seleccionado" value="{{foro.id_topic_id}}"/>
