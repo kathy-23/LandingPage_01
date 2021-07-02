@@ -40,7 +40,7 @@
                 <div class="anuncio">
                     <h2 id="titulo_anuncio" name="titulo_anuncio">{{anuncio.titulo}} </h2>
                     <label class="fecha_anuncio" name="fecha_anuncio">{{anuncio.fecha}}</label>
-                    {%if anuncio.id_autor_id == userid%}
+                    {%if anuncio.id_autor_id == userid or user.is_staff == True%}
                         <form id="btn_borrar"method="post" action="">
                             {% csrf_token %}
                             <input type="hidden" name="id_anuncio" value="{{anuncio.id_anuncio}}"/>
