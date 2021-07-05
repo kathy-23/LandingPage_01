@@ -1,25 +1,28 @@
 {% extends 'inicio-layout.html' %}
 {% load static %}
 {%block css-link%}
+<link rel='stylesheet' type='text/css' href="{% static 'css-inicio/inicio-hub.css' %}">
 {%endblock%}
 {%block content %}
-    <div class="memberbox">
-        <div class="titlelist">
-            <h1>Hub</h1>
-        </div>
-        <div class="contentlist">
-            {% for userorg in usuarioslist %}
-                <div class="member">
-                    {% for user in userorg %}
-                        <h3>{{user.organization}}</h3>
-                        <label class="cargo">{{user.cargo}}</label>
-                        <label class="nombre">{{user.first_name}}</label>
-                        <label class="apellido">{{user.last_name}}</label>
-                        <label class="telefono">{{user.telefono}}</label>
-                        <label class="email">{{user.email}}</label>
-                    {%endfor%}
+    <div class="titlelist">
+        <h1>Colunga Hub</h1>
+    </div>
+    <div class="contentlist">
+        {% for Rorg in datos %}
+            <div class="org">
+                {% for usu in Rorg %}
+                <div class="repre">
+                    <img class="img" src="{% static 'img/userimg.png'%}"/>
+                    <div class=datos>
+                        <label class="nombre">{{usu.0}}</label>
+                        <label class="telefono">{{usu.1}}</label>
+                        <label class="correo">{{usu.2}}</label>
+                        <label class="organizacion">{{usu.3}}</label>
+                    </div>
                 </div>
-            {%endfor%}
-        </div>
+                {%endfor%}
+                
+            </div>
+        {%endfor%}
     </div>
 {%endblock%}

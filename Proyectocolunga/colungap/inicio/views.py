@@ -36,32 +36,44 @@ def inicio(request,redir=""):
         'user':usuario
     })
 def hub(request,redir=""):
-    '''
+    usuario =User.objects.get(id=request.user.id)
+    username=usuario.first_name+" "+usuario.last_name
     if request.method == 'POST':
         if request.POST.get("btn_logout")=="logout":
             logout(request)
             return redirect('main')
     usuarioslist = []
-    usuarioslistaux = []
-    usuarios = Miembro.objects.filter(cargo='Representante')
-    usuarios=list(usuarios)
-    ant=""
-    for usuario in usuarios:
-        orgusu=usuario
-        if orgusu == ant:
-            pass
+    listusuaux = []
+    usuorg = Miembro.objects.filter(cargo='Representante' or 'representante')
+    usuarios=User.objects.exclude(is_active=False).all()
+    orglist=[]
+    for usuario in usuorg:
+        if usuario.organizacion not in orglist:
+            orglist.append(usuario.organizacion)
         else:
-            for usuario in usuarios:
-                if usuario.organizacion==orgusu.organizacion:
-                    usuarioslistaux.append(usuario)
-                    usuarios.pop(usuario)
+            pass
+    for i in orglist:
+        for usuario in usuorg:
+            if usuario.organizacion==i:
+                listusuaux.append(usuario)
+            else:
+                pass
+        usuarioslist.append(listusuaux)
+        listusuaux=[]
+    listusuaux=[]
+    finallist=[]
+    for org in usuarioslist:
+        for usu in org:
+            for usua in usuarios:
+                if usu.user_id==usua.id:
+                    listusuaux.append([usua.first_name+" "+usua.last_name,usu.telefono,usua.email,usu.organizacion])
                 else:
                     pass
-            usuarioslist.append(usuarioslistaux)
-            ant=orgusu
-        usuarioslistaux.clear()
-    print(usuarioslist)
-    '''
+        finallist.append(listusuaux)
+        listusuaux=[]
+    rangeorglist=[str(i) for i in range(len(orglist))]
+    rangeorglist=''.join(rangeorglist)
+    #return HttpResponse('<h1>'+str(rangeorglist)+'</h1>')
     if redir=='main.html':
         return redirect('main')
     elif redir=='addUser.html':
@@ -75,4 +87,6 @@ def hub(request,redir=""):
     elif redir=='inicio-topicos.html':
         return redirect('inicio_topicos')
     return render(request, 'inicio-hub.html',{
+        'datos' : finallist,
+        'username': username,
     })

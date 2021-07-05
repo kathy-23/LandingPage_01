@@ -24,183 +24,21 @@ body{
     
 
 }   
-    /* --------------------------------------HEADER---------------------------------------- */
-
-    .header{
-        /* width: 100%; */
-        overflow:hidden; 
-        background: rgb(0, 94, 0); 
-        margin-bottom: 0px;
-        max-height: 150px !important;
-        /* NUEVO */
-        display: flex;
-        flex-flow: column nowrap;
-
-    }
-
-    .wrapper{
-       
-
-        display: flex;
-        justify-content: space-between;
-        flex-flow: row nowrap;
-        height: 90px;
-
-    }
-
-    .header .columna01{ 
-        max-width: 600px;
-
-    }
-        .header .roww1{
-            margin-top: 5px;
-            padding: 10px 20px;
-
-        }
-            .roww1 .logos{
-
-                width: 70px;
-                height: 70px;
-                padding: 0px;
-
-            }
-
-
-
-
-
-    .header .columna02{
-        max-width: 600px;
-        display: flex;
-        
-        
-        
-    }
-        .header .roww2{
-            margin-top: 2px;
-            margin-right: 10px;
-            display: flex;
-            align-items: initial;
-        }
-            .roww2 .etiqueta{
-
-                line-height: 20px; 
-                text-align: right;               
-               
-                width: 200px;
-                font-weight:bold;
-                display:flex;  
-                padding:5px;
-                border-radius: 3px;
-                margin:0px;
-                background-color:#ccc;
-                text-align: justify;
-                text-justify: inter-word;
-                height: 30px;
-                box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12);
-                box-shadow:280ms cubic-bezier(0.4, 0, 0.2, 1);
-                
-                background-image: linear-gradient(rgba(248, 248, 248, 0.493) 10%,#eff1ef59 100%);
-                background-image: linear-gradient(rgb(240, 237, 232) 10%,#aaaaaa 100%); 
-                text-shadow: 0 -1px 0 rgba(158, 158, 158, 0.979); 
-                color: rgba(0, 0, 0, 0.719);
-                
-                
-                }
-                             
-            
-            .botoncs{
-
-                width: 30px;
-                height: 30px;
-                background: silver;
-                cursor: pointer;
-                /* position: fixed;
-                left: 1265px;
-                top: 0px;  */
-                transform: translate(20%, 3%);
-                border-radius: 5px;
-                background-image: url(../img/candado1.png);
-
-            }
-            .botoncs[type="submit"]:hover{
-                cursor:pointer;
-                background-color: rgb(3, 53, 3);
-                transition: .2s;
-                background-image: url(../img/candado.png);
-                text-align: center;
-            }
-
-
-    .enlaces{
-       
-        background: rgb(0, 94, 0) ;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: flex-end;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 6px; 
-        align-items: flex-end;
-        
-    }
- 
-        .enlace1{
-
-            margin: 0px 5px;
-            padding: 0px;  
-            
-            
-        }
-        .enlace2{
-
-            margin: 0px 5px;
-            padding: 0px;
-        }
-            
-        .enlace3{
-
-            margin: 0px 5px;
-            padding: 0px;
-        }
-        
-            .anclaHeader{
-                text-decoration: none;
-                color: white;
-                padding: 5px;
-                margin: 8px;
-                border:  2px;
-                border-radius: 5px;
-                cursor:pointer;
-                            
-            }
-            .anclaHeader:hover{
-                background-color: rgba(160, 224, 160, 0.753);
-                text-shadow: 0 -1px 0 rgba(158, 158, 158, 0.5); ;
-                transition: .2s;
-                border-color: white;
-                color:black;
-                font-weight: bold;
-            }
-
 
     /* ------------------------------------- SECTION--------------------------------------- */
 
 
     .section{
-        background-image: url(../img/Fondo.jpg); 
+        background-image: url(../img/Fondo.jpg);
         display: flex;
         flex-flow: column nowrap;
-        overflow: hidden; 
-        background-size: cover; 
+        overflow: hidden;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
-        height: 67.2vh;
-        width: 100%; 
-        
+        height: 84.2vh;
+        width: 100%;
     }
 
         .content{
@@ -321,13 +159,16 @@ body{
 
 
 
-
+#list_user_label{
+    text-align:center;
+}
 
 
 
 
 
 /* -------------FLEXBOX GENERAL------------------------ */
+
 
 @media(max-width:600px){
     .wrapper{ 
@@ -358,19 +199,11 @@ body{
 
 @media (max-width: 975px){
     .container-body{
-        flex-direction: column;
         max-height: 800px;
         /* display:flex; */
         
     
     }
-    .enlaces{
-        flex-direction: column;
-
-    }
-    
-
-
 }
 
 
@@ -406,60 +239,25 @@ body{
 
 /* -------------FLEXBOX REMOVE USER------------------- */
 
-
-
-
-
-
-
-@media (max-width: 976px){
-
-    .content{
-        
-        align-self: center;
-        display: flex;
-        align-items: flex-start;
-        padding: 20px;
-        
+@media(max-width:375px){
+    option{
+        font-size:15px;
     }
-
     .wrapper5{
-        height: 280px;                     
+        height:300px;                     
         width:350px;
         margin:5px; 
         flex-direction: column;
         display: flex;
-       
     }
-
-
     .formaRemove{
-        height: 220px; 
-        
+        height: 220px;
+        padding-left:8px;
     }
-
+    .content{
+        justify-content: space-around;
+    }
     .selectRemove{
-        max-width: 300px;
-        display: flex;
-
-       
-        
-    } 
-    .botonremover{
-        margin:0px;
-        height: 5vh;
+        width:300px;
     }
-
-    h1{
-        font-size: 15px;}
-
-    option{
- 
-        font-size: 12px; }
-
 }
-
-
-
-
-
