@@ -26,7 +26,7 @@
                 {% endfor %}
                 {% endif %}
                 <div class="botonremover">
-                    <button name="btn_removeUser" type="submit" class="btn_Ruser" >Eliminar</button>
+                    <button onclick="return confirm('¿Desea eliminar este usuario?')" name="btn_removeUser" type="submit" class="btn_Ruser" >Eliminar</button>
                 </div>
             </form>
         </div>

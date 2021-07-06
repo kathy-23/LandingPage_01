@@ -14,7 +14,7 @@
     background-color: rgba(1, 134, 1, 0.1);
 }
 #formbtn_agregar #btn_ShowAgregar{
-    width: 10%;
+    width: 120px;
     padding: 8px 8px;
     margin: 1%;
     border: none;
@@ -166,4 +166,45 @@
     background-image: linear-gradient(rgba(25, 196, 20, 0.733) 10%,#0a720a 100%);
     text-shadow: 0 -1px 0 rgb(0 0 0 / 50%);
 }
+
 /*fin css anuncios--------------------------------------------------------------------------------------------------------------*/
+
+
+@media (max-width: 800px){
+    .box_anuncios{
+        width:80%;
+        margin-left: 10%;
+    }
+    #formbtn_agregar {
+        display: flex;
+        width: 100%;
+        align-items: end;
+    }
+    .section {
+        justify-content: center;
+    }
+}
+
+@media (max-width:375px){
+   
+    #formbtn_agregar #btn_ShowAgregar{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .box_anuncios{
+        width: 100%;
+        margin-left: 0;
+        height: 560px;
+    }
+    #content_anuncio{
+        height: 490px;
+    }
+    .section{
+        justify-content: center;
+    }
+    #box_agregar{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

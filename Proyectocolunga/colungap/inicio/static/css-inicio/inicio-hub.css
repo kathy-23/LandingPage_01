@@ -1,0 +1,67 @@
+.titlelist{
+    margin-top: 10px;
+    margin-left:10px;
+}
+.contentlist{
+    display: flex;
+    flex-direction: column;
+}
+.org{
+    background-color: rgba(1, 134, 1, 0.1);
+    border: 1px solid #fff;
+    margin-top: 10px;
+    padding: 10px;
+    padding-top:0;
+}
+.repre{
+    display: flex;
+    margin-top:10px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+}
+.repre label{
+    margin: 10px;
+    margin-top: 40px;
+    
+}
+.datos{
+    width: 92%;
+    display: grid;
+    grid-template-columns: 25% 15% 25% 25%;
+    margin-top: 10px;
+}
+.nombre{
+    text-align: end;
+}
+.telefono{
+    text-align: end;
+}
+.correo{
+    text-align: end;
+    margin-left: 10px;
+}
+.organizacion{
+    text-align: end;
+}
+.img{
+    width:100px;
+    height: 100px;
+}
+@media (max-width:375px){
+    .repre{
+        display: flex;
+        flex-direction:row
+    }
+    .contentlist{
+        height: 650px;
+        overflow: scroll;
+    }
+    .datos{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .repre label{
+        margin: 10px;
+    }
+}

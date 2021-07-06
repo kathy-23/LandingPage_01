@@ -24,191 +24,20 @@ body{
     
 
 }   
-    /* --------------------------------------HEADER---------------------------------------- */
-
-    .header{
-        /* width: 100%; */
-        overflow:hidden; 
-        background: rgb(0, 94, 0); 
-        margin-bottom: 0px;
-        max-height: 150px !important;
-        /* NUEVO */
-        display: flex;
-        flex-flow: column nowrap;
-        
-        
-        
-    }
-
-    .wrapper{
-       
-
-        display: flex;
-        justify-content: space-between;
-        flex-flow: row nowrap;
-        height: 90px;
-        
-        
-        
-        
-    }
-
-    .header .columna01{ 
-        max-width: 600px;
-        
-        
-
-    }
-        .header .roww1{
-            margin-top: 5px;
-            padding: 10px 20px;
-            
-            
-
-        }
-            .roww1 .logos{
-
-                width: 70px;
-                height: 70px;
-                padding: 0px;
-
-            }
-
-
-
-
-
-    .header .columna02{
-        max-width: 600px;
-        display: flex;
-        
-        
-        
-    }
-        .header .roww2{
-            margin-top: 2px;
-            margin-right: 10px;
-            display: flex;
-            align-items: initial;
-        }
-            .roww2 .etiqueta{
-
-                line-height: 20px; 
-                text-align: right;               
-               
-                width: 200px;
-                font-weight:bold;
-                display:flex;  
-                padding:5px;
-                border-radius: 3px;
-                margin:0px;
-                background-color:#ccc;
-                text-align: justify;
-                text-justify: inter-word;
-                height: 30px;
-                box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12);
-                box-shadow:280ms cubic-bezier(0.4, 0, 0.2, 1);
-                
-                background-image: linear-gradient(rgba(248, 248, 248, 0.493) 10%,#eff1ef59 100%);
-                background-image: linear-gradient(rgb(240, 237, 232) 10%,#aaaaaa 100%); 
-                text-shadow: 0 -1px 0 rgba(158, 158, 158, 0.979); 
-                color: rgba(0, 0, 0, 0.719);
-                
-                
-                }
-                             
-            
-            .botoncs{
-
-                width: 30px;
-                height: 30px;
-                background: silver;
-                cursor: pointer;
-                /* position: fixed;
-                left: 1265px;
-                top: 0px;  */
-                transform: translate(20%, 3%);
-                border-radius: 5px;
-                background-image: url(../img/candado1.png);
-
-            }
-            .botoncs[type="submit"]:hover{
-                cursor:pointer;
-                background-color: rgb(3, 53, 3);
-                transition: .2s;
-                background-image: url(../img/candado.png);
-                text-align: center;
-            }
-
-
-    .enlaces{
-       
-        background: rgb(0, 94, 0) ;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: flex-end;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 6px; 
-        align-items: flex-end;
-        
-    }
- 
-        .enlace1{
-
-            margin: 0px 5px;
-            padding: 0px;  
-            
-            
-        }
-        .enlace2{
-
-            margin: 0px 5px;
-            padding: 0px;
-        }
-            
-        .enlace3{
-
-            margin: 0px 5px;
-            padding: 0px;
-        }
-        
-            .anclaHeader{
-                text-decoration: none;
-                color: white;
-                padding: 5px;
-                margin: 8px;
-                border:  2px;
-                border-radius: 5px;
-                cursor:pointer;
-                            
-            }
-            .anclaHeader:hover{
-                background-color: rgba(160, 224, 160, 0.753);
-                text-shadow: 0 -1px 0 rgba(158, 158, 158, 0.5); ;
-                transition: .2s;
-                border-color: white;
-                color:black;
-                font-weight: bold;
-            }
-
-
     /* ------------------------------------- SECTION--------------------------------------- */
 
 
     .section{
-        background-image: url(../img/Fondo.jpg); 
+        background-image: url(../img/Fondo.jpg);
         display: flex;
         flex-flow: column nowrap;
-        overflow: hidden; 
-        background-size: cover; 
+        overflow: hidden;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
-        height: 67.2vh;
-        width: 100%; 
+        height: 84.2vh;
+        width: 100%;
         
         
     }
@@ -228,7 +57,9 @@ body{
 
         }
                 /* -------------------------EDIT USER------------------------------ */
-
+                .formEditUser{
+                    width:100%;
+                }
                 
                 .content{
                     justify-content: space-around;
@@ -262,19 +93,25 @@ body{
                 
                 
                 .forma1{
-                    margin:0;
-                    padding: 1em;   
-                    height: 320px;  
-                    justify-content: space-around;
-                           
+                    margin: 0;
+                    padding: 1em;
+                    height: 320px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;       
                 }
                 .botonseleccionar{
                     
                     height: 100px;
-                     
+                    
+                }
+                .BotonSelect{
+                    display:flex;
+                    allign-self:center;
+                    
                 }
                 .selectEdit{
-                   width: 430px;
+                   width: 100%;
                    cursor: pointer;
                 
                    background-color: #1bb189;
@@ -433,30 +270,6 @@ body{
 }
 
 
-
-@media (max-width: 975px){
-    .container-body{
-        flex-direction: column;
-        max-height: 800px;
-        /* display:flex; */
-        
-    
-    }
-    .enlaces{
-        flex-direction: column;
-
-    }
-    .footer {
-        position: fixed;
-        font-size: 12px;
-        flex-direction: row;
-        flex-wrap:nowrap;
-    }
-
-}
-
-
-
    
    
 @media (max-height: 830px){
@@ -467,45 +280,13 @@ body{
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* -------------FLEXBOX EDIT USER------------------- */
 
-@media (max-width: 600px){
-    .footer{
-
-        font-size: 12px;
-    } 
-    .anclaHeader{
-        font-size: 12px;
-    }
-
-}
-
-
-@media (max-width: 976px){
+@media (max-width: 800px){
 
     
 /* --------------------------SELECT---------------------------- */
     .section{
-        height: 80.2vh;
         display: flex;}
    
    .content{
@@ -513,25 +294,20 @@ body{
        margin: 0px;
        display: flex;}
 
-    .wrapper3{
-        height: 250px;                     
-        width:400px;
-        margin:5px; 
-        flex-direction: column;
-        justify-content: flex-start; }
+    
 
 
     .selectEdit{
-        max-width: 300px;
         display: flex;
     } 
   
-    h1{
-        font-size: 15px;}
+    .forma1 h1{
+        width:100%;
+        font-size: 15px;
+        text-align: center;
+        }
 
-    option{
- 
-        font-size: 12px; }
+    
 
     .btn_get_email{
         padding: 10px;}
@@ -542,30 +318,12 @@ body{
 .content{
     flex-direction: column;
 }
-.wrapper4{                   
-    width:400px;
-    margin:2px; 
-    flex-direction: column;
-    /* display: flex; */
 
-   }
-   .forma2{
-    margin:5px;
-    padding: 1em;   
-    max-height: auto;            
-}
-
-.forma2{
-    display: grid;
-    grid-template-columns: 1fr ;
-}
 
 .forma2 .formulario  .block{
     grid-row: 1 / 3;                   
 }  
-.forma2{
-    justify-items: left;
-}
+
 
 .formulario input[type="text"],
 .formulario input[type="password"],
@@ -601,17 +359,49 @@ p{
 
 }
 
-
-@media (max-width:1011px){
-
-    .wrapper4{
-        /* width: 280px; */
-
+@media (max-width:375px){
+    .content{
+         justify-content: space-around;
     }
-   
+    .forma2{
+        justify-items: right;
+        padding-right: 45px;
+    }
+    option{
+        font-size: 14px;
+    }
+    .wrapper3{                   
+        width:350px;
+        margin:5px; 
+        padding-top:0;
+    }
+    .wrapper4 {
+        width:350px;
+        margin-top:0;
+    }
+    .forma1 {
+        margin: 0;
+        padding: 1em;
+        height: 320px;
+        justify-content: space-around;
+      
+    }
+    .formulario input[type="text"],
+    .formulario input[type="password"],
+    .formulario input[type="email"]{
+        width:155px;
+        padding:5px 5px;
+        border:1px solid #f6f6f6; 
+        border-radius:3px;
+        background-color:#f6f6f6;
+        margin:1px 0;
+        font-size: 12px;
+
+        }
+    .forma1 h1{
+        font-size: 20px;
+    }
 }
-
-
 
 
 

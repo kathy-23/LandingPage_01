@@ -25,177 +25,9 @@ body{
     
 
 }   
-    /* --------------------------------------HEADER---------------------------------------- */
-
-    .header{
-       
-        overflow:hidden; 
-        background: rgb(0, 94, 0); 
-        margin-bottom: 0px;
-        max-height: 150px !important;
-        /* NUEVO */
-        display: flex;
-        flex-flow: column nowrap;
-        
-        
-        
-    }
-
-    .wrapper{
-      
-
-        display: flex;
-        justify-content: space-between;
-        flex-flow: row nowrap;
-        height: 90px;
-            
-    }
-
-    .header .columna01{ 
-        max-width: 600px;
-  
-
-    }
-        .header .roww1{
-            margin-top: 5px;
-            padding: 10px 20px;
-
-        }
-            .roww1 .logos{
-
-                width: 70px;
-                height: 70px;
-                padding: 0px;
-
-            }
-
-    .header .columna02{
-        max-width: 600px;
-        display: flex;
-        
-        
-        
-    }
-        .header .roww2{
-            margin-top: 2px;
-            margin-right: 10px;
-            display: flex;
-            align-items: initial;
-        }
-            .roww2 .etiqueta{
-
-                line-height: 20px; 
-                text-align: right;               
-                width: 200px;
-                font-weight:bold;
-                display:flex;  
-                padding:5px;
-                border-radius: 3px;
-                margin:0px;
-                background-color:#ccc;
-                text-align: justify;
-                text-justify: inter-word;
-                height: 30px;
-                box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12);
-                box-shadow:280ms cubic-bezier(0.4, 0, 0.2, 1);      
-                background-image: linear-gradient(rgba(248, 248, 248, 0.493) 10%,#eff1ef59 100%);
-                background-image: linear-gradient(rgb(240, 237, 232) 10%,#aaaaaa 100%); 
-                text-shadow: 0 -1px 0 rgba(158, 158, 158, 0.979); 
-                color: rgba(0, 0, 0, 0.719);
-              
-                }
-                             
-            
-            .botoncs{
-                width: 30px;
-                height: 30px;
-                background: silver;
-                cursor: pointer;
-                transform: translate(20%, 3%);
-                border-radius: 5px;
-                background-image: url(../img/candado1.png);
-
-            }
-            .botoncs[type="submit"]:hover{
-                cursor:pointer;
-                background-color: rgb(3, 53, 3);
-                transition: .2s;
-                background-image: url(../img/candado.png);
-                text-align: center;
-            }
-
-
-    .enlaces{
-     
-        background: rgb(0, 94, 0) ;     
-        flex-flow: column wrap; 
-        justify-content: flex-end;
-        flex-direction: row; 
-        flex-wrap: wrap;  
-        padding: 6px; 
-        align-items: flex-end;
-        display: flex;
-        
-    }
- 
-        .enlace1{
-
-            margin: 0px 5px;
-            padding: 0px;  
-            
-            
-        }
-        .enlace2{
-
-            margin: 0px 5px;
-            padding: 0px;
-        }
-            
-        .enlace3{
-
-            margin: 0px 5px;
-            padding: 0px;
-        }
-        
-            .anclaHeader{
-                text-decoration: none;
-                color: white;
-                padding: 5px;
-                margin: 8px;
-                border:  2px;
-                border-radius: 5px;
-                cursor:pointer;
-                            
-            }
-            .anclaHeader:hover{
-                background-color: rgba(160, 224, 160, 0.753);
-                text-shadow: 0 -1px 0 rgba(158, 158, 158, 0.5); ;
-                transition: .2s;
-                border-color: white;
-                color:black;
-                font-weight: bold;
-                /* display: inline-block; */
-            }
-         
-
     /* ------------------------------------- SECTION--------------------------------------- */
 
 
-    .section{
-        background-image: url(../img/Fondo.jpg); 
-        display: flex;
-        flex-flow: column nowrap;
-        overflow: hidden; 
-        background-size: cover; 
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
-        height: 67.2vh;
-        width: 100%; 
-        
-    }
 
         .content{
             
@@ -321,40 +153,23 @@ body{
 
 /* -------------FLEXBOX GENERAL------------------------ */
 
-@media (max-width: 975px){
-    .container-body{
-        flex-direction: column;
-        max-height: 900px;
-        /* display:flex; */
-        
-    
-    }
-    .enlaces{
-        flex-direction: column;
 
-    }
-    
-    
-
-
-}
 
       
-@media (max-height: 830px){
-  
+@media (max-height: 800px){
+    .content{
+        padding-top:0px;
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        }
     .header .roww1{
         margin-top: 0px;
         padding: 5px 5px;}
    
 
 }
-@media (max-height: 654px){
-  
-  
-  
-
-}
-@media(max-width:600px){
+@media(max-width: 375px){
     .wrapper{ 
         height: 75px;
             
@@ -367,6 +182,18 @@ body{
                     justify-content: flex-start;
                 
                 }
+    form input[type="text"],
+    form input[type="password"],    
+    form input[type="email"]{
+    width:183px;
+    padding:5px 5px;
+    border:1px solid #f6f6f6; 
+    border-radius:3px;
+    background-color:#f6f6f6;
+    margin:1px 0;
+    font-size: 12px;
+
+        }
 }
 
 
@@ -377,8 +204,8 @@ body{
 /* -----------------FLEXBOX ADDUSER--------------------- */
 
 
-@media (max-width: 600px){
-
+@media (max-width: 375px){
+  
     .content{
         align-items: flex-start;
         padding-bottom: 30px;
@@ -433,25 +260,14 @@ body{
     justify-items: left;
 }
 
-form input[type="text"],
-form input[type="password"],
-form input[type="email"]{
-    width:200px;
-    padding:5px 5px;
-    border:1px solid #f6f6f6; 
-    border-radius:3px;
-    background-color:#f6f6f6;
-    margin:1px 0;
-    font-size: 12px;
 
-        }
 form label{
     width:100px;
     font-weight:bold;
     display: inline-flex; 
     padding: 0px;  
     color: rgba(0, 0, 0, 0.719);
-    font-size: 12px;
+    font-size: 13px;
         
         }
 p{

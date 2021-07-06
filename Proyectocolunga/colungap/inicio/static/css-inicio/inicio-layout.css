@@ -132,7 +132,6 @@ body{
         flex-flow: column wrap; 
         justify-content: flex-end;
         flex-direction: row; 
-        flex-wrap: wrap;  
         padding: 6px; 
         align-items: flex-end;
         display: flex;
@@ -185,33 +184,17 @@ body{
     .section{
         background-image: url(../img/Fondo.jpg); 
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        overflow: hidden; 
-        background-size: cover; 
+        flex-flow: column nowrap;
+        overflow: hidden;
+        background-position: center;
         background-repeat: no-repeat;
-        background-position: center center;
         background-attachment: fixed;
-        height: 67.2vh;
+        background-size: cover; 
+        height: 88.2vh;
         width: 100%; 
     }
 
-        .content{
-            
-            /* para poner un hijo al lado del otro */
-            display: flex; 
-            flex: 2 1 auto;
-
-            /*  con  row es para que este uno al lado del otro, y wrap, para que se desplace hacia abajo en cado que en el contenedor no tenga espacio, o cuando se achique una ventana */
-            flex-flow: row wrap;
-
-            /* PARA ADD USER */
-            justify-content: center;
-            align-items: center;
-           
-
-        }
-        
+       
     
     
 
@@ -221,7 +204,6 @@ body{
         width: 100%;
         background: darkgreen;
         color: white;
-        position: absolute;
         bottom: 0;
     }
     .container-footer-all{
@@ -235,11 +217,11 @@ body{
         justify-content: space-between;
     }
     .colum1{
-        max-width: 400px;
         width: 100%;
     }
     .colum1 h1{
         font-size: 20px;
+        color: white;
     }
     .colum1 p{
         font-size: 14px;
@@ -248,30 +230,33 @@ body{
         text-rendering: auto;
     }
     .colum2{
-        max-width: 400px;
-        width: 100%;
+        width: 50%;
     }
     .colum2 h1{
         font-size: 20px;
+        color:white;
+        color: white;
     }
     .row{
         margin-top: 10px;
         display: flex;
         width: 36px;
         height: 36px;
+        text-decoration:none;   
         
     }
     .row label{
-        margin-top: 10px;
         margin-left: 10px;
-        color: white;   
+        color: white;
+        
     }
     .colum3{
-        max-width: 400px;
-        width: 100%;
+        width: 50%;
+        
     }
     .colum3 h1{
         font-size: 20px;
+        color: white;
     }
     .row2{
         display: flex;
@@ -281,20 +266,21 @@ body{
     .row2 img{
         width: 36px;
         height: 36px;
+        
     }
     .row2 label{
         margin-top: 10px;
         margin-left: 20px;
         max-width: 140px;
+        
     }
-    .container-footer{
-        max-width: auto;
-        background: rgb(61, 138, 61);
-        display: flex;/*se lo quite a container-footer*/
-        justify-content: space-between;/*se lo quite a container-footer*/
-        /*se lo quite a container-footer*/
-        padding: 4px;
-    }
+    .container-footer {
+    max-width: auto;
+    background: rgb(61, 138, 61);
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+}
     .footer{
         display: flex;
     
@@ -315,57 +301,24 @@ body{
         color: gold;
         font-weight: 400px;
       }
-    
-    @media screen and (max-width:1100px){
-        .container-body{
-            flex-wrap: wrap;
-        }
-        .colum1{
-            max-width: 100%;
-        }
-        .colum2,
-        .colum3{
-            margin-top: 20px;
-        }
-    }
-    
-               
 /* -------------FLEXBOX GENERAL------------------------ */
-
-@media (max-width: 975px){
+@media (max-width: 800px){
     .container-body{
-        flex-direction: column;
+        flex-direction: row;
         max-height: 900px;
-        /* display:flex; */
-        
-    
     }
-    .enlaces{
-        flex-direction: column;
-
+    .colum1{
+        margin-right: 20px;
     }
-    
-    
-
-
-}
-
-      
-@media (max-height: 830px){
-  
+    .colum2{
+        margin-right: 20px;
+    }
+    .colum3{
+        margin-right: 20px;
+    }
     .header .roww1{
         margin-top: 0px;
         padding: 5px 5px;}
-   
-
-}
-@media (max-height: 654px){
-  
-  
-  
-
-}
-@media(max-width:600px){
     .wrapper{ 
         height: 75px;
             
@@ -386,5 +339,42 @@ body{
         font-size: 12px;
     }
 }
+
+@media (max-width:375px){
+    footer{
+        width: 100%;
+        background: darkgreen;
+        color: white;
+        bottom: 0;
+    }
+    .anclaHeader{
+        margin-left:0;
+        margin-right:0;
+        font-size:12px
+    }
+    .container-body {
+        flex-direction: column;
+        max-height: 900px;
+    }
+    .colum1{
+        margin-top:20px;
+        width:100%
+    }
+    .colum2{
+        width:100%
+    }
+    .colum3{
+        margin-top:10px;
+        width:100%;
+       
+    }
+
+
+}
+
+
+
+
+
 
 
