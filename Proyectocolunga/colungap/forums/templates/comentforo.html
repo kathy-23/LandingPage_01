@@ -18,37 +18,36 @@
                     {% csrf_token %}
                     <input class="input_form" type="text" name="comentario"/>
                     <button class="btn_comentar"type="submit" name="reply" value="True" >Comentar
-                        <input type="hidden" name="padre_id" value="{{coment.id}}"/>
                         <input type="hidden" name="forum_id" value="{{foro.id}}"/>
                     </button>
                 </form>
             </div>
             <div class="clearfix"></div>
 
-            {% for coment in comments %}
-                {%if coment.padre_id == 'None'%}
+            {% for coment in comentariosf %}
+                {%if coment.1 == 'None'%}
                     <div class="comentario">
                         <div class="header_comentario">
-                            <label class="nombreusuario_coment">{{username}}</label>
-                            <label class="created_at">{{coment.created_at}}</label>
-                            {%if coment.id_user_id == userid or user.is_staff == True %}
+                            <label class="nombreusuario_coment">{{coment.2}}</label>
+                            <label class="created_at">{{coment.4}}</label>
+                            {%if coment.0 == userid or user.is_staff == True %}
                                 <form method="post" action="">
                                     {% csrf_token %}
-                                    <input type="hidden" name="id_comentario" value="{{coment.id}}"/>
-                                    <button type="submit" class="del_btn_com" value="True" name="del_comentario">
+                                    <input type="hidden" name="id_comentario" value="{{coment.5}}"/>
+                                    <button onclick="return confirm('¿Desea eliminar este comentario?')" type="submit" class="del_btn_com" value="True" name="del_comentario">
                                         <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
                                     </button>
                                 </form>
                             {%endif%}
                         </div>
-                        <label class="contt_comment">{{coment.content}}</label>
+                        <label class="contt_comment">{{coment.3}}</label>
                         
                         <div class="formcomentar">
                             <form action="" method="post">
                                 {% csrf_token %}
                                 <input class="input_form" type="text" name="comentario"/>
                                 <button class="btn_comentar"type="submit" name="reply" value="True" >Responder
-                                    <input type="hidden" name="padre_id" value="{{coment.id}}"/>
+                                    <input type="hidden" name="padre_id" value="{{coment.5}}"/>
                                     <input type="hidden" name="forum_id" value="{{foro.id}}"/>
                                     
                                 </button>
@@ -58,20 +57,20 @@
                 {%else%}
                     <div class="respuesta">
                         <div class="header_respuesta">
-                            <label class="nombreusuario_coment">{{username}}</label>
-                            <label class="created_at">{{coment.created_at}}</label>
+                            <label class="nombreusuario_coment">{{coment.2}}</label>
+                            <label class="created_at">{{coment.4}}</label>
                             
-                            {%if coment.id_user_id == userid%}
+                            {%if coment.0 == userid or user.is_staff == True %}
                                 <form method="post" action="">
                                     {% csrf_token %}
-                                    <input type="hidden" name="id_comentario" value="{{coment.id}}"/>
-                                    <button type="submit" class="del_btn_resp" value="True" name="del_comentario">
+                                    <input type="hidden" name="id_comentario" value="{{coment.5}}"/>
+                                    <button onclick="return confirm('¿Desea eliminar esta respuesta?')" type="submit" class="del_btn_resp" value="True" name="del_comentario">
                                         <img src="{%static 'img/del-icono.png' %}"alt="del-icono"/>
                                     </button>
                                 </form>
                             {%endif%}
                         </div>
-                        <label class="contt_comment">{{coment.content}}</label>
+                        <label class="contt_comment">{{coment.3}}</label>
                     </div>
                 {%endif%}
 
