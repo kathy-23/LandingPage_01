@@ -30,7 +30,6 @@
                             <form action=""method="POST">
                                 {% csrf_token %}
                                 <button type="submit" onclick="location.href='logout'" class="botoncs" name="btn_logout" value="logout" id="btn_logout">
-                                    <img src="{% static 'imgeditadmin/cerrarsesion.png'%}" alt="logoutimg">
                                 </button>
                             </form>
                         </div>
@@ -51,27 +50,74 @@
                     {% endblock form %}
         
             </section>
-            <div class="footer">
+            <footer>
+                <div class="container-footer-all">
                 <div class="container-body">
-                    <div class="columna1">
-                        <div class="row">
-                            <img src="{% static 'imgeditadmin/envelope.svg'%}">
-                            <label>Dirección: Av. Bustamante 26
-                                Providencia, Santiago
-                            </label>
+                    <div class="colum1">
+                            <h1>Mas información/direccion</h1>
+                            <p>
+                                Av. Parque bustamante 62.
+                            </p>
+                    </div>
+                    <div class="colum2">
+                            <h1>Redes sociales</h1>
+                            <!--fila1-->
+                            <div class="row">
+                                <img src="{% static 'img/facebook.png'%}" alt="">
+                                <label >Facebook</label>
+                            </div>
+                            <!--fila2-->
+                            <div class="row">
+                                <img src="{% static 'img/gorjeo.png'%}" alt="">
+                                <label >Twitter</label>
+                            </div>
+                            <!--fila3-->
+                            <div class="row">
+                                <img src="{% static 'img/instagram.png'%}" alt="">
+                                <label >Instagram</label>
+                            </div>
+        
+                            
+                    </div>
+                    <div class="colum3">
+                            <h1>información Contacto</h1>
+                            <!--primera fila-->
+                            <div class="row2">
+                                <img src="{% static 'img/house-user-solid.svg'%}" alt="">
+                                <label >La .........</label>
+                            </div>
+                            <!--fila2-->
+                            <div class="row2">
+                                <img src="{% static 'img/whatsapp.png'%}" alt="">
+                                <label >+569 887654321.</label>
+                            </div>
+                            <!--fila3-->
+                            <div class="row2">
+                                <img src="{% static 'img/email.png'%}" alt="">
+                                <label >alguien@algo.com</label>
+                            </div>
+                                                    
+                    </div><!-- colum3-->        
+                </div><!-- container-body  tab-->
+                
+                <!--creo container footer-->
+                
+                
+                </div><!--container-footer-all 2 tab-->
+                <div class="container-footer">
+                    <div class="footer">
+                        <div class="copyright">
+                            © Todos los derechos reservados | <span class="span-sub"><a href="https://www.fundacioncolunga.org/">Colunga.org</a></span>
+                            
+                        </div> 
+                        <div class="information">
+                            <a href="">politica</a>|
+                            <a href="">cosas</a>|
+                            <a href="">etc</a>
                         </div>
-                    </div>
-                    <div class="columna2">
-                        <div class="row2">
-                            <img src="{% static 'imgeditadmin/envelope.svg'%}">
-                            <label>
-                            Teléfono: +56 222043350/ +56 222748547
-                            Contacto: contacto@fundacioncolunga.org
-                            </label>
-                        </div>       
-                    </div>
-                </div>      
-            </div>
+                </div><!--.footer-->
+                </div><!-- container-footer-->
+            </footer>
         </div>
     </body>
 </html>

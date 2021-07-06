@@ -14,7 +14,8 @@ def ingreso(request,redir=""):
                 return redirect('inicio')
         else:
             messages.info(request,'Credenciales invalidas,porfavor ingresa tus credenciales nuevamente')
-
+    elif redir=='password_reset1':
+        return redirect('password_reset')
     elif redir=='main.html':
         return redirect('main')
     elif redir=='addUser.html':

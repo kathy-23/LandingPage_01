@@ -99,4 +99,21 @@ button{
     border: 5px; 
     width: 150px
 }
-
+#id_email{
+    width:100%;
+}
+.txtpr{
+    padding:15px;
+    padding-top:0px; 
+}
+#id_new_password1{
+    width: 100%;
+}
+#id_new_password2{
+    margin-top: 15px;
+    width: 100%;
+}
+#btnfin{
+    margin-left: 145px;
+    margin-bottom: 20px;
+}
