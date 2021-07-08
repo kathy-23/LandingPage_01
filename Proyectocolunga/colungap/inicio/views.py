@@ -44,7 +44,7 @@ def hub(request,redir=""):
             return redirect('main')
     usuarioslist = []
     listusuaux = []
-    usuorg = Miembro.objects.filter(cargo='Representante' or 'representante')
+    usuorg = Miembro.objects.filter(cargo__iexact='Representante')
     usuarios=User.objects.exclude(is_active=False).all()
     orglist=[]
     for usuario in usuorg:
@@ -73,6 +73,9 @@ def hub(request,redir=""):
         listusuaux=[]
     rangeorglist=[str(i) for i in range(len(orglist))]
     rangeorglist=''.join(rangeorglist)
+
+    #elimino con el for las listas vacias o usuarios inactivos
+    finallist = [x for x in finallist if x != []] 
     #return HttpResponse('<h1>'+str(rangeorglist)+'</h1>')
     if redir=='main.html':
         return redirect('main')
